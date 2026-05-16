@@ -98,3 +98,9 @@ Thumbs.db
 # =========================
 
 .vscode/
+
+#==========================
+#Don't Use Assets
+#==========================
+/Assets/RPG Tiny Hero Duo
+/Assets/Fantasy Skybox FREE
