@@ -3,11 +3,12 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public bool IsAttacking { get; private set; }
-    [SerializeField] float IsAttackingTime;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private SwordDamage swordDamage;
+
     void Start()
     {
         IsAttacking = false;
+        swordDamage = GetComponentInChildren<SwordDamage>();
     }
 
     // Update is called once per frame
@@ -15,21 +16,32 @@ public class PlayerAttack : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            SwordAttack();
+            SwordAttackTrue();
         }
-       
+        if(Input.GetMouseButtonUp(0))
+        {
+            SwordAttackFalse();
+        }   
+
     }
 
-    private void SwordAttack()
+    private void SwordAttackTrue()
     {
         IsAttacking = true;
-        Debug.Log("çUåÇ");
-        Invoke("ResetAttack", IsAttackingTime);
-       
-    }   
+        if (swordDamage != null)
+        {
+            swordDamage.EnableCollider();
+        }
 
-    private void ResetAttack()
+
+    }
+    
+    private void SwordAttackFalse()
     {
         IsAttacking = false;
+        if (swordDamage != null)
+        {
+            swordDamage.DisableCollider();
+        }
     }
 }

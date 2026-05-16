@@ -21,7 +21,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         animator.SetBool("Run",playerMove.IsMoving);
-        animator.SetBool("Attack",playerAttack.IsAttacking);
+        animator.SetBool("AttackNomal",playerAttack.IsAttacking);
     }
 
 }
