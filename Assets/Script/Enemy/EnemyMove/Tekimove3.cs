@@ -50,10 +50,7 @@ public class Tekimove3 : MonoBehaviour
             {
                 i = 0;
             }
-
-
             //LookAtTarget();
-
         }
     }
 

@@ -8,6 +8,7 @@ public class EnemyMove1 : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] float viewDistance = 10f;
     [SerializeField] float keepDistance = 2f;// プレイヤーとの距離を保つための変数
+    private EnemyAttack enemyAttack;
     private Vector3 startPosition;
 
     [Header("Pointer")]
@@ -23,6 +24,7 @@ public class EnemyMove1 : MonoBehaviour
     void Start()
     {
        startPosition = transform.position;
+       enemyAttack = GetComponent<EnemyAttack>();
        GameObject[] PointersAll = GameObject.FindGameObjectsWithTag("Pointer");
        count =PointersAll.Length;
        waypoints = new Transform[count];
@@ -83,14 +85,27 @@ public class EnemyMove1 : MonoBehaviour
                 // 前方が完全に塞がっていない時だけ進む（必要に応じて調整）
                 if(distance>keepDistance)
                 {
-                                        IsMoving = true;
+                    IsMoving = true;
                     transform.position += transform.forward * speed * Time.deltaTime;
                     // プレイヤーとの距離が近すぎる場合は停止
+                    
+                    if(enemyAttack.isAttacking)
+                    {
+                        enemyAttack.StopAttack();
+                    }
+                    
                    
+
+
                 }
                 else
                 {
                     IsMoving = false;
+                    
+                    if (!enemyAttack.isAttacking)
+                    {
+                        enemyAttack.CactusAttack();
+                    }
                 }
 
             }
