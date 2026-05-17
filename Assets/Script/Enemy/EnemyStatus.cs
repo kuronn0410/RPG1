@@ -5,7 +5,8 @@ public class EnemyStatus : MonoBehaviour, IDamageable
     [SerializeField] private EnemyType enemyType;
     [SerializeField] EnemyDatabase enemyDatabase;
 
-    private int remainHp;
+    public int remainHp;
+    public int SaveMaxHP;
     private EnemyParameter enemyParameter;
     private EnemyManager enemyManager;
 
@@ -24,7 +25,7 @@ public class EnemyStatus : MonoBehaviour, IDamageable
             default:
                 break;
         }
-
+        SaveMaxHP = enemyParameter.maxHp; // Å‘åHP‚ğ•Û‘¶
         remainHp = enemyParameter.maxHp; // “G‚ÌHP‚ğ‰Šú‰»
     }
 
@@ -38,6 +39,7 @@ public class EnemyStatus : MonoBehaviour, IDamageable
             remainHp -= damage; // ƒ_ƒ[ƒW‚ğHP‚©‚çŒ¸Z
             if (remainHp <= 0)
             {
+                remainHp= 0;
                 enemyManager.RemoveEnemy(this); // “Gƒ}ƒl[ƒWƒƒ[‚©‚ç‚±‚Ì“G‚ğíœ
                 // “G‚ª€–S‚µ‚½ê‡‚Ìˆ—‚ğ‚±‚±‚É’Ç‰Á
                 Debug.Log("Enemy defeated!");
