@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    [SerializeField] int damage = 10;
     void Start()
     {
-        
+    
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        IDamageable damageable =other.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            damageable.Damage(damage); // プレイヤーにダメージを与える
+        }
     }
 }

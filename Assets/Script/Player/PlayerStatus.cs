@@ -5,13 +5,13 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     [SerializeField] PlayerBaseStatus playerBaseStatus;
 
     [Header("Player HP")]
-    private int SaveHP;//表示用
-    private int remainHp;
+    public int SaveMaxHP;//表示用
+    public int remainHp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SaveHP = playerBaseStatus.baseHp;
+        SaveMaxHP = playerBaseStatus.baseHp;
         remainHp = playerBaseStatus.baseHp;
     }
 
@@ -31,9 +31,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
             if (remainHp <= 0)
             {
                 remainHp = 0;
-                // プレイヤーが死亡した場合の処理をここに追加
                 Debug.Log("Player defeated!");
-                // 例えば、ゲームオーバー画面を表示するなどの処理を行うことができます。
             }
         }
     }
