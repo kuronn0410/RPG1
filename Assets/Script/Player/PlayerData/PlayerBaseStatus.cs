@@ -8,6 +8,7 @@ using UnityEngine;
 )]
 public class PlayerBaseStatus : ScriptableObject
 {
+    //public int playerLevel;
     public int baseHp;
     public int baseMp;
     public int baseDamage;

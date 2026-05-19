@@ -12,10 +12,12 @@ public class EnemyMove1 : MonoBehaviour
     private Vector3 startPosition;
 
     [Header("Pointer")]
+    /*
     private int count = 0; // ウェイポイントの数
     private bool isAvoiding = false;
     private int savedPointerIndex = 0; // 【追加】決めた目標を覚えておくための変数
     private Transform[] waypoints;
+    */
 
     [Header("Animation")]
     public bool IsMoving { get; private set; }
@@ -23,16 +25,17 @@ public class EnemyMove1 : MonoBehaviour
 
     void Start()
     {
-       startPosition = transform.position;
+       //startPosition = transform.position;
        enemyAttack = GetComponent<EnemyAttack>();
-       GameObject[] PointersAll = GameObject.FindGameObjectsWithTag("Pointer");
-       count =PointersAll.Length;
+       //GameObject[] PointersAll = GameObject.FindGameObjectsWithTag("Pointer");
+       //count =PointersAll.Length;
+       /*
        waypoints = new Transform[count];
         for (int i = 0; i < count; i++)
        {
          waypoints[i] = PointersAll[i].transform;
        }
-
+       */
     }
     void Update()
     {
@@ -54,17 +57,19 @@ public class EnemyMove1 : MonoBehaviour
         // 1. プレイヤーが視界内にいるか
         if (distance <= viewDistance)
         {
-
+            /*
             if (isAvoiding)
             {
                 PointerMove(savedPointerIndex);
             }
             else
             {
+            */
                 // 基本的にはプレイヤーの方を向く（緩やかに回転）
                 Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
+                /*
                 // 2. 前方に壁がある場合の回避処理
                 RaycastHit hit;
                 if (Physics.Raycast(rayStart, transform.forward, out hit, 1.5f))
@@ -80,6 +85,7 @@ public class EnemyMove1 : MonoBehaviour
 
 
                 }
+                */
 
                 // 3. 移動実行
                 // 前方が完全に塞がっていない時だけ進む（必要に応じて調整）
@@ -108,7 +114,7 @@ public class EnemyMove1 : MonoBehaviour
                     }
                 }
 
-            }
+            //}
         }
         else if(IsMoving)
         {
@@ -119,7 +125,7 @@ public class EnemyMove1 : MonoBehaviour
     }
 
     
-
+    /*
     void PointerMove(int closestPointer)
     {
         float pointerdistanse;
@@ -144,6 +150,7 @@ public class EnemyMove1 : MonoBehaviour
            isAvoiding = false;
         }
     }
+    */
     void OnDrawGizmosSelected()
     {
         // 視界の範囲を表示
@@ -151,6 +158,7 @@ public class EnemyMove1 : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, viewDistance);
     }
 
+    /*
     int GetPlayerClosePointer()
     {
        int bestIndex = 0;   
@@ -168,6 +176,7 @@ public class EnemyMove1 : MonoBehaviour
         //Debug.Log("最も近いウェイポイントのインデックス: " + bestIndex);
         return bestIndex;
     }
+    */
     
     /*
     void OnCollisionEnter(Collision collision)

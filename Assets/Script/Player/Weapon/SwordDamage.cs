@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class SwordDamage : MonoBehaviour
 {
+    [SerializeField] WeaponData weaponData;
     private Collider collider;
     //private PlayerAttack playerAttack;
-
+    private PlayerStatus playerStatus;
+    private int weaponDamage;
+    
     void Start()
     {
         collider = GetComponent<Collider>();
@@ -13,14 +16,21 @@ public class SwordDamage : MonoBehaviour
         {
             collider.enabled = false;
         }
+        
+        playerStatus = GetComponentInParent<PlayerStatus>();
+
+        weaponDamage = weaponData.damage;
+        
+
     }
-    private int damage = 20;
+    
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
         {
+            int damage = playerStatus.DamageCalculation(weaponDamage);
             damageable.Damage(damage);
 
         }

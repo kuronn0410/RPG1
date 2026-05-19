@@ -4,7 +4,9 @@ using UnityEngine.UI;
 public class PlayerHPUI : MonoBehaviour
 {
     [SerializeField] private PlayerStatus playerStatus;
+
     [SerializeField] private Text playerHpText;
+    [SerializeField] private Text playerLevelText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +24,7 @@ public class PlayerHPUI : MonoBehaviour
         {
             playerHpText.enabled = true;
             playerHpText.text = "HP: " + playerStatus.remainHp + " / " + playerStatus.SaveMaxHP;
+            playerLevelText.text = "Level: " + PlayerLevelData.level;
         }
        
     }

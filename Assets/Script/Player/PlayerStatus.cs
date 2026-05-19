@@ -2,17 +2,19 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour, IDamageable
 {
-    [SerializeField] PlayerBaseStatus playerBaseStatus;
 
     [Header("Player HP")]
     public int SaveMaxHP;//表示用
     public int remainHp;
+    private int baseDamage; // ダメージ量を保存する変数
+    public int dealingDamage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SaveMaxHP = playerBaseStatus.baseHp;
-        remainHp = playerBaseStatus.baseHp;
+        SaveMaxHP = PlayerLevelData.maxHp;
+        remainHp = PlayerLevelData.maxHp;
+        baseDamage = PlayerLevelData.damage;
     }
 
     // Update is called once per frame
@@ -35,4 +37,20 @@ public class PlayerStatus : MonoBehaviour, IDamageable
             }
         }
     }
+
+    public void Heal()
+    {
+        SaveMaxHP = PlayerLevelData.maxHp;
+        remainHp = PlayerLevelData.maxHp;
+        baseDamage = PlayerLevelData.damage;
+    }
+
+    //武器側に与えるダメージを計算するための関数
+    public int DamageCalculation(int weapponDamage)
+    {
+        dealingDamage = baseDamage + weapponDamage; // 武器のダメージを保存
+
+        return dealingDamage;
+    }
+
 }
