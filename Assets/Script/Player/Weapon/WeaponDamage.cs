@@ -1,15 +1,32 @@
 using UnityEngine;
 
-public class SwordDamage : MonoBehaviour
+public class WeaponDamage : MonoBehaviour
 {
-    [SerializeField] WeaponData weaponData;
+    [SerializeField] WeaponDatabase weaponDatabase;
+    [SerializeField] WeaponType weaponType;
     private Collider collider;
     //private PlayerAttack playerAttack;
     private PlayerStatus playerStatus;
+    private WeaponParameter weaponParameter;
     private int weaponDamage;
+    
     
     void Start()
     {
+        switch (weaponType)
+        {
+            case WeaponType.Sword:
+                weaponParameter = weaponDatabase.weapons[0];
+                break;
+            case WeaponType.Sickle:
+                weaponParameter = weaponDatabase.weapons[1];
+                break;
+            default:
+                Debug.LogError("Invalid weapon type!");
+                break;
+            
+        }
+
         collider = GetComponent<Collider>();
         //playerAttack = GetComponentInParent<PlayerAttack>();
         if(collider!=null)
@@ -18,9 +35,7 @@ public class SwordDamage : MonoBehaviour
         }
         
         playerStatus = GetComponentInParent<PlayerStatus>();
-
-        weaponDamage = weaponData.damage;
-        
+        weaponDamage = weaponParameter.damage;
 
     }
     

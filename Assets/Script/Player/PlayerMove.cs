@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
         // 倒れないように固定
         rb.freezeRotation = true;
         // カーソルを非表示にしてロック後で消す
-        SetCursorManager.SetCursorState(false);
+        GameManager.SetCursorState(false);
     }
 
     void Update()

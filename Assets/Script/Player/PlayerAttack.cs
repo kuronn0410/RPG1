@@ -3,12 +3,12 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public bool IsAttacking { get; private set; }
-    private SwordDamage swordDamage;
+    private WeaponDamage weaponDamage;
 
     void Start()
     {
         IsAttacking = false;
-        swordDamage = GetComponentInChildren<SwordDamage>();
+        //weaponDamage = GetComponentInChildren<WeaponDamage>();
     }
 
     // Update is called once per frame
@@ -28,9 +28,9 @@ public class PlayerAttack : MonoBehaviour
     private void SwordAttackTrue()
     {
         IsAttacking = true;
-        if (swordDamage != null)
+        if (weaponDamage != null)
         {
-            swordDamage.EnableCollider();
+            weaponDamage.EnableCollider();
         }
 
 
@@ -39,9 +39,14 @@ public class PlayerAttack : MonoBehaviour
     private void SwordAttackFalse()
     {
         IsAttacking = false;
-        if (swordDamage != null)
+        if (weaponDamage != null)
         {
-            swordDamage.DisableCollider();
+            weaponDamage.DisableCollider();
         }
+    }
+
+    public void SetWeaponDamage(WeaponDamage wd)
+    {
+        weaponDamage = wd;
     }
 }

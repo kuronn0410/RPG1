@@ -6,4 +6,9 @@ public class MoneySystem : MonoBehaviour
     {
         PlayerLevelData.money += amount;
     }
+
+    public void DecreaseMoney(int amount)
+    {
+        PlayerLevelData.money -= amount;
+    }
 }
