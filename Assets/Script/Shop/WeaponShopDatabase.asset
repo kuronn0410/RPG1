@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponShopDatabase
   weaponShopDatas:
   - weaponType: 0
+    weaponSprite: {fileID: 0}
+    weaponName: "\u5263"
+    price: 107
+  - weaponType: 1
+    weaponSprite: {fileID: 0}
+    weaponName: "\u938C"
     price: 107

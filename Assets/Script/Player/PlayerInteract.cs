@@ -24,7 +24,7 @@ public class PlayerInteract : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, distance))
         {
-            Debug.Log("hit.collider.name");
+            Debug.Log(hit.collider.name);
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
             
             // 2. スクリプトが見つかった場合だけ実行する
