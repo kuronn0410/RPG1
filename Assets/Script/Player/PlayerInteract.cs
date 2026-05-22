@@ -12,7 +12,11 @@ public class PlayerInteract : MonoBehaviour
     }   
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (GameManager.Instance.IsPause())
+            return;
+
+
+        if (Input.GetMouseButtonDown(0))
         {
            Interact();
         }

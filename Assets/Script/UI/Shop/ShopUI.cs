@@ -26,6 +26,7 @@ public class ShopUI : MonoBehaviour
 
     public void CreateProductButton(ShopSystem shopSystem, WeaponType weaponType, int price, string weaponName)
     {
+        
          GameObject button = Instantiate(productButtonPrefab, parentObj);
          button.GetComponent<ShopProductButton>().SetUp(shopSystem, weaponType, price, weaponName);
          button.transform.localPosition = new Vector3(0, -totalbetween, 0);

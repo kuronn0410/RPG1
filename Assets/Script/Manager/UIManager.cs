@@ -70,11 +70,16 @@ public class UIManager : MonoBehaviour
 
     public void CloseAllUI()
     {
-        shopPanel.SetActive(false);
-        inventoryPanel.SetActive(false);
-        weaponChangePanel.SetActive(false);
-        pausePanel.SetActive(false);
+        if(shopPanel)
+            shopPanel.SetActive(false);
+        if(inventoryPanel)
+            inventoryPanel.SetActive(false);
+        if(weaponChangePanel)
+            weaponChangePanel.SetActive(false);
+        if(pausePanel)
+            pausePanel.SetActive(false);
         OpenPanelCount=0;
+
         GameManager.Instance.ResumeGame();
     }
 

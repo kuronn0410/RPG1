@@ -18,17 +18,25 @@ public class ShopSystem : MonoBehaviour
         
     }
 
-    public void PurchaseProcess(int price, WeaponType weaponType)
+    public bool PurchaseProcess(int price, WeaponType weaponType)
     {
+        Debug.Log("’l“n‚µ");
         if(price<=PlayerLevelData.money)
         {
-            if (possessionWeapon.HasWeapon(weaponType))
+            Debug.Log("‚¨‹àˆ—");
+            if (!possessionWeapon.HasWeapon(weaponType))
             {
                 possessionWeapon.AddWeapon(weaponType);
                 moneySystem.DecreaseMoney(price);
-            }
 
+                Debug.Log("w“ü¬Œ÷");
+                return true;
+            }
+            Debug.Log("‚·‚Å‚ÉŠŽ");
+            return false;
         }
+        Debug.Log("‚¨‹à•s‘«");
+        return false;
     }
 
 
