@@ -25,15 +25,22 @@ public class WeaponHolder : MonoBehaviour
         }
     }
 
-    public void ChangeWeapon(WeaponType newWeaponType)
+    public bool ChangeWeapon(WeaponType newWeaponType)
     {
         weaponParameter = weaponDatabase.weapons.Find(w => w.weaponType == newWeaponType);
         if (weaponParameter == null)
         {
             Debug.LogError("Weapon not found!");
-            return;
+            return false;
         }
         WeaponGeneration();
+        currentWeapon.SetWeaponType(newWeaponType);
+        return true;
+    }
+
+    public bool CheckCurrentWeapon(WeaponType weaponType)
+    {
+        return currentWeapon.weaponType == weaponType;
     }
 
     void WeaponGeneration()

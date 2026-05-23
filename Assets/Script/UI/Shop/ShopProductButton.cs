@@ -31,6 +31,17 @@ public class ShopProductButton : MonoBehaviour
             OnPurchaseButtonClicked();
         });
         //button.onClick.AddListener(OnPurchaseButtonClicked);
+        ConfirmUsage();
+    }
+
+    private void ConfirmUsage()
+    {
+        if (shopSystem.confirmation(weaponType))
+        {
+            isPurchased = true;
+            button.interactable = false; // 購入後はボタンを無効化するなどの処理
+            button.image.color = Color.gray; // ボタンの色を変えるなどの処理
+        }
     }
 
     public void OnPurchaseButtonClicked()

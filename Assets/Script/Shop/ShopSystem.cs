@@ -18,6 +18,11 @@ public class ShopSystem : MonoBehaviour
         
     }
 
+    public bool confirmation(WeaponType weaponType)
+    {
+        return possessionWeapon.HasWeapon(weaponType);
+    }
+
     public bool PurchaseProcess(int price, WeaponType weaponType)
     {
         Debug.Log("’l“n‚µ");

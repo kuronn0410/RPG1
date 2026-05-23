@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5634194998507572547}
   - component: {fileID: 4844734674733480037}
   - component: {fileID: 7893043903905204475}
+  - component: {fileID: 5455978525729857582}
   m_Layer: 0
   m_Name: WeaponManager
   m_TagString: Untagged
@@ -62,3 +63,24 @@ MonoBehaviour:
   weaponDatabase: {fileID: 11400000, guid: 7f67341e4fec4f74bb04ce1a841ffd19, type: 2}
   player: {fileID: 0}
   currentWeapon: {fileID: 4844734674733480037}
+--- !u!114 &5455978525729857582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140613733368980237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301d731c753511f40ac85add324f12ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSwitchUI
+  weaponHolder: {fileID: 0}
+  HorizontalInterval: 0
+  VerticalInterval: 0
+  parentObj: {fileID: 0}
+  productButtonPrefab: {fileID: 0}
+  weaponDatabase: {fileID: 0}
+  totalHorizontalInterval: 0
+  totalVerticalInterval: 0
+  totalProductCount: 0
