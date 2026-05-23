@@ -4,4 +4,5 @@ public enum WeaponType
 {
     Sword,
     Sickle,
+    Crowbar,
 }

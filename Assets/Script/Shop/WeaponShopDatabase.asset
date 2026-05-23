@@ -21,3 +21,7 @@ MonoBehaviour:
     weaponSprite: {fileID: 0}
     weaponName: "\u938C"
     price: 107
+  - weaponType: 2
+    weaponSprite: {fileID: 0}
+    weaponName: "\u30D0\u30FC\u30EB"
+    price: 200

@@ -4,7 +4,7 @@ public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] WeaponDatabase weaponDatabase;
     [SerializeField] WeaponType weaponType;
-    private Collider collider;
+    private Collider weaponCollider;
     //private PlayerAttack playerAttack;
     private PlayerStatus playerStatus;
     private WeaponParameter weaponParameter;
@@ -13,7 +13,7 @@ public class WeaponDamage : MonoBehaviour
     
     void Start()
     {
-        switch (weaponType)
+        /*switch (weaponType)
         {
             case WeaponType.Sword:
                 weaponParameter = weaponDatabase.weapons[0];
@@ -25,13 +25,14 @@ public class WeaponDamage : MonoBehaviour
                 Debug.LogError("Invalid weapon type!");
                 break;
             
-        }
-
-        collider = GetComponent<Collider>();
+        }*/
+        weaponParameter = weaponDatabase.GetWeaponData(weaponType);
+        weaponCollider = GetComponent<Collider>();
         //playerAttack = GetComponentInParent<PlayerAttack>();
-        if(collider!=null)
+
+        if(weaponCollider!=null)
         {
-            collider.enabled = false;
+            weaponCollider.enabled = false;
         }
         
         playerStatus = GetComponentInParent<PlayerStatus>();
@@ -54,16 +55,16 @@ public class WeaponDamage : MonoBehaviour
     public void EnableCollider()
     {
        
-        if (collider != null)
+        if (GetComponent<Collider>() != null)
         {
-           collider.enabled = true;
+           GetComponent<Collider>().enabled = true;
         }
     }
     public void DisableCollider()
     {
-        if (collider != null)
+        if (GetComponent<Collider>() != null)
         {
-            collider.enabled = false;
+            GetComponent<Collider>().enabled = false;
         }
     }
 }
