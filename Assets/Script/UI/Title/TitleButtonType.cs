@@ -7,5 +7,6 @@ public enum TitleButtonType
     Exit,
     Restart,
     ToTitle,
+    Save,
 
 }

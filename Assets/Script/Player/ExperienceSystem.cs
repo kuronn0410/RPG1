@@ -29,6 +29,6 @@ public class ExperienceSystem : MonoBehaviour
         PlayerLevelData.level++;
         PlayerLevelData.maxHp += 1;
         PlayerLevelData.damage += 1;
-        playerStatus.Heal(); // レベルアップ時にHPを全回復
+        playerStatus.LevelUpHeal(); // レベルアップ時にHPを全回復
     }
 }

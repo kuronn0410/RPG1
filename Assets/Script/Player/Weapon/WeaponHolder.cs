@@ -5,7 +5,7 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField] GameObject parentObject;
     [SerializeField] WeaponDatabase weaponDatabase;
     [SerializeField] GameObject player;
-    [SerializeField] CurrentWeapon currentWeapon;
+    //[SerializeField] CurrentWeapon currentWeapon;
     private PlayerAttack playerAttack;
     private WeaponDamage weaponDamage;
     private WeaponParameter weaponParameter;
@@ -14,9 +14,9 @@ public class WeaponHolder : MonoBehaviour
     void Start()
     {
         playerAttack = player.GetComponent<PlayerAttack>();
-        currentWeapon = GetComponent<CurrentWeapon>();
+        //currentWeapon = GetComponent<CurrentWeapon>();
         //weaponDamage = player.GetComponentInChildren<WeaponDamage>();
-        ChangeWeapon(currentWeapon.weaponType);
+        ChangeWeapon(PlayerLevelData.currentWeaponType);
         
         if (playerAttack == null)
         {
@@ -34,13 +34,13 @@ public class WeaponHolder : MonoBehaviour
             return false;
         }
         WeaponGeneration();
-        currentWeapon.SetWeaponType(newWeaponType);
+        PlayerLevelData.currentWeaponType = newWeaponType;
         return true;
     }
 
     public bool CheckCurrentWeapon(WeaponType weaponType)
     {
-        return currentWeapon.weaponType == weaponType;
+        return PlayerLevelData.currentWeaponType == weaponType;
     }
 
     void WeaponGeneration()

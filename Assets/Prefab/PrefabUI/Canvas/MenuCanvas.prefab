@@ -2434,6 +2434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleUIManager
   resetGame: {fileID: 0}
+  continuGame: {fileID: 0}
+  saveSystem: {fileID: 0}
   settingPanel: {fileID: 0}
 --- !u!114 &1684909097126679900
 MonoBehaviour:
@@ -3077,8 +3079,9 @@ GameObject:
   - component: {fileID: 8312852523370646625}
   - component: {fileID: 6582909779487872174}
   - component: {fileID: 642965882030069736}
+  - component: {fileID: 4711855590045608475}
   m_Layer: 5
-  m_Name: Button (Legacy) (3)
+  m_Name: SaveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3185,7 +3188,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6582909779487872174}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4711855590045608475}
+        m_TargetAssemblyTypeName: TitleButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4711855590045608475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923524185388693856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3bc262a24dea29418999f180e99fa94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleButton
+  titleButtonType: 5
 --- !u!1 &8364073983747841286
 GameObject:
   m_ObjectHideFlags: 0

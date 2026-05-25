@@ -6,6 +6,9 @@ public class TitleUIManager : MonoBehaviour
 {
 
     [SerializeField] private ResetGame resetGame;
+    [SerializeField] private ContinuGame continuGame;
+    [SerializeField] private SaveSystem saveSystem;
+
     [SerializeField] private GameObject settingPanel;
     public static TitleUIManager Instance;
     
@@ -48,6 +51,9 @@ public class TitleUIManager : MonoBehaviour
             case TitleButtonType.ToTitle:
                 ToTitle();
                 break;
+            case TitleButtonType.Save:
+                Save();
+                break;
 
         }
         return;
@@ -67,7 +73,10 @@ public class TitleUIManager : MonoBehaviour
 
     private void GameStart()
     {
+        if (continuGame == null) return;
+        continuGame.GameLoad();
         SceneMove.Instance.MoveToTown();
+
     }
 
         
@@ -81,5 +90,13 @@ public class TitleUIManager : MonoBehaviour
         if(resetGame == null)return;
         resetGame.GameDataReset();
         SceneMove.Instance.MoveToTown();
+    }
+
+    private void Save()
+    {
+        Debug.Log("Save button clicked");
+        if (saveSystem == null)return;
+        saveSystem.Save();
+        // Implement save functionality here
     }
 }

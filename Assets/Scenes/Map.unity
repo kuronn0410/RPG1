@@ -2359,6 +2359,77 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1008104103}
   m_SourcePrefab: {fileID: 100100000, guid: f6da93aa4f1269142a9a459b26b70b3f, type: 3}
+--- !u!1 &1162549975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162549979}
+  - component: {fileID: 1162549978}
+  - component: {fileID: 1162549977}
+  - component: {fileID: 1162549976}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1162549976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162549975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122e75e74639c0a4aa80550b199b2e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveSystem
+--- !u!114 &1162549977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162549975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82adf77935e080341a30f2fa8f8a28a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetGame
+  continuGame: {fileID: 1162549978}
+--- !u!114 &1162549978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162549975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9916f5331cfcaed4493588e885aecdff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ContinuGame
+--- !u!4 &1162549979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162549975}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.59711, y: 0, z: -3.59917}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1171365111 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8565281612468258890, guid: dcc982307a817354fafb192abcd9b917, type: 3}
@@ -4915,9 +4986,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2178633940568793821, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506081982846415353, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: resetGame
+      value: 
+      objectReference: {fileID: 1162549977}
+    - target: {fileID: 3506081982846415353, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: saveSystem
+      value: 
+      objectReference: {fileID: 1162549976}
+    - target: {fileID: 3506081982846415353, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: continuGame
+      value: 
+      objectReference: {fileID: 1162549978}
+    - target: {fileID: 3506081982846415353, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: settingPanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442736314599761496, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5187939347641318015, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709406343588730242, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923524185388693856, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_Name
+      value: SavaButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4945,3 +5048,4 @@ SceneRoots:
   - {fileID: 2075160353590138986}
   - {fileID: 1698469267}
   - {fileID: 1363613393}
+  - {fileID: 1162549979}

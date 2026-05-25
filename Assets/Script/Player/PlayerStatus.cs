@@ -5,7 +5,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
 
     [Header("Player HP")]
     public int SaveMaxHP;//表示用
-    public int remainHp;
+    //public int remainHp;
     private int baseDamage; // ダメージ量を保存する変数
     public int dealingDamage;
 
@@ -13,7 +13,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     void Start()
     {
         SaveMaxHP = PlayerLevelData.maxHp;
-        remainHp = PlayerLevelData.maxHp;
+        //remainHp = PlayerLevelData.currentHp;
         baseDamage = PlayerLevelData.damage;
     }
 
@@ -27,21 +27,22 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     {
         Debug.Log("Take " + damage + " damage!");
         // Here you can implement health reduction, death, etc.
-        if (remainHp > 0)
+        if (PlayerLevelData.currentHp > 0)
         {
-            remainHp -= damage; // ダメージをHPから減算
-            if (remainHp <= 0)
+            PlayerLevelData.currentHp -= damage; // ダメージをHPから減算
+            if (PlayerLevelData.currentHp <= 0)
             {
-                remainHp = 0;
+                PlayerLevelData.currentHp = 0;
                 Debug.Log("Player defeated!");
             }
         }
+        //PlayerLevelData.currentHp = remainHp; // PlayerLevelDataのcurrentHpを更新
     }
 
-    public void Heal()
+    public void LevelUpHeal()
     {
         SaveMaxHP = PlayerLevelData.maxHp;
-        remainHp = PlayerLevelData.maxHp;
+        PlayerLevelData.currentHp = PlayerLevelData.maxHp; // PlayerLevelDataのcurrentHpを更新
         baseDamage = PlayerLevelData.damage;
     }
 
