@@ -4,31 +4,36 @@ public class ShopUI : MonoBehaviour
 {
     [SerializeField] GameObject productButtonPrefab;
     [SerializeField] Transform parentObj;
-    [SerializeField] WeaponShopDatabase weaponShopDatabase;
+    //[SerializeField] ShopType shopType;
     [SerializeField] ShopSystem shopSystem;
+    [SerializeField] private ScriptableObject databaseObject;    
+    private IShopDatabase shopDatabase;
+
     [SerializeField] int between;
     
+    private void Awake()
+    {
+        shopDatabase = databaseObject as IShopDatabase;
+        //IShopDatabaseがついてるスクリプタブルオブジェクトを取得している
+    }
 
     private int totalbetween =0;
     void Start()
     {
-        
-        foreach(var data in weaponShopDatabase.weaponShopDatas)
+
+        foreach (var data in shopDatabase.GetAllItems())
         {
-            WeaponType weaponType = data.weaponType;
-            int price = data.price;
-            string weaponName = data.weaponName;
-            CreateProductButton(shopSystem,weaponType, price, weaponName);
-            totalbetween += between;
+            CreateProductButton(shopSystem,data);
+            
         }
     }
 
 
-    public void CreateProductButton(ShopSystem shopSystem, WeaponType weaponType, int price, string weaponName)
+    public void CreateProductButton(ShopSystem shopSystem, IShop shopData)
     {
-        
          GameObject button = Instantiate(productButtonPrefab, parentObj);
-         button.GetComponent<ShopProductButton>().SetUp(shopSystem, weaponType, price, weaponName);
+         button.GetComponent<ShopProductButton>().SetUp(shopSystem, shopData);
          button.transform.localPosition = new Vector3(0, -totalbetween, 0);
+         totalbetween += between;
     }
 }

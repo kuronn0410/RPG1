@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class ShopSystem : MonoBehaviour
 {
-    [SerializeField] private PossessionWeapon possessionWeapon;
     [SerializeField] private MoneySystem moneySystem;
     //private WeaponaType weaponaType;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        possessionWeapon = FindObjectOfType<PossessionWeapon>();
         moneySystem = FindObjectOfType<MoneySystem>();
     }
 
@@ -18,20 +16,15 @@ public class ShopSystem : MonoBehaviour
         
     }
 
-    public bool confirmation(WeaponType weaponType)
-    {
-        return possessionWeapon.HasWeapon(weaponType);
-    }
-
-    public bool PurchaseProcess(int price, WeaponType weaponType)
+    public bool PurchaseProcess(int price, IShop shopData)
     {
         Debug.Log("’l“n‚µ");
         if(price<=PlayerLevelData.money)
         {
             Debug.Log("‚¨‹àˆ—");
-            if (!possessionWeapon.HasWeapon(weaponType))
+            if (!shopData.IsOwned())//w“ü‚µ‚Ä‚¢‚È‚¢‚©orãŒÀ”‚É’B‚µ‚Ä‚¢‚È‚¢‚©
             {
-                possessionWeapon.AddWeapon(weaponType);
+                shopData.Purchase();
                 moneySystem.DecreaseMoney(price);
 
                 Debug.Log("w“ü¬Œ÷");
@@ -43,8 +36,5 @@ public class ShopSystem : MonoBehaviour
         Debug.Log("‚¨‹à•s‘«");
         return false;
     }
-
-
-
 
 }

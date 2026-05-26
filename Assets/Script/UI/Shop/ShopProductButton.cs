@@ -7,22 +7,24 @@ public class ShopProductButton : MonoBehaviour
     [SerializeField] private Text nameTxt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private WeaponType weaponType;
+    private IShop shopData;
     private int price;  
-    private string weaponName;
+    private string name;
     private ShopSystem shopSystem;
     public bool isPurchased;
 
-    public void SetUp(ShopSystem shopSystem,WeaponType weaponType, int price, string weaponName)
+    public void SetUp(ShopSystem shopSystem,IShop shopData)
     {
 
         Debug.Log("セットアップ");
         this.shopSystem = shopSystem;
-        this.weaponType = weaponType;
-        this.price = price;
-        this.weaponName = weaponName;
+        this.shopData = shopData;
+
+        this.price = shopData.Price;
+        this.name = shopData.Name;
+        
         isPurchased = false;
-        nameTxt.text = weaponName;
+        nameTxt.text = name;
         Debug.Log(button);
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
@@ -36,7 +38,7 @@ public class ShopProductButton : MonoBehaviour
 
     private void ConfirmUsage()
     {
-        if (shopSystem.confirmation(weaponType))
+        if (shopData.IsOwned())
         {
             isPurchased = true;
             button.interactable = false; // 購入後はボタンを無効化するなどの処理
@@ -52,7 +54,7 @@ public class ShopProductButton : MonoBehaviour
             return;
         }
         Debug.Log("購入ボタンがクリックされました");
-        bool purchaseSuccessful = shopSystem.PurchaseProcess(price, weaponType);
+        bool purchaseSuccessful = shopSystem.PurchaseProcess(price, shopData);
 
         if (purchaseSuccessful)
         {

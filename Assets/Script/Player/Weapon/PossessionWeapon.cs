@@ -3,12 +3,22 @@ using System.Collections.Generic;
 
 public class PossessionWeapon : MonoBehaviour
 {
+    public static PossessionWeapon Instance;
+    
+
     [SerializeField] private WeaponSwitchUI weaponSwitchUI;
     public static HashSet<WeaponType> possessionWeapon = new HashSet<WeaponType>();
 
     private void Awake()
     {
-        // èâä˙ïêäÌ
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
         possessionWeapon.Add(WeaponType.Sword);
     }
 

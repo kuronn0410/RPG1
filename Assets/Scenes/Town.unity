@@ -686,7 +686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581f518ecadf3984ea2f6e362d11b500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopSystem
-  possessionWeapon: {fileID: 919982536}
   moneySystem: {fileID: 919982525}
 --- !u!114 &597206316
 MonoBehaviour:
@@ -702,8 +701,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopUI
   productButtonPrefab: {fileID: 1510885638135204579, guid: efa07a42d304f9342944fc38a17dbd46, type: 3}
   parentObj: {fileID: 1272720935}
-  weaponShopDatabase: {fileID: 11400000, guid: 2dd2c35d0d3bda84d80c40a2968fce92, type: 2}
   shopSystem: {fileID: 597206315}
+  databaseObject: {fileID: 11400000, guid: 2dd2c35d0d3bda84d80c40a2968fce92, type: 2}
   between: 129
 --- !u!1 &798132879
 GameObject:
@@ -893,17 +892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596465d24b776954eaed85fc086d4096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneySystem
---- !u!114 &919982536 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1163229537587632710, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
-  m_PrefabInstance: {fileID: 1623135330}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919982523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99301183795ab0146870efb002ac6d5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PossessionWeapon
 --- !u!1 &925546548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,7 +1079,6 @@ MonoBehaviour:
   parentObject: {fileID: 940353367}
   weaponDatabase: {fileID: 11400000, guid: 7f67341e4fec4f74bb04ce1a841ffd19, type: 2}
   player: {fileID: 919982523}
-  currentWeapon: {fileID: 1022623976}
 --- !u!114 &1022623976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,7 +1091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf5c29b9b342d345ab4127779f819e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurrentWeapon
-  weaponType: 0
 --- !u!1 &1043773142
 GameObject:
   m_ObjectHideFlags: 0
