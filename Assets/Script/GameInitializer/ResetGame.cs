@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 public class ResetGame : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class ResetGame : MonoBehaviour
        data.Damage = 5;
        data.currentWeaponType = WeaponType.Sword;
        data.Money = 0;
+       data.possessionWeaponTypes = new List<WeaponType>() { WeaponType.Sword };
         Debug.Log("ResetGame");
     }
 }

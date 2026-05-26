@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class SaveSystem : MonoBehaviour
        data.CurrentExp = PlayerLevelData.nextLevelExperience;
        data.Money = PlayerLevelData.money;
        data.currentWeaponType = PlayerLevelData.currentWeaponType;
+       data.possessionWeaponTypes = new List<WeaponType>(PossessionWeapon.possessionWeapon);
     }
 
 

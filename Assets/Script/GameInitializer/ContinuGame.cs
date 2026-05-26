@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 public class ContinuGame : MonoBehaviour
 {
@@ -27,5 +28,6 @@ public class ContinuGame : MonoBehaviour
         PlayerLevelData.nextLevelExperience = data.CurrentExp;
         PlayerLevelData.money = data.Money;
         PlayerLevelData.currentWeaponType = data.currentWeaponType;
+        PossessionWeapon.possessionWeapon = new HashSet<WeaponType>(data.possessionWeaponTypes);
     }
 }
