@@ -2,7 +2,8 @@ using UnityEngine;
 
 public enum UIPanelType
 {
-    Shop,
+    WeaponShop,
+    CardShop,
     Inventory,
     WeaponChange,
     Pause

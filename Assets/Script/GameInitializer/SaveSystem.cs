@@ -25,12 +25,12 @@ public class SaveSystem : MonoBehaviour
         SaveData data = new SaveData();
         Debug.Log("データ形");
         SetSaveData(data);
-        Debug.Log("ゲームを保存しました");
+        Debug.Log("セーブデータ設定完了");
         string json = JsonUtility.ToJson(data, true);//セーブデータをJSON形式に変換する処理
         string path = Application.persistentDataPath + "/save.json";//セーブデータを保存するパスを指定する処理
         File.WriteAllText(path, json);//セーブデータを保存する処理
-        
-        
+        Debug.Log("ゲームを保存しました");
+
     }
 
     public void SetSaveData(SaveData data)

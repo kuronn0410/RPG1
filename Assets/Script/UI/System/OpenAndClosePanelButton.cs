@@ -9,8 +9,11 @@ public class OpenAndClosePanelButton : MonoBehaviour
     {
         switch (panelType)
         {
-            case UIPanelType.Shop:
-                UIManager.Instance.ToggleShopPanel();
+            case UIPanelType.WeaponShop:
+                UIManager.Instance.ToggleWeaponShopPanel();
+                break;
+            case UIPanelType.CardShop:
+                UIManager.Instance.ToggleCardShopPanel();
                 break;
             case UIPanelType.Inventory:
                 UIManager.Instance.ToggleInventoryPanel();

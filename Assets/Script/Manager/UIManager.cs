@@ -5,7 +5,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     [Header("UI Panels")]
-    [SerializeField] GameObject shopPanel;
+    [SerializeField] GameObject WeaponShopPanel;
+    [SerializeField] GameObject CardShopPanel;
     [SerializeField] GameObject inventoryPanel;
     [SerializeField] GameObject weaponChangePanel;
     [SerializeField] GameObject pausePanel;
@@ -70,9 +71,11 @@ public class UIManager : MonoBehaviour
 
     public void CloseAllUI()
     {
-        if(shopPanel)
-            shopPanel.SetActive(false);
-        if(inventoryPanel)
+        if(WeaponShopPanel)
+            WeaponShopPanel.SetActive(false);
+        if(CardShopPanel)
+            CardShopPanel.SetActive(false);
+        if (inventoryPanel)
             inventoryPanel.SetActive(false);
         if(weaponChangePanel)
             weaponChangePanel.SetActive(false);
@@ -84,9 +87,9 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void ToggleShopPanel()
+    public void ToggleWeaponShopPanel()
     {
-        ToggleUI(shopPanel);
+        ToggleUI(WeaponShopPanel);
     }
     public void ToggleInventoryPanel()
     {
@@ -99,6 +102,10 @@ public class UIManager : MonoBehaviour
     public void TogglePausePanel()
     {
         ToggleUI(pausePanel);
+    }
+    public void ToggleCardShopPanel()
+    {
+        ToggleUI(CardShopPanel);
     }
 
 }

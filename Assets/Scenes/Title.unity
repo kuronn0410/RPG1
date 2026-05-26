@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646c4d61aac0b784c82bd594645c60af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleUIManager
-  resetGame: {fileID: 0}
+  resetGame: {fileID: 2062435798}
   continuGame: {fileID: 2062435799}
   saveSystem: {fileID: 2062435797}
   settingPanel: {fileID: 2029304188}

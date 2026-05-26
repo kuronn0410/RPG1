@@ -9,7 +9,7 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private ScriptableObject databaseObject;    
     private IShopDatabase shopDatabase;
 
-    [SerializeField] int between;
+    //[SerializeField] int between;
     
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class ShopUI : MonoBehaviour
     {
          GameObject button = Instantiate(productButtonPrefab, parentObj);
          button.GetComponent<ShopProductButton>().SetUp(shopSystem, shopData);
-         button.transform.localPosition = new Vector3(0, -totalbetween, 0);
-         totalbetween += between;
+         //button.transform.localPosition = new Vector3(0, -totalbetween, 0);
+         //totalbetween += between;
     }
 }
