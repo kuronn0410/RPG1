@@ -6,5 +6,6 @@ public enum UIPanelType
     CardShop,
     Inventory,
     WeaponChange,
-    Pause
+    Pause,
+    CardSelect
 }

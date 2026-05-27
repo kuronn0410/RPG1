@@ -24,6 +24,9 @@ public class OpenAndClosePanelButton : MonoBehaviour
             case UIPanelType.Pause:
                 UIManager.Instance.TogglePausePanel();
                 break;
+            case UIPanelType.CardSelect:
+                UIManager.Instance.ToggleCardSelectPanel();
+                break;
         }
     }
 }

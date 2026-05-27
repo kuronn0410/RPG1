@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject inventoryPanel;
     [SerializeField] GameObject weaponChangePanel;
     [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject CardSelectPanel;
 
     private int OpenPanelCount = 0;
 
@@ -81,7 +82,9 @@ public class UIManager : MonoBehaviour
             weaponChangePanel.SetActive(false);
         if(pausePanel)
             pausePanel.SetActive(false);
-        OpenPanelCount=0;
+        if(CardSelectPanel)
+            CardSelectPanel.SetActive(false);
+        OpenPanelCount =0;
 
         GameManager.Instance.ResumeGame();
     }
@@ -106,6 +109,10 @@ public class UIManager : MonoBehaviour
     public void ToggleCardShopPanel()
     {
         ToggleUI(CardShopPanel);
+    }
+    public void ToggleCardSelectPanel()
+    {
+        ToggleUI(CardSelectPanel);
     }
 
 }
