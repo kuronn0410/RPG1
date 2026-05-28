@@ -21,6 +21,7 @@ public class CardDeckManager : MonoBehaviour
 
     [SerializeField] int DeckCardNumber = 5;
     [SerializeField] private DeckCardUI deckCardUI;
+    [SerializeField] private UseCardUI useCardUI;
     int count = 0;
     public  static HashSet<CardType> setcards = new HashSet<CardType>();
 
@@ -31,6 +32,7 @@ public class CardDeckManager : MonoBehaviour
             count++;
             setcards.Add(card);
             deckCardUI.AddDeckCardData(card);
+            useCardUI.AddDeckCardData(card);
             //possessionCardUI.ResetAllButtons();
 
             Debug.Log("カードをデッキに追加しました。現在のカード数: " + count);
@@ -51,6 +53,7 @@ public class CardDeckManager : MonoBehaviour
             setcards.Remove(card);
             deckCardUI.RemoveDeckCardUI(card);
             CardButtonStateManager.Instance.ResetCardByRemovedeck(card);
+
             Debug.Log("カードをデッキから削除しました。現在のカード数: " + count);
         }
         else

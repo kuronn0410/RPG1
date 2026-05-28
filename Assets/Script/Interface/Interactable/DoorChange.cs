@@ -9,6 +9,7 @@ public class DoorChange : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if(!enabled) return;
         if (sceneName != null)
         {
             SceneManager.LoadScene(sceneName);

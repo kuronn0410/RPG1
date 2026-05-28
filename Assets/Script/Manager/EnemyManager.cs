@@ -3,7 +3,17 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
+
+    [SerializeField] DoorChange doorChange;
     private List<EnemyStatus> enemies = new List<EnemyStatus>();
+
+    private void Start()
+    {
+        if(doorChange != null)
+        {
+            doorChange.enabled = false;
+        }
+    }
     public void AddEnemy(EnemyStatus enemy)
     {
         enemies.Add(enemy);
@@ -14,8 +24,13 @@ public class EnemyManager : MonoBehaviour
         enemies.Remove(enemy);
         if (enemies.Count == 0)
         {
-            //GameManager.Instance.ResumeGame();
+            
             Debug.Log("‘S“GŒ‚”j");
+            if (doorChange != null)
+            {
+                doorChange.enabled = true;
+            }
+
         }
     }
 

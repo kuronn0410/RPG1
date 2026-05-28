@@ -1240,6 +1240,11 @@ MonoBehaviour:
   parentObject: {fileID: 940353367}
   weaponDatabase: {fileID: 11400000, guid: 7f67341e4fec4f74bb04ce1a841ffd19, type: 2}
   player: {fileID: 919982523}
+--- !u!1 &1038078760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1800061506784212628, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+  m_PrefabInstance: {fileID: 1205584153531287434}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1043773142
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2127,7 @@ GameObject:
   - component: {fileID: 1913742236}
   - component: {fileID: 1913742235}
   - component: {fileID: 1913742237}
+  - component: {fileID: 1913742238}
   m_Layer: 0
   m_Name: CradManager
   m_TagString: Untagged
@@ -2189,6 +2195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardDeckManager
   DeckCardNumber: 5
   deckCardUI: {fileID: 1913742236}
+  useCardUI: {fileID: 1913742238}
 --- !u!114 &1913742236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,6 +2226,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557a9b90ee5c494488486e0dadd54f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardButtonStateManager
+--- !u!114 &1913742238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913742231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb34f58f4c95a448ba52c1e74c0671f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UseCardUI
+  HorizontalInterval: 207
+  VerticalInterval: 202
+  parentObj: {fileID: 1038078760}
+  productButtonPrefab: {fileID: 6967442880081734189, guid: 6f8ddc71048a544448e073cdb7d99c2f, type: 3}
+  cardDatabase: {fileID: 11400000, guid: 9f58e52f11c462945a73e58a08e82280, type: 2}
+  mode: 2
 --- !u!1 &2090423566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,6 +2652,10 @@ PrefabInstance:
     - target: {fileID: 1161088062440508326, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_SizeDelta.y
       value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671765473239593384, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.1424255
       objectReference: {fileID: 0}
     - target: {fileID: 1974954273270465525, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_AnchorMax.x

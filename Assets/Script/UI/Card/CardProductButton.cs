@@ -61,7 +61,7 @@ public class CardProductButton : MonoBehaviour
                 button.onClick.AddListener(() => OnDeckCardClicked(cardType));
                 break;
             case CardButtonMode.Use:
-                // 使用モードの処理
+                button.onClick.AddListener(() => OnUseCardClicked(cardType));
                 break;
         }
     }
@@ -89,19 +89,6 @@ public class CardProductButton : MonoBehaviour
     {
         return cardType;
     }
-
-    /*
-    public void RefreshState()
-    {
-        if (CardDeckManager.Instance.IsInDeck(cardType))
-        {
-            SelectState();
-        }
-        else
-        {
-            ResetButton();
-        }
-    }*/
 
     //カードがデッキに入っている状態の処理
     private void SelectState()
@@ -132,6 +119,11 @@ public class CardProductButton : MonoBehaviour
     public void OnDeckCardClicked(CardType cardType)
     {
         CardDeckManager.Instance.RemoveCardFromDeck(cardType);
+    }
+
+    public void OnUseCardClicked(CardType cardType)
+    {
+        // 使用モードの処理
     }
 
     public void DestroyCardButton()
