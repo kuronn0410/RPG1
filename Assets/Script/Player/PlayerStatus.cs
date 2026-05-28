@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerStatus : MonoBehaviour, IDamageable
 {
 
+    public static PlayerStatus Instance;
+
     [Header("Player HP")]
     public int SaveMaxHP;//•\Ž¦—p
     //public int remainHp;
