@@ -149,6 +149,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 597206314}
+  - {fileID: 1630613075}
   m_Father: {fileID: 798132880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220150176
@@ -1179,7 +1180,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1022623973}
-  - component: {fileID: 1022623976}
   - component: {fileID: 1022623975}
   - component: {fileID: 1022623974}
   m_Layer: 0
@@ -1240,18 +1240,6 @@ MonoBehaviour:
   parentObject: {fileID: 940353367}
   weaponDatabase: {fileID: 11400000, guid: 7f67341e4fec4f74bb04ce1a841ffd19, type: 2}
   player: {fileID: 919982523}
---- !u!114 &1022623976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022623972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf5c29b9b342d345ab4127779f819e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CurrentWeapon
 --- !u!1 &1043773142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1495,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8281579534039789689, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
   m_PrefabInstance: {fileID: 592457214608920896}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1234147362 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 65166149272482925, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+  m_PrefabInstance: {fileID: 1205584153531287434}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1240875718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9049560879320624399, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
@@ -1738,6 +1731,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
+--- !u!1 &1630613074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1630613075}
+  - component: {fileID: 1630613076}
+  m_Layer: 0
+  m_Name: CardShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1630613075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630613074}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2139.682, y: 0.00002, z: 47661.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 42869150}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1630613076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630613074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a951053b7a72ee94096cfe385e4dcd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopUI
+  productButtonPrefab: {fileID: 1510885638135204579, guid: efa07a42d304f9342944fc38a17dbd46, type: 3}
+  parentObj: {fileID: 1234147362}
+  shopSystem: {fileID: 597206315}
+  databaseObject: {fileID: 11400000, guid: 95717c182c5d87c44816852efa0dd255, type: 2}
 --- !u!1 &1668549231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,6 +1869,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1333643319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1755611581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5986018820926544044, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+  m_PrefabInstance: {fileID: 1205584153531287434}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1762180679 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5602701815533002613, guid: 854e8bf0b0d516849b97f50714cdb092, type: 3}
@@ -2073,6 +2119,8 @@ GameObject:
   - component: {fileID: 1913742232}
   - component: {fileID: 1913742233}
   - component: {fileID: 1913742234}
+  - component: {fileID: 1913742236}
+  - component: {fileID: 1913742235}
   m_Layer: 0
   m_Name: CradManager
   m_TagString: Untagged
@@ -2112,6 +2160,7 @@ MonoBehaviour:
   parentObj: {fileID: 1240875718}
   productButtonPrefab: {fileID: 6967442880081734189, guid: 149de841f2adfef46b8116b260d452f4, type: 3}
   cardDatabase: {fileID: 11400000, guid: 9f58e52f11c462945a73e58a08e82280, type: 2}
+  mode: 0
 --- !u!114 &1913742234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2124,6 +2173,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6380ca8660f688d4d971d07f744d46f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessionCard
+  possessionCardUI: {fileID: 1913742233}
+--- !u!114 &1913742235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913742231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8fe935d96b2474d87525ba6885fb8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardDeckManager
+  possessionCardUI: {fileID: 1913742233}
+  DeckCardNumber: 5
+  deckCardUI: {fileID: 1913742236}
+--- !u!114 &1913742236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913742231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd214cfc67707534cb3a4bea3f597f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeckCardUI
+  HorizontalInterval: 218
+  VerticalInterval: 217
+  parentObj: {fileID: 1755611581}
+  productButtonPrefab: {fileID: 6967442880081734189, guid: f89e8c67194785b47bd2c6f406cbceef, type: 3}
+  cardDatabase: {fileID: 11400000, guid: 9f58e52f11c462945a73e58a08e82280, type: 2}
+  mode: 1
 --- !u!1 &2090423566
 GameObject:
   m_ObjectHideFlags: 0

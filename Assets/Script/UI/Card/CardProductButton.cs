@@ -11,6 +11,7 @@ public class CardProductButton : MonoBehaviour
     [SerializeField] private Text nameTxt;
     [SerializeField] private Text costText;
     [SerializeField] private Image cardImage;
+    [SerializeField] private GameObject rootObj;
 
     [SerializeField] private Sprite DebuffSprite;
     [SerializeField] private Sprite BuffSprite;
@@ -23,9 +24,12 @@ public class CardProductButton : MonoBehaviour
     private string name;
     private Sprite cardSprite;
     private int cost;
+    private bool isSelected = false;
+    private CardUIBase cardUIBase;
 
-    public void SetUp(CardData cardData)
+    public void SetUp(CardData cardData, CardButtonMode mode, CardUIBase cardUIBase)
     {
+        this.cardUIBase = cardUIBase;
 
         this.cardType = cardData.cardType;
         this.cardEffectType = cardData.cardEffectType;
@@ -37,11 +41,29 @@ public class CardProductButton : MonoBehaviour
         cardImage.sprite = cardSprite;
 
         SetCardEffectType(cardEffectType);
+       
+        button.onClick.RemoveAllListeners();
+        ButtonMode(mode);
         
 
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() => OnCardButtonClicked(cardType));
+    }
 
+
+    private void ButtonMode(CardButtonMode mode)
+    {
+        switch (mode)
+        {
+            case CardButtonMode.PossessionCard:
+                button.onClick.AddListener(() => OnPossessionCardClicked(cardType));
+                RefreshState();
+                break;
+            case CardButtonMode.Deck:
+                button.onClick.AddListener(() => OnDeckCardClicked(cardType));
+                break;
+            case CardButtonMode.Use:
+                // 使用モードの処理
+                break;
+        }
     }
 
     private void SetCardEffectType(CardEffectType cardEffectType)
@@ -63,8 +85,44 @@ public class CardProductButton : MonoBehaviour
         }
     }
 
-    public void OnCardButtonClicked(CardType cardType)
+    public void RefreshState()
     {
-        Debug.Log(cardType + "カードボタンがクリックされました");
+        if (CardDeckManager.Instance.IsInDeck(cardType))
+        {
+            SelectState();
+        }
+        else
+        {
+            ResetButton();
+        }
+    }
+
+    private void SelectState()
+    {
+        isSelected = true;
+        button.interactable = false;
+        button.image.color = Color.gray;
+    }
+
+    public void ResetButton()
+    {
+        isSelected = false;
+        button.interactable = true;
+        button.image.color = Color.white;
+    }
+
+    public void OnPossessionCardClicked(CardType cardType)
+    {
+        CardDeckManager.Instance.AddCardToDeck(cardType);
+        RefreshState();
+    }
+
+    public void OnDeckCardClicked(CardType cardType)
+    {
+        CardDeckManager.Instance.RemoveCardFromDeck(cardType);
+        //SelectState();
+        cardUIBase.ResetAllButtons();
+        cardUIBase.RemoveButton(this);
+        Destroy(rootObj);
     }
 }

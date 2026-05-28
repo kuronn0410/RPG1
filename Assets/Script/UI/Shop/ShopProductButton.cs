@@ -16,7 +16,7 @@ public class ShopProductButton : MonoBehaviour
     public void SetUp(ShopSystem shopSystem,IShop shopData)
     {
 
-        Debug.Log("セットアップ");
+        //Debug.Log("セットアップ");
         this.shopSystem = shopSystem;
         this.shopData = shopData;
 
@@ -25,11 +25,11 @@ public class ShopProductButton : MonoBehaviour
         
         isPurchased = false;
         nameTxt.text = name;
-        Debug.Log(button);
+        //Debug.Log(button);
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
-            Debug.Log("BUTTON CLICK");
+            //Debug.Log("BUTTON CLICK");
             OnPurchaseButtonClicked();
         });
         //button.onClick.AddListener(OnPurchaseButtonClicked);
@@ -50,10 +50,10 @@ public class ShopProductButton : MonoBehaviour
     {
         if (isPurchased)
         {
-            Debug.Log("すでに購入済み");
+            //Debug.Log("すでに購入済み");
             return;
         }
-        Debug.Log("購入ボタンがクリックされました");
+        //Debug.Log("購入ボタンがクリックされました");
         bool purchaseSuccessful = shopSystem.PurchaseProcess(price, shopData);
 
         if (purchaseSuccessful)
