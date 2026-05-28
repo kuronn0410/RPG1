@@ -13,7 +13,6 @@ public class CardUIBase : MonoBehaviour
     [SerializeField] protected CardButtonMode mode;
     protected int totalHorizontalInterval = 0;
     protected int totalVerticalInterval = 0;
-    //private int totalProductCount = 0;
     protected int totalCardCount = 0;
     
     protected List<CardProductButton> buttons = new List<CardProductButton>();
@@ -37,8 +36,15 @@ public class CardUIBase : MonoBehaviour
         GameObject buttonObj = Instantiate(productButtonPrefab, parentObj.transform);
 
         buttonObj.GetComponentInChildren<CardProductButton>().SetUp(cardData, mode, cardUIBase);
-        buttons.Add(buttonObj.GetComponentInChildren<CardProductButton>());
-
+        if (mode == CardButtonMode.PossessionCard)
+        {
+            // 所持カードのボタンは、状態管理の対象とする
+            CardButtonStateManager.Instance.RegisterCardButton(buttonObj.GetComponentInChildren<CardProductButton>());
+        }
+        else
+        {
+            buttons.Add(buttonObj.GetComponentInChildren<CardProductButton>());
+        }
         buttonObj.transform.localPosition = new Vector3(totalHorizontalInterval, -totalVerticalInterval, 0);
         totalHorizontalInterval += HorizontalInterval;
 
@@ -50,7 +56,7 @@ public class CardUIBase : MonoBehaviour
         }
     }
 
-
+    /*
     public void ResetAllButtons()
     {
         foreach (var button in buttons)
@@ -58,11 +64,12 @@ public class CardUIBase : MonoBehaviour
             button.RefreshState();
         }
     }
-
+    */
+    /*
     public void RemoveButton(CardProductButton button)
     {
         buttons.Remove(button);
         totalCardCount--;
         totalHorizontalInterval -= HorizontalInterval;
-    }
+    }*/
 }

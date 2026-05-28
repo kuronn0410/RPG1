@@ -2121,6 +2121,7 @@ GameObject:
   - component: {fileID: 1913742234}
   - component: {fileID: 1913742236}
   - component: {fileID: 1913742235}
+  - component: {fileID: 1913742237}
   m_Layer: 0
   m_Name: CradManager
   m_TagString: Untagged
@@ -2186,7 +2187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8fe935d96b2474d87525ba6885fb8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardDeckManager
-  possessionCardUI: {fileID: 1913742233}
   DeckCardNumber: 5
   deckCardUI: {fileID: 1913742236}
 --- !u!114 &1913742236
@@ -2207,6 +2207,18 @@ MonoBehaviour:
   productButtonPrefab: {fileID: 6967442880081734189, guid: f89e8c67194785b47bd2c6f406cbceef, type: 3}
   cardDatabase: {fileID: 11400000, guid: 9f58e52f11c462945a73e58a08e82280, type: 2}
   mode: 1
+--- !u!114 &1913742237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913742231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557a9b90ee5c494488486e0dadd54f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardButtonStateManager
 --- !u!1 &2090423566
 GameObject:
   m_ObjectHideFlags: 0

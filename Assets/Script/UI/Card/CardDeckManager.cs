@@ -2,12 +2,12 @@ using UnityEngine;
 using System.Collections.Generic;
 
 // カードデッキの管理をするクラス
-//現在のデッキの枚数・カードの種類を管理するクラス
+//現在のデッキのカードの種類を管理するクラス
 public class CardDeckManager : MonoBehaviour
 {
     public static CardDeckManager Instance;
 
-    [SerializeField] private PossessionCardUI possessionCardUI;
+    //[SerializeField] private PossessionCardUI possessionCardUI;
 
     void Awake()
     {
@@ -22,7 +22,7 @@ public class CardDeckManager : MonoBehaviour
     [SerializeField] int DeckCardNumber = 5;
     [SerializeField] private DeckCardUI deckCardUI;
     int count = 0;
-    public  static List<CardType> setcards = new List<CardType>();
+    public  static HashSet<CardType> setcards = new HashSet<CardType>();
 
     public void AddCardToDeck(CardType card)
     {
@@ -31,25 +31,10 @@ public class CardDeckManager : MonoBehaviour
             count++;
             setcards.Add(card);
             deckCardUI.AddDeckCardData(card);
-            possessionCardUI.ResetAllButtons();
+            //possessionCardUI.ResetAllButtons();
 
             Debug.Log("カードをデッキに追加しました。現在のカード数: " + count);
 
-        }
-        else
-        {
-           return;
-        }
-    }
-
-    public void RemoveCardFromDeck(CardType card)
-    {
-        if (count > 0)
-        {
-            count--;
-            setcards.Remove(card);
-            possessionCardUI.ResetAllButtons();
-            Debug.Log("カードをデッキから削除しました。現在のカード数: " + count);
         }
         else
         {
@@ -57,8 +42,26 @@ public class CardDeckManager : MonoBehaviour
         }
     }
 
+    //CardButtonStateManagerを呼び出して
+    public void RemoveCardFromDeck(CardType card)
+    {
+        if (count > 0)
+        {
+            count--;
+            setcards.Remove(card);
+            deckCardUI.RemoveDeckCardUI(card);
+            CardButtonStateManager.Instance.ResetCardByRemovedeck(card);
+            Debug.Log("カードをデッキから削除しました。現在のカード数: " + count);
+        }
+        else
+        {
+            return;
+        }
+    }
+    /*
     public bool IsInDeck(CardType cardType)
     {
         return setcards.Contains(cardType);
     }
+    */
 }

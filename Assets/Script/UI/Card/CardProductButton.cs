@@ -55,7 +55,7 @@ public class CardProductButton : MonoBehaviour
         {
             case CardButtonMode.PossessionCard:
                 button.onClick.AddListener(() => OnPossessionCardClicked(cardType));
-                RefreshState();
+                //RefreshState();
                 break;
             case CardButtonMode.Deck:
                 button.onClick.AddListener(() => OnDeckCardClicked(cardType));
@@ -84,7 +84,13 @@ public class CardProductButton : MonoBehaviour
                 break;
         }
     }
+    //このボタンのカードの種類を返す関数
+    public CardType GetCardType()
+    {
+        return cardType;
+    }
 
+    /*
     public void RefreshState()
     {
         if (CardDeckManager.Instance.IsInDeck(cardType))
@@ -95,8 +101,9 @@ public class CardProductButton : MonoBehaviour
         {
             ResetButton();
         }
-    }
+    }*/
 
+    //カードがデッキに入っている状態の処理
     private void SelectState()
     {
         isSelected = true;
@@ -104,6 +111,7 @@ public class CardProductButton : MonoBehaviour
         button.image.color = Color.gray;
     }
 
+    //カードがデッキに入っていない状態の処理
     public void ResetButton()
     {
         isSelected = false;
@@ -114,15 +122,20 @@ public class CardProductButton : MonoBehaviour
     public void OnPossessionCardClicked(CardType cardType)
     {
         CardDeckManager.Instance.AddCardToDeck(cardType);
-        RefreshState();
+        SelectState();  
+
+
     }
 
+    //デッキからカードを外す処理
+    //CardDeckManagerのRemoveCardFromDeckを呼び出して、カードをデッキから外す処理をする
     public void OnDeckCardClicked(CardType cardType)
     {
         CardDeckManager.Instance.RemoveCardFromDeck(cardType);
-        //SelectState();
-        cardUIBase.ResetAllButtons();
-        cardUIBase.RemoveButton(this);
+    }
+
+    public void DestroyCardButton()
+    {
         Destroy(rootObj);
     }
 }
