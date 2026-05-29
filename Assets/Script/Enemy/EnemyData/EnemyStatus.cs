@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyStatus : MonoBehaviour, IDamageable
 {
     [SerializeField] private EnemyType enemyType;
-    [SerializeField] EnemyDatabase enemyDatabase;
+    //[SerializeField] EnemyDatabase enemyDatabase;
 
     public int remainHp;
     public int SaveMaxHP;
@@ -16,28 +16,30 @@ public class EnemyStatus : MonoBehaviour, IDamageable
 
     bool isDead = false;
 
+
+    public void SetUpEnemyStatus()
+    {
+       foreach(EnemyParameter enemyParameter in CurrentEnemyStatus.currentEnemyParameters)
+       {
+           if(enemyParameter.enemyType == enemyType)
+           {
+               remainHp = enemyParameter.maxHp;
+               SaveMaxHP = enemyParameter.maxHp;
+               dropExp = enemyParameter.dropExp;
+               dropMoney = enemyParameter.dropMoney;
+                Debug.Log(enemyType + " 生成時HP: " + remainHp);
+                break;
+
+            }
+       }
+    }
+
     private void Start()
     {
         enemyManager = FindFirstObjectByType<EnemyManager>();
         enemyManager.AddEnemy(this);
         experienceSystem = FindFirstObjectByType<ExperienceSystem>();
         moneySystem = FindFirstObjectByType<MoneySystem>(); // マネーシステムを取得
-        switch (enemyType)
-        {
-            case EnemyType.Saboten:
-                enemyParameter = enemyDatabase.enemies[0]; // サボテンのパラメータを取得
-                break;
-            case EnemyType.Kinoko:
-                enemyParameter = enemyDatabase.enemies[1]; // キノコのパラメータを取得
-                break;
-            default:
-                break;
-        }
-        SaveMaxHP = enemyParameter.maxHp; // 最大HPを保存
-        remainHp = enemyParameter.maxHp; // 敵のHPを初期化
-        dropExp = enemyParameter.dropExp; // ドロップ経験値を保存
-        dropMoney = enemyParameter.dropMoney; // ドロップマネーを保存
-
     }
 
 

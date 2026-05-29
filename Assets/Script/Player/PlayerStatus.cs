@@ -4,6 +4,10 @@ public class PlayerStatus : MonoBehaviour, IDamageable
 {
 
     public static PlayerStatus Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     [Header("Player HP")]
     public int SaveMaxHP;//•\Ž¦—p

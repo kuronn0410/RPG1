@@ -9,5 +9,5 @@ public class EnemyParameter
     public float moveSpeed;
     public int dropExp;
     public int dropMoney;
-    public GameObject prefab;
+    //public GameObject prefab;
 }

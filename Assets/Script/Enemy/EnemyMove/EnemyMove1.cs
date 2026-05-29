@@ -11,24 +11,14 @@ public class EnemyMove1 : MonoBehaviour
     private EnemyAttack enemyAttack;
     private Vector3 startPosition;
 
-   
-
     [Header("Animation")]
     public bool IsMoving { get; private set; }
-
+    private Transform player;
 
     void Start()
     {
         enemyAttack = GetComponent<EnemyAttack>();
         player    = PlayerStatus.Instance.transform;
-        if (playerStatus != null)
-        {
-            player = playerStatus.transform;
-        }
-        else
-        {
-            Debug.LogError("PlayerStatusが見つかりませんでした。");
-        }
 
     }
     void Update()
@@ -41,9 +31,6 @@ public class EnemyMove1 : MonoBehaviour
     void move1()
     {
         if (player == null) return;
-
-
-
         float distance = Vector3.Distance(transform.position, player.position);
         Vector3 directionToPlayer = (player.position - transform.position).normalized;// プレイヤーへの方向を計算
         Vector3 rayStart = transform.position + Vector3.up * 0.5f;
