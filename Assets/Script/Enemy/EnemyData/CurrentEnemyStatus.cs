@@ -62,11 +62,11 @@ public class CurrentEnemyStatus : MonoBehaviour
         foreach(EnemyParameter enemyParameter in currentEnemyParameters)
         {
 
-             enemyParameter.maxHp += 2*level;
-             enemyParameter.attack += 1*level;
+             enemyParameter.maxHp += 100*level;
+             enemyParameter.attack += 20*level;
              //enemyParameter.moveSpeed += 0.1f*level;
-             enemyParameter.dropExp += 1*level;
-             enemyParameter.dropMoney += 1*level;
+             enemyParameter.dropExp += 30*level;
+             enemyParameter.dropMoney += 10*level;
            Debug.Log("ステータスがレベルアップ");
 
         }

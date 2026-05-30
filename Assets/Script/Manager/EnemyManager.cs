@@ -7,8 +7,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] DoorChange doorChange;
     [SerializeField] CurrentEnemyStatus currentEnemyStatus;
 
-    public static int Level = 1;
-
     private List<EnemyStatus> enemies = new List<EnemyStatus>();
 
     private void Start()
@@ -32,9 +30,13 @@ public class EnemyManager : MonoBehaviour
             Debug.Log("全敵撃破");
             if (doorChange != null)
             {
-                Level+=100;
-                Debug.Log("Enemyレベルアップ: " + Level);
-                currentEnemyStatus.LevelUpEnemy(Level);
+                PlayerLevelData.Level += 1;
+                if (PlayerLevelData.Level == 4)
+                { 
+                        GameStateUI.Instance.VictoryPanel();
+                }
+                Debug.Log("Enemyレベルアップ: " + PlayerLevelData.Level);
+                currentEnemyStatus.LevelUpEnemy(PlayerLevelData.Level);
                 doorChange.enabled = true;
             }
 

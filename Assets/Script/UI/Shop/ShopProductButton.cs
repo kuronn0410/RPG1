@@ -5,6 +5,7 @@ public class ShopProductButton : MonoBehaviour
 {
     [SerializeField] private Button button;
     [SerializeField] private Text nameTxt;
+    [SerializeField] private Text priceTxt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private IShop shopData;
@@ -25,6 +26,7 @@ public class ShopProductButton : MonoBehaviour
         
         isPurchased = false;
         nameTxt.text = name;
+        priceTxt.text = price.ToString();
         //Debug.Log(button);
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>

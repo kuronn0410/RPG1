@@ -121,10 +121,12 @@ public class CardProductButton : MonoBehaviour
         CardDeckManager.Instance.RemoveCardFromDeck(cardType);
     }
 
+    
     public void OnUseCardClicked(CardType cardType)
     {
-        // 使用モードの処理
+       
     }
+    
 
     public void DestroyCardButton()
     {

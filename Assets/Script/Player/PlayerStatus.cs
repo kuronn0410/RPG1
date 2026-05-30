@@ -40,6 +40,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
             {
                 PlayerLevelData.currentHp = 0;
                 Debug.Log("Player defeated!");
+                GameStateUI.Instance.GameOverPanel(); // ゲームオーバーUIを表示
             }
         }
         //PlayerLevelData.currentHp = remainHp; // PlayerLevelDataのcurrentHpを更新
@@ -58,6 +59,18 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         dealingDamage = baseDamage + weapponDamage; // 武器のダメージを保存
 
         return dealingDamage;
+    }
+
+    public void Heal()
+    {
+        PlayerLevelData.currentHp = PlayerLevelData.maxHp;
+    }
+
+    public void AttackUp(int attackAmount)
+    {
+        //１ターンの間、攻撃力を上昇させる処理
+        baseDamage += attackAmount; // 攻撃力を上昇
+        Debug.Log("Attack increased by " + attackAmount + "!");
     }
 
 }

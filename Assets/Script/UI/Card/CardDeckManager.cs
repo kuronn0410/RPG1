@@ -7,7 +7,6 @@ public class CardDeckManager : MonoBehaviour
 {
     public static CardDeckManager Instance;
 
-    //[SerializeField] private PossessionCardUI possessionCardUI;
 
     void Awake()
     {
@@ -22,20 +21,22 @@ public class CardDeckManager : MonoBehaviour
     [SerializeField] int DeckCardNumber = 5;
     [SerializeField] private DeckCardUI deckCardUI;
     [SerializeField] private UseCardUI useCardUI;
-    int count = 0;
-    public  static HashSet<CardType> setcards = new HashSet<CardType>();
-
+    //int count = 0;
+    //public  static HashSet<CardType> setcards = new HashSet<CardType>();
+    public static List<CardType> setcards = new List<CardType>();
     public void AddCardToDeck(CardType card)
     {
-        if (count < DeckCardNumber)
+        if (setcards.Count < DeckCardNumber)
         {
-            count++;
+            if (setcards.Contains(card))
+                return;
+
             setcards.Add(card);
             deckCardUI.AddDeckCardData(card);
             useCardUI.AddDeckCardData(card);
-            //possessionCardUI.ResetAllButtons();
+            //count++;
 
-            Debug.Log("カードをデッキに追加しました。現在のカード数: " + count);
+            Debug.Log("カードをデッキに追加しました。現在のカード数: " + setcards.Count);
 
         }
         else
@@ -47,24 +48,18 @@ public class CardDeckManager : MonoBehaviour
     //CardButtonStateManagerを呼び出して
     public void RemoveCardFromDeck(CardType card)
     {
-        if (count > 0)
+        if (setcards.Contains(card))
         {
-            count--;
+            
             setcards.Remove(card);
             deckCardUI.RemoveDeckCardUI(card);
+            useCardUI.RemoveDeckCardUI(card);
             CardButtonStateManager.Instance.ResetCardByRemovedeck(card);
-
-            Debug.Log("カードをデッキから削除しました。現在のカード数: " + count);
+            Debug.Log("カードをデッキから削除しました。現在のカード数: " + setcards.Count);
         }
         else
         {
             return;
         }
     }
-    /*
-    public bool IsInDeck(CardType cardType)
-    {
-        return setcards.Contains(cardType);
-    }
-    */
 }

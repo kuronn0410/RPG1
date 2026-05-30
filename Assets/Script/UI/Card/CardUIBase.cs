@@ -55,21 +55,4 @@ public class CardUIBase : MonoBehaviour
             totalVerticalInterval += VerticalInterval;
         }
     }
-
-    /*
-    public void ResetAllButtons()
-    {
-        foreach (var button in buttons)
-        {
-            button.RefreshState();
-        }
-    }
-    */
-    /*
-    public void RemoveButton(CardProductButton button)
-    {
-        buttons.Remove(button);
-        totalCardCount--;
-        totalHorizontalInterval -= HorizontalInterval;
-    }*/
 }

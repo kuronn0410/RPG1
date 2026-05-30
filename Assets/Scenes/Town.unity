@@ -152,6 +152,79 @@ Transform:
   - {fileID: 1630613075}
   m_Father: {fileID: 798132880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &188483505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188483506}
+  - component: {fileID: 188483509}
+  - component: {fileID: 188483508}
+  - component: {fileID: 188483507}
+  m_Layer: 0
+  m_Name: CardAbilityManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &188483506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188483505}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.24786, y: 0, z: 0.14958}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 798132880}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188483507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188483505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75b9b77fcb6afd47b966d72457162bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealCardAbility
+--- !u!114 &188483508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188483505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973887f5a2e5a484e9b23007ff69a4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackBoostCardAbility
+  attackBoostAmount: 100
+--- !u!114 &188483509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188483505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0164f35fe8880744ea90a19c8ec98293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardAbilityManeger
+  healCardAbility: {fileID: 188483507}
+  attackBoostCardAbility: {fileID: 188483508}
 --- !u!1 &220150176
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +972,7 @@ Transform:
   - {fileID: 42869150}
   - {fileID: 1043773146}
   - {fileID: 1913742232}
+  - {fileID: 188483506}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800339857
@@ -945,6 +1019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713f81e60fe301848af5b4e6afb9e3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  doorChange: {fileID: 0}
+  currentEnemyStatus: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,6 +2204,7 @@ GameObject:
   - component: {fileID: 1913742235}
   - component: {fileID: 1913742237}
   - component: {fileID: 1913742238}
+  - component: {fileID: 1913742239}
   m_Layer: 0
   m_Name: CradManager
   m_TagString: Untagged
@@ -2244,6 +2321,18 @@ MonoBehaviour:
   productButtonPrefab: {fileID: 6967442880081734189, guid: 6f8ddc71048a544448e073cdb7d99c2f, type: 3}
   cardDatabase: {fileID: 11400000, guid: 9f58e52f11c462945a73e58a08e82280, type: 2}
   mode: 2
+--- !u!114 &1913742239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913742231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047a7292195a2584a8233f0cc161c370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputCardUse
 --- !u!1 &2090423566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,6 +3123,10 @@ PrefabInstance:
     - target: {fileID: 702935366638997432, guid: 854e8bf0b0d516849b97f50714cdb092, type: 3}
       propertyPath: m_Name
       value: MapCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 702935366638997432, guid: 854e8bf0b0d516849b97f50714cdb092, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5602701815533002613, guid: 854e8bf0b0d516849b97f50714cdb092, type: 3}
       propertyPath: m_Pivot.x
