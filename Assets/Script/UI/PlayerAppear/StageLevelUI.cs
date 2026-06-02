@@ -22,7 +22,7 @@ public class StageLevelUI : MonoBehaviour
 
     void Start()
     {
-        int level = PlayerLevelData.Level;
+        int level = PlayerLevelData.StageLevel;
         switch (level)
         {
             case 1:

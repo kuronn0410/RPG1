@@ -30,13 +30,13 @@ public class EnemyManager : MonoBehaviour
             Debug.Log("全敵撃破");
             if (doorChange != null)
             {
-                PlayerLevelData.Level += 1;
-                if (PlayerLevelData.Level == 4)
+                PlayerLevelData.StageLevel += 1;
+                if (PlayerLevelData.StageLevel == 4)
                 { 
                         GameStateUI.Instance.VictoryPanel();
                 }
-                Debug.Log("Enemyレベルアップ: " + PlayerLevelData.Level);
-                currentEnemyStatus.LevelUpEnemy(PlayerLevelData.Level);
+                Debug.Log("Enemyレベルアップ: " + PlayerLevelData.StageLevel);
+                //currentEnemyStatus.LevelUpEnemy(PlayerLevelData.StageLevel);
                 doorChange.enabled = true;
             }
 

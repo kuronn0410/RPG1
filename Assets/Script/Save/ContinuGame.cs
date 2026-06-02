@@ -22,12 +22,13 @@ public class ContinuGame : MonoBehaviour
     {
         Debug.Log("ContinuGame");
         PlayerLevelData.level = data.playerLevel;
-        PlayerLevelData.maxHp = data.MaxHp;
         PlayerLevelData.currentHp = data.CurrentHp;
-        PlayerLevelData.damage = data.Damage;
         PlayerLevelData.nextLevelExperience = data.CurrentExp;
         PlayerLevelData.money = data.Money;
         PlayerLevelData.currentWeaponType = data.currentWeaponType;
         PossessionWeapon.possessionWeapon = new HashSet<WeaponType>(data.possessionWeaponTypes);
+        PlayerLevelData.StageLevel = data.StageLevel;
+        CardDeckManager.setcards = new List<CardType>(data.setcards);
+        PossessionCard.possessionCards = new HashSet<CardType>(data.possessionCards);
     }
 }

@@ -19,7 +19,7 @@ public class EnemyStatus : MonoBehaviour, IDamageable
 
     public void SetUpEnemyStatus()
     {
-       foreach(EnemyParameter enemyParameter in CurrentEnemyStatus.currentEnemyParameters)
+       foreach(EnemyParameter enemyParameter in CurrentEnemyStatus.Instance.currentEnemyParameters)
        {
            if(enemyParameter.enemyType == enemyType)
            {

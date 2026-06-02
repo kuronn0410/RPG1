@@ -5,11 +5,13 @@ using System.Collections.Generic;
 public class SaveData 
 {
     public int playerLevel;
-    public int MaxHp;
     public int CurrentHp;
-    public int Damage;
     public int CurrentExp;
     public int Money;
     public WeaponType currentWeaponType;
     public List<WeaponType> possessionWeaponTypes;
+    public int StageLevel;
+    public List<CardType> setcards; 
+    public List<CardType> possessionCards;
+
 }

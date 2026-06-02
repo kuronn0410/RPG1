@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class ResetGame : MonoBehaviour
 {
     [SerializeField] private ContinuGame continuGame;
+    [SerializeField] private PlayerBaseStatus playerBaseStatus;
 
     public void GameDataReset()
     {
@@ -50,14 +51,15 @@ public class ResetGame : MonoBehaviour
 
     void SetInitializeGameData(SaveData data)
     {
-       data.playerLevel = 1;
-       data.MaxHp = 100;
-       data.CurrentHp = 100;
-       data.CurrentExp = 0;
-       data.Damage = 5;
+       data.playerLevel = playerBaseStatus.playerLevel;
+       data.CurrentHp = playerBaseStatus.baseHp;
        data.currentWeaponType = WeaponType.Sword;
+       data.CurrentExp = 0;
        data.Money = 0;
        data.possessionWeaponTypes = new List<WeaponType>() { WeaponType.Sword };
+       data.StageLevel = 1;
+       data.setcards = new List<CardType>();    
+       data.possessionCards = new List<CardType>();
         Debug.Log("ResetGame");
     }
 }

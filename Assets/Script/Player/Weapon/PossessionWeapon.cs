@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class PossessionWeapon : CardUIBase
+public class PossessionWeapon : MonoBehaviour
 {
     public static PossessionWeapon Instance;
     

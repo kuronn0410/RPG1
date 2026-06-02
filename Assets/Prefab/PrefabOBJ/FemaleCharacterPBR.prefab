@@ -1494,6 +1494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad9ea44daa152a449dbccd3f2bb90b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
+  playerBaseStatus: {fileID: 11400000, guid: 9eed9584ec4189b40afe48430abd8906, type: 2}
   SaveMaxHP: 0
   remainHp: 0
   dealingDamage: 0
@@ -1536,6 +1537,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99301183795ab0146870efb002ac6d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessionWeapon
+  HorizontalInterval: 0
+  VerticalInterval: 0
+  parentObj: {fileID: 0}
+  productButtonPrefab: {fileID: 0}
+  cardDatabase: {fileID: 0}
+  mode: 0
+  weaponSwitchUI: {fileID: 0}
 --- !u!1 &4217342706061792649
 GameObject:
   m_ObjectHideFlags: 0

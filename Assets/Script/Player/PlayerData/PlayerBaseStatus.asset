@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfced244167333d488223f60f8db14b4, type: 3}
   m_Name: PlayerBaseStatus
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBaseStatus
-  baseHp: 200
-  baseMp: 100
-  baseDamage: 15
-  baseDefense: 100
+  playerLevel: 1
+  baseHp: 100
+  baseDamage: 10

@@ -1519,6 +1519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResetGame
   continuGame: {fileID: 2062435799}
+  playerBaseStatus: {fileID: 11400000, guid: 9eed9584ec4189b40afe48430abd8906, type: 2}
 --- !u!114 &2062435799
 MonoBehaviour:
   m_ObjectHideFlags: 0

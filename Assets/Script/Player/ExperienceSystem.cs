@@ -5,12 +5,9 @@ public class ExperienceSystem : MonoBehaviour
     public int SaveLevel;
     public int SaveExperience = 0;
     [SerializeField] PlayerBaseStatus playerBaseStatus;
-    private PlayerStatus playerStatus;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //playerBaseStatus = GetComponent<PlayerBaseStatus>();
-        playerStatus = GetComponent<PlayerStatus>();
+        
         
     }
 
@@ -27,8 +24,7 @@ public class ExperienceSystem : MonoBehaviour
     void LevelUp()
     {
         PlayerLevelData.level++;
-        PlayerLevelData.maxHp += 1;
-        PlayerLevelData.damage += 1;
-        playerStatus.LevelUpHeal(); // レベルアップ時にHPを全回復
+        PlayerStatus.Instance.LevelUpAndLoadData(PlayerLevelData.level);
+        PlayerStatus.Instance.LevelUpHeal(); // レベルアップ時にHPを全回復
     }
 }

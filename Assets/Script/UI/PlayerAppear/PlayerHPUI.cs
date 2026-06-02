@@ -6,23 +6,16 @@ public class PlayerHPUI : MonoBehaviour
     //[SerializeField] private PlayerStatus playerStatus;
     [SerializeField] private Text playerHpText;
     [SerializeField] private Text playerLevelText;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //playerStatus = FindFirstObjectByType<PlayerStatus>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (PlayerLevelData.maxHp <= 0)
+        if (PlayerStatus.Instance.SaveMaxHP <= 0)
         {
             playerHpText.enabled = false;
         }
         else
         {
             playerHpText.enabled = true;
-            playerHpText.text = "HP: " + PlayerLevelData.currentHp + " / " + PlayerLevelData.maxHp;
+            playerHpText.text = "HP: " + PlayerLevelData.currentHp + " / " + PlayerStatus.Instance.SaveMaxHP;
             playerLevelText.text = "Level: " + PlayerLevelData.level;
         }
        

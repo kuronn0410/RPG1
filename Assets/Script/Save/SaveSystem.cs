@@ -6,19 +6,6 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance;
 
-    /*private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }*/
-
     public void Save()
     {
         Debug.Log("保存前");
@@ -37,13 +24,15 @@ public class SaveSystem : MonoBehaviour
     {
         //それぞれのスクリプトからセーブデータを取得して、セーブデータに保存する処理
        data.playerLevel = PlayerLevelData.level;
-       data.MaxHp = PlayerLevelData.maxHp;
        data.CurrentHp = PlayerLevelData.currentHp;
-       data.Damage = PlayerLevelData.damage;
        data.CurrentExp = PlayerLevelData.nextLevelExperience;
        data.Money = PlayerLevelData.money;
        data.currentWeaponType = PlayerLevelData.currentWeaponType;
        data.possessionWeaponTypes = new List<WeaponType>(PossessionWeapon.possessionWeapon);
+       data.StageLevel = PlayerLevelData.StageLevel;
+        data.setcards = new List<CardType>(CardDeckManager.setcards);
+       data.possessionCards = new List<CardType>(PossessionCard.possessionCards);
+
     }
 
 

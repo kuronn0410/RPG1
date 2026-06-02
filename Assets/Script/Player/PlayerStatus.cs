@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour, IDamageable
 {
+    [SerializeField] private PlayerBaseStatus playerBaseStatus;
 
     public static PlayerStatus Instance;
     private void Awake()
@@ -9,33 +10,32 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         Instance = this;
     }
 
-    [Header("Player HP")]
+    [Header("PlayerStatus")]
     public int SaveMaxHP;//表示用
     //public int remainHp;
     private int baseDamage; // ダメージ量を保存する変数
+    [Header("返す値")]
     public int dealingDamage;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SaveMaxHP = PlayerLevelData.maxHp;
+        LevelUpAndLoadData(PlayerLevelData.level);
+    }
+
+
+    public void LevelUpAndLoadData(int level)
+    {
+        SaveMaxHP = playerBaseStatus.baseHp+ (20*(level-1));
+        baseDamage = playerBaseStatus.baseDamage + (5 *(level-1));
         //remainHp = PlayerLevelData.currentHp;
-        baseDamage = PlayerLevelData.damage;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Damage(int takeDamage)
     {
-        
-    }
-
-    public void Damage(int damage)
-    {
-        Debug.Log("Take " + damage + " damage!");
-        // Here you can implement health reduction, death, etc.
+        //Debug.Log("Take " + damage + " damage!");
         if (PlayerLevelData.currentHp > 0)
         {
-            PlayerLevelData.currentHp -= damage; // ダメージをHPから減算
+            PlayerLevelData.currentHp -= takeDamage; // ダメージをHPから減算
             if (PlayerLevelData.currentHp <= 0)
             {
                 PlayerLevelData.currentHp = 0;
@@ -43,27 +43,25 @@ public class PlayerStatus : MonoBehaviour, IDamageable
                 GameStateUI.Instance.GameOverPanel(); // ゲームオーバーUIを表示
             }
         }
-        //PlayerLevelData.currentHp = remainHp; // PlayerLevelDataのcurrentHpを更新
     }
 
     public void LevelUpHeal()
     {
-        SaveMaxHP = PlayerLevelData.maxHp;
-        PlayerLevelData.currentHp = PlayerLevelData.maxHp; // PlayerLevelDataのcurrentHpを更新
-        baseDamage = PlayerLevelData.damage;
+        PlayerLevelData.currentHp = SaveMaxHP;
     }
 
     //武器側に与えるダメージを計算するための関数
     public int DamageCalculation(int weapponDamage)
     {
         dealingDamage = baseDamage + weapponDamage; // 武器のダメージを保存
-
         return dealingDamage;
     }
 
+
+    //カード使用時の処理
     public void Heal()
     {
-        PlayerLevelData.currentHp = PlayerLevelData.maxHp;
+        LevelUpHeal(); // HPを全回復
     }
 
     public void AttackUp(int attackAmount)

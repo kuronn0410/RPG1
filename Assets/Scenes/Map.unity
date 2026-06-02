@@ -3021,6 +3021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResetGame
   continuGame: {fileID: 1162549978}
+  playerBaseStatus: {fileID: 11400000, guid: 9eed9584ec4189b40afe48430abd8906, type: 2}
 --- !u!114 &1162549978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4258,6 +4259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurrentEnemyStatus
   enemyDatabase: {fileID: 11400000, guid: 9b8201139d3a49249943d50d56c8bea5, type: 2}
+  currentEnemyParameters: []
 --- !u!114 &1676648064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5748,6 +5750,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2378162844241411794, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
+      propertyPath: playerBaseStatus
+      value: 
+      objectReference: {fileID: 11400000, guid: 9eed9584ec4189b40afe48430abd8906, type: 2}
     - target: {fileID: 3373529903610578858, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.04
