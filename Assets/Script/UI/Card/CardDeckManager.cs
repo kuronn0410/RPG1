@@ -62,15 +62,4 @@ public class CardDeckManager : MonoBehaviour
             return;
         }
     }
-
-    public void ClearDeck()
-    {
-        setcards.Clear();
-        deckCardUI.RemoveDeckCardUI(CardType.None);
-        useCardUI.RemoveDeckCardUI(CardType.None);
-        CardButtonStateManager.Instance.ResetAllCards();
-        Debug.Log("デッキをクリアしました。");
-    }
-
-
 }
