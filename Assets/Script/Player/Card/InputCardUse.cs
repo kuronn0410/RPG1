@@ -40,8 +40,8 @@ public class InputCardUse : MonoBehaviour
             return;
         }
         CardType cardType = CardDeckManager.setcards[cardIndex];
-        CardDeckManager.Instance.RemoveCardFromDeck(cardType);
         CardAbilityManeger.Instance.UseCardAbility(cardType);
+        CardDeckManager.Instance.RemoveCardFromDeck(cardType);
         Debug.Log($"Used Card: {cardType}");
     }
 }

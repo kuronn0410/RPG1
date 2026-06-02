@@ -339,6 +339,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &16491590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1197260079251290573, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+  m_PrefabInstance: {fileID: 3879793246723115042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &23671050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1051,7 +1056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DeckCardUI
   HorizontalInterval: 218
   VerticalInterval: 217
-  parentObj: {fileID: 0}
+  parentObj: {fileID: 1545948156}
   productButtonPrefab: {fileID: 6967442880081734189, guid: f89e8c67194785b47bd2c6f406cbceef, type: 3}
   cardDatabase: {fileID: 11400000, guid: 9f58e52f11c462945a73e58a08e82280, type: 2}
   mode: 1
@@ -1082,7 +1087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PossessionCardUI
   HorizontalInterval: 340
   VerticalInterval: 250
-  parentObj: {fileID: 0}
+  parentObj: {fileID: 16491590}
   productButtonPrefab: {fileID: 6967442880081734189, guid: 149de841f2adfef46b8116b260d452f4, type: 3}
   cardDatabase: {fileID: 11400000, guid: 9f58e52f11c462945a73e58a08e82280, type: 2}
   mode: 0
@@ -3695,6 +3700,11 @@ MeshCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c8e61fdddf55354db836ec64ba8fe94, type: 3}
   m_PrefabInstance: {fileID: 1967664641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1545948156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4416889966801935054, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+  m_PrefabInstance: {fileID: 3879793246723115042}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1570414409
 GameObject:
