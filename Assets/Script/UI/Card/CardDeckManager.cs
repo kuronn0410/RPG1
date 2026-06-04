@@ -24,12 +24,12 @@ public class CardDeckManager : MonoBehaviour
     //int count = 0;
     //public  static HashSet<CardType> setcards = new HashSet<CardType>();
     public static List<CardType> setcards = new List<CardType>();
-    public void AddCardToDeck(CardType card)
+    public bool AddCardToDeck(CardType card)
     {
         if (setcards.Count < DeckCardNumber)
         {
             if (setcards.Contains(card))
-                return;
+                return false;
 
             setcards.Add(card);
             deckCardUI.AddDeckCardData(card);
@@ -37,11 +37,11 @@ public class CardDeckManager : MonoBehaviour
             //count++;
 
             Debug.Log("カードをデッキに追加しました。現在のカード数: " + setcards.Count);
-
+            return true;
         }
         else
         {
-            return;
+            return false;
         }
     }
 

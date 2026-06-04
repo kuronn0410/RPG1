@@ -9,23 +9,15 @@ public class WeaponDamage : MonoBehaviour
     private PlayerStatus playerStatus;
     private WeaponParameter weaponParameter;
     private int weaponDamage;
-    
-    
+    [Header("毒攻撃用")]
+    private bool isPoisonDamageActive = false; // 毒ダメージが有効かどうかのフラグ
+    private int poisonDamage;
+    private float poisonIntervalTime;
+    private int repeatTimes;
+
+
     void Start()
     {
-        /*switch (weaponType)
-        {
-            case WeaponType.Sword:
-                weaponParameter = weaponDatabase.weapons[0];
-                break;
-            case WeaponType.Sickle:
-                weaponParameter = weaponDatabase.weapons[1];
-                break;
-            default:
-                Debug.LogError("Invalid weapon type!");
-                break;
-            
-        }*/
         weaponParameter = weaponDatabase.GetWeaponData(weaponType);
         weaponCollider = GetComponent<Collider>();
         //playerAttack = GetComponentInParent<PlayerAttack>();
@@ -44,14 +36,29 @@ public class WeaponDamage : MonoBehaviour
     {
         Debug.Log(other.name);
         IDamageable damageable = other.GetComponent<IDamageable>();
+        EnemyStatus enemyStatus = other.GetComponent<EnemyStatus>();
         if (damageable != null)
         {
             int damage = playerStatus.DamageCalculation(weaponDamage);
             damageable.Damage(damage);
-
+            
+            if (isPoisonDamageActive)
+            {
+                enemyStatus.PoisonDamage(poisonDamage, poisonIntervalTime, repeatTimes); // 毒ダメージを適用
+                isPoisonDamageActive = false; // 毒ダメージの適用が完了したらフラグをリセット
+            }
         }
     }
 
+   
+
+    public void PoisonDamageOn(int poisonDamage, float poisonIntervalTime, int repeatTimes)
+    {
+        this.poisonDamage = poisonDamage;
+        this.poisonIntervalTime = poisonIntervalTime;
+        this.repeatTimes = repeatTimes; // 毒ダメージの繰り返し回数を設定
+        isPoisonDamageActive = true;
+    }
     public void EnableCollider()
     {
        

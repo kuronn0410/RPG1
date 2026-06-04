@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class ExperienceSystem : MonoBehaviour
 {
-    public int SaveLevel;
-    public int SaveExperience = 0;
-    [SerializeField] PlayerBaseStatus playerBaseStatus;
-    void Start()
+   
+    [SerializeField] private PlayerStatus playerStatus;
+    public event System.Action<int> OnLevelUp;
+    public event System.Action<int> OnExperienceAdded;
+
+    private void Awake()
     {
-        
-        
+        //インスペクターで設定されていることを確認
+        Debug.Assert(playerStatus != null, "ExperienceSystem: playerStatus が設定されていません");
+
     }
 
     public void AddExperience(int exp)
@@ -17,6 +20,7 @@ public class ExperienceSystem : MonoBehaviour
         if (PlayerLevelData.nextLevelExperience >= 100 * PlayerLevelData.level) // Example threshold for leveling up
         {
             PlayerLevelData.nextLevelExperience -= 100 * PlayerLevelData.level; // Set next level experience threshold
+            OnExperienceAdded?.Invoke(PlayerLevelData.nextLevelExperience);
             LevelUp();
         }
     }
@@ -24,7 +28,8 @@ public class ExperienceSystem : MonoBehaviour
     void LevelUp()
     {
         PlayerLevelData.level++;
-        PlayerStatus.Instance.LevelUpAndLoadData(PlayerLevelData.level);
-        PlayerStatus.Instance.LevelUpHeal(); // レベルアップ時にHPを全回復
+        playerStatus.LevelUpAndLoadData(PlayerLevelData.level);
+        playerStatus.LevelUpHeal(); // レベルアップ時にHPを全回復
+        OnLevelUp?.Invoke(PlayerLevelData.level);
     }
 }

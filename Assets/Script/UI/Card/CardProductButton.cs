@@ -26,6 +26,7 @@ public class CardProductButton : MonoBehaviour
     private int cost;
     private bool isSelected = false;
     private CardUIBase cardUIBase;
+    private bool notAddedToDeck = false; // デッキに追加されたかどうかを追跡するフラグ
 
     public void SetUp(CardData cardData, CardButtonMode mode, CardUIBase cardUIBase)
     {
@@ -108,8 +109,15 @@ public class CardProductButton : MonoBehaviour
 
     public void OnPossessionCardClicked(CardType cardType)
     {
-        CardDeckManager.Instance.AddCardToDeck(cardType);
-        SelectState();  
+        notAddedToDeck = CardDeckManager.Instance.AddCardToDeck(cardType);
+        if (notAddedToDeck)
+        {
+            SelectState();
+        }
+        else
+        {
+            return;
+        }
 
 
     }

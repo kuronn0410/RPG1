@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyStatus : MonoBehaviour, IDamageable
 {
@@ -55,6 +56,24 @@ public class EnemyStatus : MonoBehaviour, IDamageable
             {
                 Die();
             }
+        }
+    }
+
+    public void PoisonDamage(int damage, float intervalTime, int repeatTimes)
+    {
+       if(isDead) return;
+           // 毒ダメージの適用が完了したらフラグをリセット
+       StartCoroutine(ApplyPoisonDamage(damage, intervalTime, repeatTimes));
+      
+    }
+
+    private IEnumerator ApplyPoisonDamage(int damage, float intervalTime, int repeatTimes)
+    {
+        for (int i = 0; i < repeatTimes; i++)
+        {
+            yield return new WaitForSeconds(intervalTime);
+            if (isDead) yield break;
+            Damage(damage);
         }
     }
 

@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5680378607489596756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5034004037828393418}
+  - component: {fileID: 2344492886932719875}
+  - component: {fileID: 5689357370886664863}
+  - component: {fileID: 5327273121578752130}
+  - component: {fileID: 4245783385679705974}
+  - component: {fileID: 4274288660204271875}
+  - component: {fileID: 12090589756022786}
+  - component: {fileID: 8817579447355435597}
+  m_Layer: 0
+  m_Name: CardAbilityManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5034004037828393418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680378607489596756}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.24786, y: 0, z: 0.14958}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2344492886932719875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680378607489596756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0164f35fe8880744ea90a19c8ec98293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardAbilityManeger
+  healCardAbility: {fileID: 5327273121578752130}
+  attackBoostCardAbility: {fileID: 5689357370886664863}
+  poisonAttackCardAbility: {fileID: 4245783385679705974}
+  stunAttackCardAbility: {fileID: 4274288660204271875}
+  maxHpBoostCardAbility: {fileID: 8817579447355435597}
+  tpPotionCardAbility: {fileID: 12090589756022786}
+--- !u!114 &5689357370886664863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680378607489596756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973887f5a2e5a484e9b23007ff69a4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackBoostCardAbility
+  attackBoostAmount: 100
+--- !u!114 &5327273121578752130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680378607489596756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75b9b77fcb6afd47b966d72457162bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealCardAbility
+--- !u!114 &4245783385679705974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680378607489596756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd61063825297f3409f4f43e92e456fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PoisonAttackCardAbility
+  poisonDamage: 10
+  intervalTime: 4
+  repeatTimes: 10
+  parentObject: {fileID: 0}
+--- !u!114 &4274288660204271875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680378607489596756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76301ddab0d43c84dbb938f0fcc7751e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StunAttackCardAbility
+--- !u!114 &12090589756022786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680378607489596756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40303b3c566bdaa4cb25def19e32c82b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TpPotionCardAbility
+--- !u!114 &8817579447355435597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680378607489596756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c792c22a81bbe894ca3d6efb837ef8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaxHpBoostCardAbility
+  maxHpBoostAmount: 0

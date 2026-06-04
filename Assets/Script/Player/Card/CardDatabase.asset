@@ -25,3 +25,27 @@ MonoBehaviour:
     cardName: "\u653B\u6483\u529B\u4E0A\u6607"
     cardPrefab: {fileID: 0}
     cost: 10
+  - cardType: 3
+    cardEffectType: 0
+    cardSprite: {fileID: 21300000, guid: 8a5c3cbc05828be499f3bf6c758df7d4, type: 3}
+    cardName: "\u6BD2\u653B\u6483"
+    cardPrefab: {fileID: 0}
+    cost: 10
+  - cardType: 4
+    cardEffectType: 0
+    cardSprite: {fileID: 21300000, guid: c16d48a2c3872144e9f467f061f7f6d5, type: 3}
+    cardName: "\u30B9\u30BF\u30F3"
+    cardPrefab: {fileID: 0}
+    cost: 10
+  - cardType: 2
+    cardEffectType: 1
+    cardSprite: {fileID: 21300000, guid: 5a7da6a4dc332804189ea2a93d200b03, type: 3}
+    cardName: "HP\u4E0A\u9650Up"
+    cardPrefab: {fileID: 0}
+    cost: 10
+  - cardType: 5
+    cardEffectType: 3
+    cardSprite: {fileID: 21300000, guid: 2881fd5533cd3c248a35189a62ad29ae, type: 3}
+    cardName: "\u900F\u660E\u5316\u30DD\u30FC\u30B7\u30E7\u30F3"
+    cardPrefab: {fileID: 0}
+    cost: 10
