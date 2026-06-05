@@ -50,8 +50,8 @@ public class WeaponDamage : MonoBehaviour
         }
     }
 
-   
 
+    //毒攻撃カードの効果を適用するためのメソッド
     public void PoisonDamageOn(int poisonDamage, float poisonIntervalTime, int repeatTimes)
     {
         this.poisonDamage = poisonDamage;

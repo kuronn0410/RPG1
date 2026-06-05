@@ -59,6 +59,7 @@ public class EnemyStatus : MonoBehaviour, IDamageable
         }
     }
 
+    // 毒攻撃ダメージを適用するメソッド   
     public void PoisonDamage(int damage, float intervalTime, int repeatTimes)
     {
        if(isDead) return;

@@ -4,6 +4,7 @@ public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] private float detectionDistance = 5f;
     private EnemyStatus closestEnemy;
+    private EnemyMove1 rengEnemyMove;
     public int SaveHP;
     public int SaveMaxHP;
 
@@ -12,6 +13,9 @@ public class EnemyDetection : MonoBehaviour
         DetectEnemy();
     }
 
+    /// <summary>
+    /// 一番近い敵との距離
+    /// </summary>
     private void DetectEnemy()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionDistance);
@@ -39,4 +43,30 @@ public class EnemyDetection : MonoBehaviour
         }
         
     }
+
+    /// <summary>
+    /// 範囲内の敵の動きを管理してるスクリプトを取得するための関数
+    /// </summary>
+    /// <param name="range">範囲内</param>
+    /// <param name="stunTime">スタン時間</param>
+    public void RangeinEnemy(float range, float stunTime)
+    {
+        
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range);
+        float closestDistance = range;
+        foreach (Collider hitCollider in hitColliders)
+        {
+            EnemyMove1 enemy = hitCollider.GetComponent<EnemyMove1>();
+            if (enemy != null)
+            {
+                enemy.StunState(stunTime);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionDistance);
+    }   
 }

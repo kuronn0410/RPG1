@@ -2126,6 +2126,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b656ff17787ee4eb56606f540df820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExperienceSystem
+--- !u!114 &1623135333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4848704447392323812, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
+  m_PrefabInstance: {fileID: 1623135330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919982523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38160f2133a6bfc41a5e85362d3d4e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDetection
 --- !u!1 &1630613074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,6 +3715,10 @@ PrefabInstance:
       propertyPath: parentObject
       value: 
       objectReference: {fileID: 940353367}
+    - target: {fileID: 4274288660204271875, guid: 75ef4e820bbe5214ba8e0cb34706d272, type: 3}
+      propertyPath: enemyDetection
+      value: 
+      objectReference: {fileID: 1623135333}
     - target: {fileID: 5034004037828393418, guid: 75ef4e820bbe5214ba8e0cb34706d272, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.24786

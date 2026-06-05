@@ -12,8 +12,9 @@ public class EnemyMove1 : MonoBehaviour
     private Vector3 startPosition;
 
     [Header("Animation")]
-    public bool IsMoving { get; private set; }
+    public bool IsMoving{ get; private set; }
     private Transform player;
+    public bool isStunned { get; private set; } // スタン状態かどうかのフラグ
 
     void Start()
     {
@@ -31,6 +32,12 @@ public class EnemyMove1 : MonoBehaviour
     void move1()
     {
         if (player == null) return;
+
+        if (isStunned)
+        {
+            IsMoving = false; // スタン状態のときは移動を停止
+            return;
+        } // スタン状態なら移動しない 
         float distance = Vector3.Distance(transform.position, player.position);
         Vector3 directionToPlayer = (player.position - transform.position).normalized;// プレイヤーへの方向を計算
         Vector3 rayStart = transform.position + Vector3.up * 0.5f;
@@ -70,15 +77,31 @@ public class EnemyMove1 : MonoBehaviour
         {
            IsMoving = false;
         }
-
-
     }
+
+    /// <summary>
+    /// スタン状態にする関数
+    /// </summary>
+    /// <param name="stunTime">スタン時間</param>
+    public void StunState(float stunTime)   
+    {
+        Debug.Log("スタン状態");
+        isStunned = true;
+        //IsMoving = false; // スタン状態になったら移動を停止
+        Invoke(nameof(EndStun), stunTime);
+    }
+
+    public void EndStun()
+    {
+        Debug.Log("スタン状態解除");
+        isStunned = false;
+ 
+    }
+
     void OnDrawGizmosSelected()
     {
         // 視界の範囲を表示
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, viewDistance);
     }
-
-   
 }

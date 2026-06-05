@@ -22,5 +22,9 @@ public class EnemyAnimation : MonoBehaviour
         animator.SetBool("Run", enemyMove.IsMoving);
 
         animator.SetBool("AttackNormal", enemyAttack.isAttacking);
+
+        animator.SetBool("Stun", enemyMove.isStunned);
+
+
     }
 }
