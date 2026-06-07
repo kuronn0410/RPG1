@@ -6,6 +6,13 @@ public class PlayerHPUI : MonoBehaviour
     //[SerializeField] private PlayerStatus playerStatus;
     [SerializeField] private Text playerHpText;
     [SerializeField] private Text playerLevelText;
+
+    //[SerializeField] private RectTransform hpFill;
+    [SerializeField] private GameObject correntHpbar;
+    private RectTransform hpFill;
+    private float maxWidth;
+    private Image hpImage;
+
     [SerializeField] private PlayerStatus playerStatus;
     [SerializeField] private ExperienceSystem experienceSystem;
 
@@ -21,6 +28,9 @@ public class PlayerHPUI : MonoBehaviour
 
     private void Start()
     {
+        hpFill = correntHpbar.GetComponent<RectTransform>();
+        hpImage = correntHpbar.GetComponent<Image>();
+        maxWidth = hpFill.sizeDelta.x;
         playerStatus.OnHpChanged += UpdateHpText;
         UpdateHpText(PlayerLevelData.currentHp, playerStatus.SaveMaxHP);
 
@@ -51,6 +61,20 @@ public class PlayerHPUI : MonoBehaviour
         {
             playerHpText.enabled = true;
             playerHpText.text = "HP: " + currentHp + " / " + maxHp;
+            float rate = (float)currentHp / maxHp;
+            if (rate <= 0.3f)
+            {
+                hpImage.color = Color.red;
+            }
+            else if (rate <= 0.5f)
+            {
+                hpImage.color = Color.yellow;
+            }
+            else
+            {
+                hpImage.color = Color.green;
+            }
+            hpFill.sizeDelta = new Vector2(rate * maxWidth, hpFill.sizeDelta.y);
         }
        
     }

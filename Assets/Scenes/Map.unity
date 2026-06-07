@@ -3730,6 +3730,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 69
       objectReference: {fileID: 0}
+    - target: {fileID: 5144620258759190604, guid: 854e8bf0b0d516849b97f50714cdb092, type: 3}
+      propertyPath: enemyDetection
+      value: 
+      objectReference: {fileID: 2075160353590138989}
     - target: {fileID: 5602701815533002613, guid: 854e8bf0b0d516849b97f50714cdb092, type: 3}
       propertyPath: m_Pivot.x
       value: 0
