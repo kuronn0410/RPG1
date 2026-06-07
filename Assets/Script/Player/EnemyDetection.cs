@@ -1,12 +1,17 @@
 using UnityEngine;
 
+/// <summary>
+/// 敵の検知を行うスクリプト
+/// </summary>
 public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] private float detectionDistance = 5f;
+    [SerializeField] private LayerMask enemyLayer;
     private EnemyStatus closestEnemy;
     private EnemyMove1 rengEnemyMove;
     public int SaveHP;
     public int SaveMaxHP;
+    //int enemyLayer = LayerMask.GetMask("Enemy");
 
     void Update()
     {
@@ -18,7 +23,7 @@ public class EnemyDetection : MonoBehaviour
     /// </summary>
     private void DetectEnemy()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionDistance);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionDistance, enemyLayer);
         float closestDistance = detectionDistance;
         SaveHP = 0;
         SaveMaxHP = 0;
@@ -52,8 +57,8 @@ public class EnemyDetection : MonoBehaviour
     public void RangeinEnemy(float range, float stunTime)
     {
         
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range);
-        float closestDistance = range;
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range, enemyLayer);
+        //float closestDistance = range;
         foreach (Collider hitCollider in hitColliders)
         {
             EnemyMove1 enemy = hitCollider.GetComponent<EnemyMove1>();
@@ -62,6 +67,25 @@ public class EnemyDetection : MonoBehaviour
                 enemy.StunState(stunTime);
             }
         }
+    }
+
+
+    /// <summary>
+    /// すべての敵を検知する関数
+    /// </summary>
+    public void PlayerTpPotionRange(float range, float topotionTime)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range, enemyLayer);
+        //float closestDistance = range;
+        foreach (Collider hitCollider in hitColliders)
+        {
+            EnemyMove1 enemy = hitCollider.GetComponent<EnemyMove1>();
+            if (enemy != null)
+            {
+                enemy.PlayerTpPotion(topotionTime);
+            }
+        }
+
     }
 
     private void OnDrawGizmosSelected()

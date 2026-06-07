@@ -16,10 +16,13 @@ public class EnemyMove1 : MonoBehaviour
     private Transform player;
     public bool isStunned { get; private set; } // スタン状態かどうかのフラグ
 
+    private bool isPlayerInvisible; // プレイヤーが透明化しているかどうかのフラグ
+
     void Start()
     {
         enemyAttack = GetComponent<EnemyAttack>();
-        player    = PlayerStatus.Instance.transform;
+        // プレイヤーのTransformを取得
+        player = PlayerStatus.Instance.transform;
 
     }
     void Update()
@@ -38,6 +41,14 @@ public class EnemyMove1 : MonoBehaviour
             IsMoving = false; // スタン状態のときは移動を停止
             return;
         } // スタン状態なら移動しない 
+
+
+        if(isPlayerInvisible)
+        {
+            IsMoving = false; // プレイヤーが透明化しているときは移動を停止
+            return;
+        } // プレイヤーが透明化しているときは移動しない
+
         float distance = Vector3.Distance(transform.position, player.position);
         Vector3 directionToPlayer = (player.position - transform.position).normalized;// プレイヤーへの方向を計算
         Vector3 rayStart = transform.position + Vector3.up * 0.5f;
@@ -96,6 +107,20 @@ public class EnemyMove1 : MonoBehaviour
         Debug.Log("スタン状態解除");
         isStunned = false;
  
+    }
+
+    /// <summary>
+    /// プレイヤーが透明化ポーションを使用したときに呼び出される関数
+    /// </summary>
+    public void PlayerTpPotion(float invisibilityTime)
+    {
+        isPlayerInvisible = true;
+        Invoke(nameof(EndInvisibility), invisibilityTime);
+    }
+
+    private void EndInvisibility()
+    {
+        isPlayerInvisible = false;
     }
 
     void OnDrawGizmosSelected()

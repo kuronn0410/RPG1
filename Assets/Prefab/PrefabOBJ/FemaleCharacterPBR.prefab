@@ -1480,6 +1480,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDetection
   detectionDistance: 5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
   SaveHP: 0
   SaveMaxHP: 0
 --- !u!114 &2378162844241411794
@@ -1496,7 +1499,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
   playerBaseStatus: {fileID: 11400000, guid: 9eed9584ec4189b40afe48430abd8906, type: 2}
   SaveMaxHP: 0
-  remainHp: 0
   dealingDamage: 0
 --- !u!114 &3326924778643053420
 MonoBehaviour:
@@ -1510,9 +1512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b656ff17787ee4eb56606f540df820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExperienceSystem
-  SaveLevel: 1
-  SaveExperience: 0
-  playerBaseStatus: {fileID: 11400000, guid: 9eed9584ec4189b40afe48430abd8906, type: 2}
+  playerStatus: {fileID: 0}
 --- !u!114 &1579693650685615641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,12 +1537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99301183795ab0146870efb002ac6d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessionWeapon
-  HorizontalInterval: 0
-  VerticalInterval: 0
-  parentObj: {fileID: 0}
-  productButtonPrefab: {fileID: 0}
-  cardDatabase: {fileID: 0}
-  mode: 0
   weaponSwitchUI: {fileID: 0}
 --- !u!1 &4217342706061792649
 GameObject:
