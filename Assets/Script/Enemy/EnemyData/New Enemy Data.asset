@@ -25,3 +25,15 @@ MonoBehaviour:
     moveSpeed: 1
     dropExp: 20
     dropMoney: 100
+  - enemyType: 2
+    maxHp: 200
+    attack: 10
+    moveSpeed: 1
+    dropExp: 10
+    dropMoney: 50
+  - enemyType: 3
+    maxHp: 100
+    attack: 30
+    moveSpeed: 1
+    dropExp: 30
+    dropMoney: 50

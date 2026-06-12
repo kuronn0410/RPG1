@@ -5,15 +5,14 @@ using System.Collections;
 public class DoorChange : MonoBehaviour, IInteractable
 {
     [SerializeField] string sceneName; // Raycast‚Ì‹——£
-   
+    [SerializeField] WorldUIManager worldUIManager;
+
 
     public void Interact()
     {
         if(!enabled) return;
-        if (sceneName != null)
-        {
-            SceneManager.LoadScene(sceneName);
-        }
-        
+        worldUIManager.ShowSceneChangeButton(sceneName);
+
+
     }
 }

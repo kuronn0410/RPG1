@@ -1,0 +1,31 @@
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+/// <summary>
+/// ワールドスペースのUIを管理・移動・表示するクラス
+/// </summary>
+public class WorldUIManager : MonoBehaviour
+{
+    [SerializeField] private GameObject SceneChangeButton;
+    [SerializeField] private GameObject parentObject;
+    //[SerializeField] private Text text;
+
+
+    private void Start()
+    {
+        SceneChangeButton.SetActive(false);
+    }
+
+    public void ShowSceneChangeButton(string sceneName)
+    {
+
+        SceneChangeButton.transform.position = parentObject.transform.position;
+        //text.text = sceneName;
+        SceneChangeButton.SetActive(true);
+
+
+    }
+
+}

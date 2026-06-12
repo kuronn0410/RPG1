@@ -1196,6 +1196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8272810468661300408, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: parentObject
+      value: 
+      objectReference: {fileID: 826271663}
     - target: {fileID: 8281579534039789689, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1279,13 +1283,51 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2367663383837376452, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 314687348}
+    - targetCorrespondingSourceObject: {fileID: 2367663383837376452, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 314687347}
   m_SourcePrefab: {fileID: 100100000, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
 --- !u!224 &314687345 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8281579534039789689, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
   m_PrefabInstance: {fileID: 314687344}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &314687346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2367663383837376452, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+  m_PrefabInstance: {fileID: 314687344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &314687347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314687346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09cfb18bb299334e91f4876f22a78d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldButtonRun
+  sceneName: Town
+--- !u!114 &314687348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314687346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b790373ace6c6428cc9f8167222e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldUIManager
+  SceneChangeButton: {fileID: 0}
+  parentObject: {fileID: 0}
 --- !u!1 &320116190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: df3abcfcf73d32547b19b5462041981f, type: 3}
@@ -1789,6 +1831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorChange
   sceneName: Town
+  worldUIManager: {fileID: 0}
 --- !u!65 &672696471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2193,6 +2236,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1028146859}
   m_SourcePrefab: {fileID: 100100000, guid: f6da93aa4f1269142a9a459b26b70b3f, type: 3}
+--- !u!1 &826271663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826271664}
+  m_Layer: 0
+  m_Name: UIpos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &826271664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826271663}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.158, y: 1.109, z: -8.611}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &851738902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6da93aa4f1269142a9a459b26b70b3f, type: 3}
@@ -5656,3 +5730,4 @@ SceneRoots:
   - {fileID: 2075160353590138986}
   - {fileID: 1698469267}
   - {fileID: 1363613393}
+  - {fileID: 826271664}

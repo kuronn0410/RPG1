@@ -15,12 +15,12 @@ public class ContinuGame : MonoBehaviour
         string json = File.ReadAllText(path);
         SaveData data = JsonUtility.FromJson<SaveData>(json);
         ApplySaveData(data);
-        Debug.Log("ゲームを続きから開始します");
+        //Debug.Log("ゲームを続きから開始します");
         return;
     }
     void ApplySaveData(SaveData data)
     {
-        Debug.Log("ContinuGame");
+        //Debug.Log("ContinuGame");
         PlayerLevelData.level = data.playerLevel;
         PlayerLevelData.currentHp = data.CurrentHp;
         PlayerLevelData.nextLevelExperience = data.CurrentExp;
