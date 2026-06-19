@@ -27,6 +27,7 @@ public class WorldUIManager : MonoBehaviour
     {
 
         SceneChangeButton.transform.position = parentObject.transform.position;
+        SceneChangeButton.transform.rotation = parentObject.transform.rotation;
         //text.text = sceneName;
         SceneChangeButton.SetActive(true);
 

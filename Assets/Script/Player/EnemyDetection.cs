@@ -36,17 +36,27 @@ public class EnemyDetection : MonoBehaviour
             if (enemy != null)
             {
                 float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                // ‚æ‚è‹ß‚¢“G‚ğŒ©‚Â‚¯‚½‚çXV
                 if (distanceToEnemy < closestDistance)
                 {
                     closestDistance = distanceToEnemy;
                     closestEnemy = enemy;
-                    SaveHP = closestEnemy.remainHp;
-                    SaveMaxHP = closestEnemy.SaveMaxHP;
+                    SaveHP = closestEnemy.remainHp;// Œ»İ‚ÌHP‚ğ•Û‘¶
+                    SaveMaxHP = closestEnemy.SaveMaxHP;// Å‘åHP‚ğ•Û‘¶
                 }
                     
             }
         }
         
+    }
+
+    public void closestEnemyHP()
+    {
+        if (closestEnemy != null)
+        {
+            SaveHP = closestEnemy.remainHp;
+            SaveMaxHP = closestEnemy.SaveMaxHP;
+        }
     }
 
     /// <summary>

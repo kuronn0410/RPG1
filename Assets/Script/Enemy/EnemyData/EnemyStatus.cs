@@ -58,8 +58,12 @@ public class EnemyStatus : MonoBehaviour, IDamageable
             }
         }
     }
-
-    // 毒攻撃ダメージを適用するメソッド   
+    /// <summary>
+    /// 毒攻撃ダメージを適用するメソッド   
+    /// </summary>
+    /// <param name="damage"></param>
+    /// <param name="intervalTime"></param>
+    /// <param name="repeatTimes"></param>
     public void PoisonDamage(int damage, float intervalTime, int repeatTimes)
     {
        if(isDead) return;
