@@ -6,6 +6,8 @@ public class EnemyStatus : MonoBehaviour, IDamageable
     [SerializeField] private EnemyType enemyType;
     //[SerializeField] EnemyDatabase enemyDatabase;
 
+    public event System.Action<int, int> OnEnemyHpChanged; //Hpが減ったときに呼ばれるイベント
+
     public int remainHp;
     public int SaveMaxHP;
     public int dropExp;
@@ -52,9 +54,11 @@ public class EnemyStatus : MonoBehaviour, IDamageable
         if (remainHp > 0)
         {
             remainHp -= damage; // ダメージをHPから減算
+            OnEnemyHpChanged?.Invoke(remainHp, SaveMaxHP); // HPが減ったことを通知
             if (remainHp <= 0)
             {
                 Die();
+              
             }
         }
     }
@@ -86,6 +90,7 @@ public class EnemyStatus : MonoBehaviour, IDamageable
     {
         if(isDead) return; // すでに死亡している場合は処理を行わない
         remainHp = 0;
+        OnEnemyHpChanged?.Invoke(remainHp, SaveMaxHP);
         isDead = true; // 敵が死亡したことを記録
         enemyManager.RemoveEnemy(this); // 敵マネージャーからこの敵を削除
         Debug.Log("Enemy defeated!");

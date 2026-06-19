@@ -10,6 +10,8 @@ public class EnemyHPUI : MonoBehaviour
     private float maxWidth;
     private Image hpImage;
 
+    private EnemyStatus currentEnemy;
+
     private void Awake()
     {
         //インスペクターで設定されていることを確認
@@ -23,9 +25,62 @@ public class EnemyHPUI : MonoBehaviour
         hpImage = correntHpbar.GetComponent<Image>();
         maxWidth = hpFill.sizeDelta.x;
     }
-    void Update()
+
+    /// <summary>
+    /// 登録したイベントを
+    /// オブジェクト破棄時に解除する
+    /// </summary>
+    private void OnEnable()
     {
-        if (enemyDetection.SaveMaxHP <= 0)
+        enemyDetection.OnClosestEnemyDetected += OnGetClosestEnemy;
+    }
+
+
+    private void OnDisable()
+    {
+        enemyDetection.OnClosestEnemyDetected -= OnGetClosestEnemy;
+
+        if (currentEnemy != null)
+        {
+            currentEnemy.OnEnemyHpChanged -= UpdateHPUI;
+        }
+    }
+
+
+    /// <summary>
+    /// 近くの敵が変わった際に新しいEnemyStatusを取得してUIを更新する
+    /// </summary>
+    private void OnGetClosestEnemy(EnemyStatus enemy)
+    {
+        // 前の敵のHPイベントを解除
+        if (currentEnemy != null)
+        {
+            currentEnemy.OnEnemyHpChanged -= UpdateHPUI;
+        }
+
+        currentEnemy = enemy;
+
+
+        // 近くに敵がいない場合
+        if (currentEnemy == null)
+        {
+            //HideHPUI();
+            return;
+        }
+
+        // 新しい敵のHPイベントを購読
+        currentEnemy.OnEnemyHpChanged += UpdateHPUI;
+
+        // 初回表示
+        UpdateHPUI(currentEnemy.remainHp, currentEnemy.SaveMaxHP);
+    }
+
+
+
+
+    void UpdateHPUI(int currentHp, int maxHp)
+    {
+        if (maxHp <= 0)
         {
             hptext.enabled = false;
             hpFill.sizeDelta = new Vector2(0, hpFill.sizeDelta.y);
@@ -35,11 +90,11 @@ public class EnemyHPUI : MonoBehaviour
             hptext.enabled = true;
 
             hptext.text =
-                enemyDetection.SaveHP +
+                currentHp +
                 "/" +
-                enemyDetection.SaveMaxHP;
+                maxHp;
 
-            float rate = (float)enemyDetection.SaveHP / enemyDetection.SaveMaxHP;
+            float rate = (float)currentHp / maxHp;
             if (rate <= 0.3f)
             {
                 hpImage.color = Color.red;

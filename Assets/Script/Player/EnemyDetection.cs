@@ -9,10 +9,11 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     private EnemyStatus closestEnemy;
     private EnemyMove1 rengEnemyMove;
-    public int SaveHP;
-    public int SaveMaxHP;
-    //int enemyLayer = LayerMask.GetMask("Enemy");
 
+    private EnemyStatus previousEnemy;
+
+    //int enemyLayer = LayerMask.GetMask("Enemy");
+    public event System.Action<EnemyStatus> OnClosestEnemyDetected; // 敵が検知されたときに呼ばれるイベント
     void Update()
     {
         DetectEnemy();
@@ -25,9 +26,8 @@ public class EnemyDetection : MonoBehaviour
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionDistance, enemyLayer);
         float closestDistance = detectionDistance;
-        SaveHP = 0;
-        SaveMaxHP = 0;
-        closestEnemy = null;
+        EnemyStatus detectedEnemy = null;
+        //closestEnemy = null;
 
 
         foreach (Collider hitCollider in hitColliders)
@@ -40,24 +40,22 @@ public class EnemyDetection : MonoBehaviour
                 if (distanceToEnemy < closestDistance)
                 {
                     closestDistance = distanceToEnemy;
-                    closestEnemy = enemy;
-                    SaveHP = closestEnemy.remainHp;// 現在のHPを保存
-                    SaveMaxHP = closestEnemy.SaveMaxHP;// 最大HPを保存
+                    detectedEnemy = enemy;
                 }
                     
             }
         }
-        
+        closestEnemy = detectedEnemy;
+
+        // 近くの敵が変わった時だけ通知
+        if (previousEnemy != closestEnemy)
+        {
+            previousEnemy = closestEnemy;
+            OnClosestEnemyDetected?.Invoke(closestEnemy);
+        }
+
     }
 
-    public void closestEnemyHP()
-    {
-        if (closestEnemy != null)
-        {
-            SaveHP = closestEnemy.remainHp;
-            SaveMaxHP = closestEnemy.SaveMaxHP;
-        }
-    }
 
     /// <summary>
     /// 範囲内の敵の動きを管理してるスクリプトを取得するための関数
