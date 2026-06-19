@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &537380758586183046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ RectTransform:
   m_GameObject: {fileID: 3881317765668160174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.020871447, y: 0.020871447, z: 0.020871447}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 230020906935453762}
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldUIButton
   worldButtonRun: {fileID: 7385313471889557976}
-  orldUIbuttonType: 0
+  worldUIbuttonType: 0
 --- !u!1 &7167938163021545551
 GameObject:
   m_ObjectHideFlags: 0

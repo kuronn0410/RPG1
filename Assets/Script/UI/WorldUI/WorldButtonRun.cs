@@ -12,9 +12,11 @@ public class WorldButtonRun : MonoBehaviour
 
     public void SceneChange()
     {
+        Debug.Log("シーン変更");
         if (sceneName != null)
         {
             SceneManager.LoadScene(sceneName);
+
         }
     }
 }
