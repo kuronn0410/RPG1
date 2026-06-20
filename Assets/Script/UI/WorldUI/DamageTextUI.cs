@@ -22,6 +22,7 @@ public class DamageTextUI : MonoBehaviour
 
     [SerializeField] EnemyDetection enemyDetection;
     private EnemyStatus currentEnemy;
+    private EnemyDamagePos currentEnemyDamagePos;
 
     //表示中のダメージテキスト
     private readonly Queue<DamageDisplay> availableDisplays = new();
@@ -109,6 +110,9 @@ public class DamageTextUI : MonoBehaviour
     /// <param name="damage"></param>
     public void ShowDamageText(int damage, DamageDisplay damageDisplay)
     {
+        // ダメージ値を敵の近くに移動する
+        DamageDisplayToNear(damageDisplay);
+        // ダメージ値を表示する
         damageDisplay.panel.SetActive(true);
         SetDamageText(damage, damageDisplay);
         // 新しい非表示処理を開始して保存
@@ -132,13 +136,21 @@ public class DamageTextUI : MonoBehaviour
     }
 
 
-    ///// <summary>
-    ///// 敵のダメージを近くに表示する
-    ///// </summary>
-    ///// <param name="position"></param>
-    ///// <param name="damage"></param>
-    //public void DamageDisplayToNear(Vector3 position, int damage)
-    //{
-
-    //}
+    /// <summary>
+    /// 敵のダメージを近くに表示する
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="damage"></param>
+    public void DamageDisplayToNear(DamageDisplay damageDisplay)
+    {
+        currentEnemyDamagePos = currentEnemy.GetComponent<EnemyDamagePos>();
+        if (currentEnemyDamagePos == null)
+        {
+            return;
+        }
+        else
+        {
+            damageDisplay.panel.transform.position = currentEnemyDamagePos.damagePos1.position;
+        }
+    }
 }

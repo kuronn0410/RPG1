@@ -337,7 +337,7 @@ MonoBehaviour:
   damageDisplay3:
     panel: {fileID: 5547201375843224689}
     text: {fileID: 413273826557504571}
-  deleteTime: 10
+  deleteTime: 1
   enemyDetection: {fileID: 0}
 --- !u!114 &3296343534464596868
 MonoBehaviour:
