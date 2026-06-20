@@ -1,6 +1,5 @@
-using Unity.VisualScripting;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 /// <summary>
@@ -8,15 +7,14 @@ using UnityEngine.UI;
 /// </summary>
 public class WorldUIManager : MonoBehaviour
 {
+    //マップの移動
     [SerializeField] private GameObject SceneChangeButton;
     [SerializeField] private GameObject parentObject;
-    //[SerializeField] private Text text;
 
     private void Awake()
     {
         Debug.Assert(SceneChangeButton != null, "WorldUIManager: SceneChangeButtonがアタッチされていません");
         Debug.Assert(parentObject != null, "WorldUIManager: parentObjectがアタッチされていません");
-        //Debug.Assert(text != null, "WorldUIManager: textがアタッチされていません");
     }
     private void Start()
     {

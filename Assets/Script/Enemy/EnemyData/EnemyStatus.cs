@@ -7,6 +7,7 @@ public class EnemyStatus : MonoBehaviour, IDamageable
     //[SerializeField] EnemyDatabase enemyDatabase;
 
     public event System.Action<int, int> OnEnemyHpChanged; //Hpが減ったときに呼ばれるイベント
+    public event System.Action<int> OnEnemyDamage; //敵がダメージを受けたときに呼ばれるイベント
 
     public int remainHp;
     public int SaveMaxHP;
@@ -55,6 +56,7 @@ public class EnemyStatus : MonoBehaviour, IDamageable
         {
             remainHp -= damage; // ダメージをHPから減算
             OnEnemyHpChanged?.Invoke(remainHp, SaveMaxHP); // HPが減ったことを通知
+            OnEnemyDamage?.Invoke(damage); // ダメージを受けたことを通知
             if (remainHp <= 0)
             {
                 Die();

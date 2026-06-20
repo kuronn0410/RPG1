@@ -1800,7 +1800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4193d703ff626bc468d76783dfbdec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorChange
-  sceneName: Map
   worldUIManager: {fileID: 1668273754}
 --- !u!65 &1044457985
 BoxCollider:
@@ -3035,6 +3034,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 455502167}
     m_Modifications:
+    - target: {fileID: 524259137328211293, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 537380758586183046, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.01
@@ -3051,6 +3054,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 57.11
       objectReference: {fileID: 0}
+    - target: {fileID: 3039975120843340276, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3039975120843340276, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: enemyDetection
+      value: 
+      objectReference: {fileID: 1623135333}
     - target: {fileID: 3083563370226240212, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: m_Name
       value: WorldCanvas
@@ -3058,6 +3069,10 @@ PrefabInstance:
     - target: {fileID: 3083563370226240212, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296343534464596868, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: sceneName
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 3612017363099576249, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: m_Text
