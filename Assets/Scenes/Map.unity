@@ -1192,6 +1192,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1363613393}
     m_Modifications:
+    - target: {fileID: 537380758586183046, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009433686
+      objectReference: {fileID: 0}
+    - target: {fileID: 537380758586183046, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.009433686
+      objectReference: {fileID: 0}
+    - target: {fileID: 537380758586183046, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009433686
+      objectReference: {fileID: 0}
     - target: {fileID: 1871442740077805919, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: m_LocalScale.x
       value: 13.300965
@@ -1203,6 +1215,10 @@ PrefabInstance:
     - target: {fileID: 1871442740077805919, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: m_LocalScale.z
       value: 13.300965
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043555391258490813, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2205953551533564637, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: worldButtonRun
@@ -1220,9 +1236,17 @@ PrefabInstance:
       propertyPath: sceneName
       value: Town
       objectReference: {fileID: 0}
+    - target: {fileID: 3612017363099576249, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: m_Text
+      value: "\u8857\u3078\u623B\u308B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547201375843224689, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6558309038256891876, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8236462714366608672, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: enemyDetection
@@ -5603,6 +5627,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2024955129416402026, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2135682679117469956, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 461.19995
@@ -5687,6 +5715,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5855427791782594269, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.47368422
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855427791782594269, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6458415857878438325, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_Color.b
       value: 0.3210662
@@ -5726,6 +5762,18 @@ PrefabInstance:
     - target: {fileID: 7923524185388693856, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_Name
       value: SavaButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932483361854947457, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.47368422
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932483361854947457, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932483361854947457, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.47368422
       objectReference: {fileID: 0}
     - target: {fileID: 7995513508681819047, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_AnchorMax.x
