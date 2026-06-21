@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weapons:
   - weaponType: 0
-    damage: 100
+    damage: 20
     weaponSprite: {fileID: 21300000, guid: c57381948be24c54bab945fd011d9c9c, type: 3}
     weaponName: "\u5263"
     weaponPrefab: {fileID: 8375825972223601212, guid: f9e33ed0975b5c345ade274799ca6d0c, type: 3}
   - weaponType: 1
-    damage: 15
+    damage: 40
     weaponSprite: {fileID: 21300000, guid: 2a1d9078c71ab4a4ba0d767e01077fe9, type: 3}
     weaponName: "\u938C"
     weaponPrefab: {fileID: 6918102396898613387, guid: c99572278bb2e0a4583a6db4058a425d, type: 3}

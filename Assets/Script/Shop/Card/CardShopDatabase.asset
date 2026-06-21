@@ -18,22 +18,22 @@ MonoBehaviour:
     name: "\u56DE\u5FA9\u30DD\u30FC\u30B7\u30E7\u30F3"
     cardtype: 0
   - cardSprite: {fileID: 0}
-    price: 10
+    price: 60
     name: "\u653B\u6483\u529B\u4E0A\u6607"
     cardtype: 1
   - cardSprite: {fileID: 0}
-    price: 10
+    price: 60
     name: "\u6BD2\u653B\u6483"
     cardtype: 3
   - cardSprite: {fileID: 0}
-    price: 20
+    price: 200
     name: "\u30B9\u30BF\u30F3"
     cardtype: 4
   - cardSprite: {fileID: 0}
-    price: 10
+    price: 60
     name: "Hp\u4E0A\u9650Up"
     cardtype: 2
   - cardSprite: {fileID: 0}
-    price: 30
+    price: 300
     name: "\u900F\u660E\u5316\u30DD\u30FC\u30B7\u30E7\u30F3"
     cardtype: 5

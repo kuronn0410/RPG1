@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: WeaponShopDatabase
   m_EditorClassIdentifier: Assembly-CSharp::WeaponShopDatabase
   weaponShopDatas:
-  - weaponType: 0
-    weaponSprite: {fileID: 0}
+  - weaponSprite: {fileID: 0}
     weaponName: "\u5263"
-    price: 107
-  - weaponType: 1
-    weaponSprite: {fileID: 0}
+    price: 10
+    weaponType: 0
+  - weaponSprite: {fileID: 0}
     weaponName: "\u938C"
-    price: 107
-  - weaponType: 2
-    weaponSprite: {fileID: 0}
-    weaponName: "\u30D0\u30FC\u30EB"
     price: 200
+    weaponType: 1
+  - weaponSprite: {fileID: 0}
+    weaponName: "\u30D0\u30FC\u30EB"
+    price: 300
+    weaponType: 2
