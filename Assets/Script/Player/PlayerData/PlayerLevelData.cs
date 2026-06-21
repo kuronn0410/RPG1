@@ -10,4 +10,5 @@ public static class PlayerLevelData
     public static int money = 0;
     public static WeaponType currentWeaponType;
     public static int StageLevel = 1;
+
 }

@@ -10,8 +10,13 @@ public class WorldUIRaycaster : MonoBehaviour
     [SerializeField] private float distance = 10f; // Raycastの距離
     [SerializeField] private GraphicRaycaster graphicRaycaster;
     [SerializeField] private EventSystem eventSystem;
-     private IWorldUIHover currentHover;
+    [SerializeField]private int raycastIntervalFrames = 10;
+    private int frameCount;
+    private IWorldUIHover currentHover;
     private Camera eventCamera;
+
+    PointerEventData pointerData;
+    private readonly List<RaycastResult> results = new List<RaycastResult>();
 
     void Awake()
     {
@@ -21,17 +26,36 @@ public class WorldUIRaycaster : MonoBehaviour
     void Start()
     {
         eventCamera = Camera.main;
+        pointerData = new PointerEventData(eventSystem);
     }
 
     void Update()
     {
-         if (GameManager.Instance.IsPause())
+        if (GameManager.Instance.IsPause())
             return;
+        frameCount++;
 
-        PointerEventData pointerData = new PointerEventData(eventSystem);
+        bool clicked = Input.GetMouseButtonDown(0);
+
+        if (frameCount >= raycastIntervalFrames || clicked)
+        {
+            frameCount = 0;
+            Interact();
+        }
+
+        if (clicked)
+        {
+            currentHover?.OnClick();
+        }
+    }
+
+    void Interact()
+    {
+       
+
         pointerData.position = Input.mousePosition;
 
-        List<RaycastResult> results = new List<RaycastResult>();
+        results.Clear();
         graphicRaycaster.Raycast(pointerData, results);
 
         IWorldUIHover hitHover = null;
@@ -52,11 +76,6 @@ public class WorldUIRaycaster : MonoBehaviour
             hitHover?.OnHoverEnter();
 
             currentHover = hitHover;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            currentHover?.OnClick();
         }
     }
 }

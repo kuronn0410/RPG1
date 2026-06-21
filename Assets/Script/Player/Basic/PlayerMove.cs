@@ -10,8 +10,8 @@ public class PlayerMove : MonoBehaviour
     public float PlayerSpeed = 5f;
 
     [Header("回転")]
-    public float RotationSpeed = 120f;
-    public float CameraRotationSpeed = 80f;
+    public float RotationSpeed = 3f;
+    public float CameraRotationSpeed = 2f;
 
     [Header("アニメーション")]
     //public Animator PlayerAnimator;
@@ -40,6 +40,10 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.IsPause())
+        {
+            return;
+        }
         RotatePlayer();
         //CameraFollow();
     }
@@ -84,14 +88,29 @@ public class PlayerMove : MonoBehaviour
     // ===== 回転 =====
     void RotatePlayer()
     {
-        float mouseX = Input.GetAxis("Mouse X") * RotationSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * CameraRotationSpeed;
+        float sensitivity = 1f;
+
+        if (MouseSensitivity.Instance != null)
+        {
+            sensitivity =
+               SettingDatas.Sensitivity;
+        }
+
+        float mouseX =
+            Input.GetAxis("Mouse X")
+            * RotationSpeed
+            * sensitivity;
+
+        float mouseY =
+            Input.GetAxis("Mouse Y")
+            * CameraRotationSpeed
+            * sensitivity;
 
         // プレイヤー左右回転
-        transform.Rotate(0f, mouseX * Time.deltaTime, 0f);
+        transform.Rotate(0f, mouseX, 0f);
 
         // カメラ上下回転
-        cameraRotationX -= mouseY * Time.deltaTime;
+        cameraRotationX -= mouseY;
         cameraRotationX = Mathf.Clamp(cameraRotationX, -60f, 60f);
 
         if (Camera != null)

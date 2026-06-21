@@ -151,6 +151,7 @@ public class DamageTextUI : MonoBehaviour
         else
         {
             damageDisplay.panel.transform.position = currentEnemyDamagePos.damagePos1.position;
+            damageDisplay.panel.transform.rotation = currentEnemyDamagePos.damagePos1.rotation;
         }
     }
 }
