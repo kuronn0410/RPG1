@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using RPG.Player;
+using RPG.Enemy;
 
 /// <summary>
 /// 敵のダメージイベントを受け取る

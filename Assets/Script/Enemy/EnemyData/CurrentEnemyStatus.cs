@@ -1,54 +1,60 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-//現状の敵のステータスを保存・設定するクラス
-public class CurrentEnemyStatus : MonoBehaviour
+namespace RPG.Enemy
 {
-    public static CurrentEnemyStatus Instance;
-    private void Awake()
+
+    //現状の敵のステータスを保存・設定するクラス
+    public class CurrentEnemyStatus : MonoBehaviour
     {
-        if (Instance == null)
+        public static CurrentEnemyStatus Instance;
+        private void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
+
+        void Start()
         {
-            Destroy(gameObject);
+            //初期化
+            LevelUpEnemy(PlayerLevelData.StageLevel);
         }
-    }
 
-    void Start()
-    {
-        //初期化
-        LevelUpEnemy(PlayerLevelData.StageLevel);
-    }
+        [SerializeField] EnemyDatabase enemyDatabase;
+        //現在の敵のステータスを保存するリスト
+        public List<EnemyParameter> currentEnemyParameters = new List<EnemyParameter>();
 
-    [SerializeField] EnemyDatabase enemyDatabase;
-    //現在の敵のステータスを保存するリスト
-    public List<EnemyParameter> currentEnemyParameters = new List<EnemyParameter>();
-
-    //敵のレベルに応じてステータスを上げる
-    //ステージクリア後に呼び出す
-    public void LevelUpEnemy(int level)
-    {
-        currentEnemyParameters.Clear();
-
-        foreach (EnemyParameter enemyParameter in enemyDatabase.enemies)
+        //敵のレベルに応じてステータスを上げる
+        //ステージクリア後に呼び出す
+        public void LevelUpEnemy(int level)
         {
-            EnemyParameter copy = new EnemyParameter();
+            currentEnemyParameters.Clear();
 
-            copy.enemyType = enemyParameter.enemyType;
-            copy.maxHp = enemyParameter.maxHp + (100 * level);
-            copy.attack = enemyParameter.attack + (20 * level);
-            copy.moveSpeed = enemyParameter.moveSpeed;
-            copy.dropExp = enemyParameter.dropExp + (30 * level);
-            copy.dropMoney = enemyParameter.dropMoney + (10 * level);
+            foreach (EnemyParameter enemyParameter in enemyDatabase.enemies)
+            {
+                EnemyParameter copy = new EnemyParameter();
 
-            currentEnemyParameters.Add(copy);
+                copy.enemyType = enemyParameter.enemyType;
+                copy.maxHp = enemyParameter.maxHp + (100 * level);
+                copy.attack = enemyParameter.attack + (20 * level);
+                copy.moveSpeed = enemyParameter.moveSpeed;
+                copy.dropExp = enemyParameter.dropExp + (30 * level);
+                copy.dropMoney = enemyParameter.dropMoney + (10 * level);
 
-            Debug.Log(copy.enemyType + " ステータス更新");
+                currentEnemyParameters.Add(copy);
+
+                Debug.Log(copy.enemyType + " ステータス更新");
+            }
         }
+
+
     }
 
 

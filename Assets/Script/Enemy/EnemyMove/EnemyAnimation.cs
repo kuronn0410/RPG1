@@ -1,30 +1,34 @@
 using UnityEngine;
 
-public class EnemyAnimation : MonoBehaviour
+namespace RPG.Enemy
 {
-    [SerializeField] Animator animator;
-    private EnemyMove1 enemyMove;
-    private EnemyAttack enemyAttack;
-    void Start()
+    public class EnemyAnimation : MonoBehaviour
     {
-        enemyMove = GetComponent<EnemyMove1>();
-        enemyAttack = GetComponent<EnemyAttack>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(enemyAttack == null||enemyMove == null)
+        [SerializeField] Animator animator;
+        private EnemyMove1 enemyMove;
+        private EnemyAttack enemyAttack;
+        void Start()
         {
-            return;
+            enemyMove = GetComponent<EnemyMove1>();
+            enemyAttack = GetComponent<EnemyAttack>();
+
         }
-        animator.SetBool("Run", enemyMove.IsMoving);
 
-        animator.SetBool("AttackNormal", enemyAttack.isAttacking);
+        // Update is called once per frame
+        void Update()
+        {
+            if (enemyAttack == null || enemyMove == null)
+            {
+                return;
+            }
+            animator.SetBool("Run", enemyMove.IsMoving);
 
-        animator.SetBool("Stun", enemyMove.isStunned);
+            animator.SetBool("AttackNormal", enemyAttack.isAttacking);
+
+            animator.SetBool("Stun", enemyMove.isStunned);
 
 
+        }
     }
+
 }

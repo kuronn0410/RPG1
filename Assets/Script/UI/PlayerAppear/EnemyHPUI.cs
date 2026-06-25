@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using RPG.Player;
+using RPG.Enemy;
 
 public class EnemyHPUI : MonoBehaviour
 {

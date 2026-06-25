@@ -1,46 +1,51 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class EnemyManager : MonoBehaviour
+namespace RPG.Enemy
 {
-
-    [SerializeField] DoorChange doorChange;
-    [SerializeField] CurrentEnemyStatus currentEnemyStatus;
-
-    private List<EnemyStatus> enemies = new List<EnemyStatus>();
-
-    private void Start()
+    public class EnemyManager : MonoBehaviour
     {
-        if(doorChange != null)
+
+        [SerializeField] DoorChange doorChange;
+        [SerializeField] CurrentEnemyStatus currentEnemyStatus;
+
+        private List<EnemyStatus> enemies = new List<EnemyStatus>();
+
+        private void Start()
         {
-            doorChange.enabled = false;
-        }
-    }
-    public void AddEnemy(EnemyStatus enemy)
-    {
-        enemies.Add(enemy);
-        Debug.Log("“G’Ç‰Á: " + enemy.name);
-    }
-    public void RemoveEnemy(EnemyStatus enemy)
-    {
-        enemies.Remove(enemy);
-        if (enemies.Count == 0)
-        {
-            
-            Debug.Log("‘S“GŒ‚”j");
             if (doorChange != null)
             {
-                PlayerLevelData.StageLevel += 1;
-                if (PlayerLevelData.StageLevel == 4)
-                { 
-                        GameStateUI.Instance.VictoryPanel();
-                }
-                Debug.Log("EnemyƒŒƒxƒ‹ƒAƒbƒv: " + PlayerLevelData.StageLevel);
-                //currentEnemyStatus.LevelUpEnemy(PlayerLevelData.StageLevel);
-                doorChange.enabled = true;
+                doorChange.enabled = false;
             }
-
         }
+        public void AddEnemy(EnemyStatus enemy)
+        {
+            enemies.Add(enemy);
+            Debug.Log("“G’Ç‰Á: " + enemy.name);
+        }
+        public void RemoveEnemy(EnemyStatus enemy)
+        {
+            enemies.Remove(enemy);
+            if (enemies.Count == 0)
+            {
+
+                Debug.Log("‘S“GŒ‚”j");
+                if (doorChange != null)
+                {
+                    PlayerLevelData.StageLevel += 1;
+                    if (PlayerLevelData.StageLevel == 4)
+                    {
+                        GameStateUI.Instance.VictoryPanel();
+                    }
+                    Debug.Log("EnemyƒŒƒxƒ‹ƒAƒbƒv: " + PlayerLevelData.StageLevel);
+                    //currentEnemyStatus.LevelUpEnemy(PlayerLevelData.StageLevel);
+                    doorChange.enabled = true;
+                }
+
+            }
+        }
+
     }
 
 }
+

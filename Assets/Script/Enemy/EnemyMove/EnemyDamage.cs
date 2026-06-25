@@ -1,20 +1,24 @@
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour
+namespace RPG.Enemy
 {
-    
-    [SerializeField] int damage = 10;
-    void Start()
+    public class EnemyDamage : MonoBehaviour
     {
-    
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        IDamageable damageable =other.GetComponent<IDamageable>();
-        if (damageable != null)
+        [SerializeField] int damage = 10;
+        void Start()
         {
-            damageable.Damage(damage); // プレイヤーにダメージを与える
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.Damage(damage); // プレイヤーにダメージを与える
+            }
         }
     }
+
 }

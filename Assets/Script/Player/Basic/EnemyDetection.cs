@@ -1,4 +1,5 @@
 using UnityEngine;
+using RPG.Enemy;
 
 namespace RPG.Player
 {

@@ -1,56 +1,60 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class EnemySpawner : MonoBehaviour
+namespace RPG.Enemy
 {
-    [SerializeField] EnemyPrefabDatabase enemyPrefabDatabase;
-    [SerializeField] Transform[] spawnPoints;
-    [SerializeField] int numberOfEnemiesToSpawn = 5;
 
-    private List<EnemyStatus> spawnedEnemies = new List<EnemyStatus>();
-    
-
-    private void Start()
+    public class EnemySpawner : MonoBehaviour
     {
-        RandomSpawnEnemies();
-    }
+        [SerializeField] EnemyPrefabDatabase enemyPrefabDatabase;
+        [SerializeField] Transform[] spawnPoints;
+        [SerializeField] int numberOfEnemiesToSpawn = 5;
 
-    private void RandomSpawnEnemies()
-    {
-        List<Transform> availableSpawnPoints = new List<Transform>(spawnPoints);
-        int spawnCount = Mathf.Min(numberOfEnemiesToSpawn, availableSpawnPoints.Count);
+        private List<EnemyStatus> spawnedEnemies = new List<EnemyStatus>();
 
-        for (int i = 0; i < spawnCount; i++)
+
+        private void Start()
         {
-            int randomIndex = Random.Range(0, enemyPrefabDatabase.enemyPrefabs.Count);
-            //ここでランダムに敵のプレハブを選択
-            EnemyPrefabData prefabData = enemyPrefabDatabase.enemyPrefabs[randomIndex];
-            GameObject enemyToSpawn = prefabData.enemyPrefab;
+            RandomSpawnEnemies();
+        }
 
-            //生成先のスポーンポイントをランダムに選択
-            int spawnPointIndex = Random.Range(0, availableSpawnPoints.Count);
-            Transform spawnPoint = availableSpawnPoints[spawnPointIndex];
-            availableSpawnPoints.RemoveAt(spawnPointIndex);
+        private void RandomSpawnEnemies()
+        {
+            List<Transform> availableSpawnPoints = new List<Transform>(spawnPoints);
+            int spawnCount = Mathf.Min(numberOfEnemiesToSpawn, availableSpawnPoints.Count);
 
-            GameObject spawnedEnemyObject = Instantiate(
-                enemyToSpawn, 
-                spawnPoint.position, 
-                spawnPoint.rotation    
-            );
-            //生成した敵オブジェクトからEnemyStatusコンポーネントを取得
-            EnemyStatus spawnedEnemy = spawnedEnemyObject.GetComponent<EnemyStatus>();
-
-            if (spawnedEnemy != null)
+            for (int i = 0; i < spawnCount; i++)
             {
-                spawnedEnemy.SetUpEnemyStatus();
-                Debug.Log("敵を生成: ");
-                spawnedEnemies.Add(spawnedEnemy);
-            }
-            else
-            {
-                Debug.LogError("生成したPrefabにEnemyStatusが付いていません");
-            }
+                int randomIndex = Random.Range(0, enemyPrefabDatabase.enemyPrefabs.Count);
+                //ここでランダムに敵のプレハブを選択
+                EnemyPrefabData prefabData = enemyPrefabDatabase.enemyPrefabs[randomIndex];
+                GameObject enemyToSpawn = prefabData.enemyPrefab;
 
+                //生成先のスポーンポイントをランダムに選択
+                int spawnPointIndex = Random.Range(0, availableSpawnPoints.Count);
+                Transform spawnPoint = availableSpawnPoints[spawnPointIndex];
+                availableSpawnPoints.RemoveAt(spawnPointIndex);
+
+                GameObject spawnedEnemyObject = Instantiate(
+                    enemyToSpawn,
+                    spawnPoint.position,
+                    spawnPoint.rotation
+                );
+                //生成した敵オブジェクトからEnemyStatusコンポーネントを取得
+                EnemyStatus spawnedEnemy = spawnedEnemyObject.GetComponent<EnemyStatus>();
+
+                if (spawnedEnemy != null)
+                {
+                    spawnedEnemy.SetUpEnemyStatus();
+                    Debug.Log("敵を生成: ");
+                    spawnedEnemies.Add(spawnedEnemy);
+                }
+                else
+                {
+                    Debug.LogError("生成したPrefabにEnemyStatusが付いていません");
+                }
+
+            }
         }
     }
 }

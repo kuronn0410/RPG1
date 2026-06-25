@@ -1,13 +1,17 @@
 using UnityEngine;
-
-[System.Serializable]
-public class EnemyParameter
+namespace RPG.Enemy
 {
-    public EnemyType enemyType;
-    public int maxHp;
-    public int attack;
-    public float moveSpeed;
-    public int dropExp;
-    public int dropMoney;
-    //public GameObject prefab;
+    [System.Serializable]
+public class EnemyParameter
+    {
+        public EnemyType enemyType;
+        public int maxHp;
+        public int attack;
+        public float moveSpeed;
+        public int dropExp;
+        public int dropMoney;
+        //public GameObject prefab;
+    }
 }
+
+

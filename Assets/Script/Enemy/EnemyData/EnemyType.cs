@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public enum EnemyType 
+namespace RPG.Enemy
 {
-    Saboten,
-    Kinoko,
-    Slime,
-    TurtleShell,
+    public enum EnemyType
+    {
+        Saboten,
+        Kinoko,
+        Slime,
+        TurtleShell,
+    }
 }
+
