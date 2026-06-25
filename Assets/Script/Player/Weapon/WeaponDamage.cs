@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using RPG.Player;
 public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] WeaponDatabase weaponDatabase;

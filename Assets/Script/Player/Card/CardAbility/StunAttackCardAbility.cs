@@ -1,4 +1,5 @@
 using UnityEngine;
+using RPG.Player;
 
 public class StunAttackCardAbility : MonoBehaviour
 {

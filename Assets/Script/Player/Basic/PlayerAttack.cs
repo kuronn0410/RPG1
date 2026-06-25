@@ -1,52 +1,55 @@
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
-{
-    public bool IsAttacking { get; private set; }
-    private WeaponDamage weaponDamage;
-
-    void Start()
+namespace RPG.Player
+{ 
+    public class PlayerAttack : MonoBehaviour
     {
-        IsAttacking = false;
-        //weaponDamage = GetComponentInChildren<WeaponDamage>();
-    }
+        public bool IsAttacking { get; private set; }
+        private WeaponDamage weaponDamage;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
+        void Start()
         {
-            SwordAttackTrue();
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
-            SwordAttackFalse();
-        }   
-
-    }
-
-    private void SwordAttackTrue()
-    {
-        IsAttacking = true;
-        if (weaponDamage != null)
-        {
-            weaponDamage.EnableCollider();
+            IsAttacking = false;
+            //weaponDamage = GetComponentInChildren<WeaponDamage>();
         }
 
-
-    }
-    
-    private void SwordAttackFalse()
-    {
-        IsAttacking = false;
-        if (weaponDamage != null)
+        // Update is called once per frame
+        void Update()
         {
-            weaponDamage.DisableCollider();
-        }
-    }
+            if (Input.GetMouseButtonDown(0))
+            {
+                SwordAttackTrue();
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                SwordAttackFalse();
+            }
 
-    public void SetWeaponDamage(WeaponDamage wd)
-    {
-        weaponDamage = wd;
+        }
+
+        private void SwordAttackTrue()
+        {
+            IsAttacking = true;
+            if (weaponDamage != null)
+            {
+                weaponDamage.EnableCollider();
+            }
+
+
+        }
+
+        private void SwordAttackFalse()
+        {
+            IsAttacking = false;
+            if (weaponDamage != null)
+            {
+                weaponDamage.DisableCollider();
+            }
+        }
+
+        public void SetWeaponDamage(WeaponDamage wd)
+        {
+            weaponDamage = wd;
+        }
     }
 }

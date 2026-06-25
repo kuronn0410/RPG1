@@ -1,104 +1,108 @@
 using UnityEngine;
 
-/// <summary>
-/// 敵の検知を行うスクリプト
-/// </summary>
-public class EnemyDetection : MonoBehaviour
+namespace RPG.Player
 {
-    [SerializeField] private float detectionDistance = 5f;
-    [SerializeField] private LayerMask enemyLayer;
-    private EnemyStatus closestEnemy;
-    private EnemyMove1 rengEnemyMove;
-
-    private EnemyStatus previousEnemy;
-
-    //int enemyLayer = LayerMask.GetMask("Enemy");
-    public event System.Action<EnemyStatus> OnClosestEnemyDetected; // 敵が検知されたときに呼ばれるイベント
-    void Update()
-    {
-        DetectEnemy();
-    }
-
     /// <summary>
-    /// 一番近い敵との距離
+    /// 敵の検知を行うスクリプト
     /// </summary>
-    private void DetectEnemy()
+    public class EnemyDetection : MonoBehaviour
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionDistance, enemyLayer);
-        float closestDistance = detectionDistance;
-        EnemyStatus detectedEnemy = null;
-        //closestEnemy = null;
+        [SerializeField] private float detectionDistance = 5f;
+        [SerializeField] private LayerMask enemyLayer;
+        private EnemyStatus closestEnemy;
+        private EnemyMove1 rengEnemyMove;
 
+        private EnemyStatus previousEnemy;
 
-        foreach (Collider hitCollider in hitColliders)
+        //int enemyLayer = LayerMask.GetMask("Enemy");
+        public event System.Action<EnemyStatus> OnClosestEnemyDetected; // 敵が検知されたときに呼ばれるイベント
+        void Update()
         {
-            EnemyStatus enemy = hitCollider.GetComponent<EnemyStatus>();
-            if (enemy != null)
+            DetectEnemy();
+        }
+
+        /// <summary>
+        /// 一番近い敵との距離
+        /// </summary>
+        private void DetectEnemy()
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionDistance, enemyLayer);
+            float closestDistance = detectionDistance;
+            EnemyStatus detectedEnemy = null;
+            //closestEnemy = null;
+
+
+            foreach (Collider hitCollider in hitColliders)
             {
-                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                // より近い敵を見つけたら更新
-                if (distanceToEnemy < closestDistance)
+                EnemyStatus enemy = hitCollider.GetComponent<EnemyStatus>();
+                if (enemy != null)
                 {
-                    closestDistance = distanceToEnemy;
-                    detectedEnemy = enemy;
+                    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                    // より近い敵を見つけたら更新
+                    if (distanceToEnemy < closestDistance)
+                    {
+                        closestDistance = distanceToEnemy;
+                        detectedEnemy = enemy;
+                    }
+
                 }
-                    
             }
-        }
-        closestEnemy = detectedEnemy;
+            closestEnemy = detectedEnemy;
 
-        // 近くの敵が変わった時だけ通知
-        if (previousEnemy != closestEnemy)
-        {
-            previousEnemy = closestEnemy;
-            OnClosestEnemyDetected?.Invoke(closestEnemy);
-        }
-
-    }
-
-
-    /// <summary>
-    /// 範囲内の敵の動きを管理してるスクリプトを取得するための関数
-    /// </summary>
-    /// <param name="range">範囲内</param>
-    /// <param name="stunTime">スタン時間</param>
-    public void RangeinEnemy(float range, float stunTime)
-    {
-        
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range, enemyLayer);
-        //float closestDistance = range;
-        foreach (Collider hitCollider in hitColliders)
-        {
-            EnemyMove1 enemy = hitCollider.GetComponent<EnemyMove1>();
-            if (enemy != null)
+            // 近くの敵が変わった時だけ通知
+            if (previousEnemy != closestEnemy)
             {
-                enemy.StunState(stunTime);
+                previousEnemy = closestEnemy;
+                OnClosestEnemyDetected?.Invoke(closestEnemy);
             }
+
         }
-    }
 
 
-    /// <summary>
-    /// すべての敵を検知する関数
-    /// </summary>
-    public void PlayerTpPotionRange(float range, float topotionTime)
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range, enemyLayer);
-        //float closestDistance = range;
-        foreach (Collider hitCollider in hitColliders)
+        /// <summary>
+        /// 範囲内の敵の動きを管理してるスクリプトを取得するための関数
+        /// </summary>
+        /// <param name="range">範囲内</param>
+        /// <param name="stunTime">スタン時間</param>
+        public void RangeinEnemy(float range, float stunTime)
         {
-            EnemyMove1 enemy = hitCollider.GetComponent<EnemyMove1>();
-            if (enemy != null)
+
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, range, enemyLayer);
+            //float closestDistance = range;
+            foreach (Collider hitCollider in hitColliders)
             {
-                enemy.PlayerTpPotion(topotionTime);
+                EnemyMove1 enemy = hitCollider.GetComponent<EnemyMove1>();
+                if (enemy != null)
+                {
+                    enemy.StunState(stunTime);
+                }
             }
         }
 
+
+        /// <summary>
+        /// すべての敵を検知する関数
+        /// </summary>
+        public void PlayerTpPotionRange(float range, float topotionTime)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, range, enemyLayer);
+            //float closestDistance = range;
+            foreach (Collider hitCollider in hitColliders)
+            {
+                EnemyMove1 enemy = hitCollider.GetComponent<EnemyMove1>();
+                if (enemy != null)
+                {
+                    enemy.PlayerTpPotion(topotionTime);
+                }
+            }
+
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, detectionDistance);
+        }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionDistance);
-    }   
 }

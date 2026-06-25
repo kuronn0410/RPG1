@@ -1,27 +1,30 @@
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+namespace RPG.Player
 {
-    [SerializeField] Animator animator;
-
-    private PlayerMove playerMove;
-    private PlayerAttack playerAttack;
-
-    void Start()
+    public class PlayerAnimation : MonoBehaviour
     {
-        playerMove = GetComponent<PlayerMove>();
-        playerAttack = GetComponent<PlayerAttack>();
-    }
+        [SerializeField] Animator animator;
 
-    void Update()
-    {
-        if (animator == null ||playerMove == null || playerAttack == null)
+        private PlayerMove playerMove;
+        private PlayerAttack playerAttack;
+
+        void Start()
         {
-            return;
+            playerMove = GetComponent<PlayerMove>();
+            playerAttack = GetComponent<PlayerAttack>();
         }
 
-        animator.SetBool("Run",playerMove.IsMoving);
-        animator.SetBool("AttackNomal",playerAttack.IsAttacking);
-    }
+        void Update()
+        {
+            if (animator == null || playerMove == null || playerAttack == null)
+            {
+                return;
+            }
 
+            animator.SetBool("Run", playerMove.IsMoving);
+            animator.SetBool("AttackNomal", playerAttack.IsAttacking);
+        }
+
+    }
 }

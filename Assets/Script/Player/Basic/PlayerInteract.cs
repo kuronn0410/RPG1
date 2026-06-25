@@ -1,51 +1,55 @@
 using UnityEngine;
 
-public class PlayerInteract : MonoBehaviour
+namespace RPG.Player
 {
-    [SerializeField] private float distance = 10f; // Raycastの距離
-    //[SerializeField] private float checkInterval = 0.1f;
-    // Update is called once per frame
-    private Camera mainCamera;
-    //private float checkTimer;
-    void Start()
+    public class PlayerInteract : MonoBehaviour
     {
-        mainCamera = Camera.main;
-    }   
-    void Update()
-    {
-        if (GameManager.Instance.IsPause())
-            return;
-
-        
-        if (Input.GetMouseButtonDown(0))
+        [SerializeField] private float distance = 10f; // Raycastの距離
+                                                       //[SerializeField] private float checkInterval = 0.1f;
+                                                       // Update is called once per frame
+        private Camera mainCamera;
+        //private float checkTimer;
+        void Start()
         {
-           Interact();
+            mainCamera = Camera.main;
         }
-        
-
-        //checkTimer += Time.deltaTime;
-        //if(checkTimer >= 0.1f)
-        //{
-        //    checkTimer = 0f;
-        //    Interact();
-        //}
-    }
-
-    void Interact()
-    {
-        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, distance))
+        void Update()
         {
-            //Debug.Log(hit.collider.name);
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-            
-            // 2. スクリプトが見つかった場合だけ実行する
-            if (interactable != null)
+            if (GameManager.Instance.IsPause())
+                return;
+
+
+            if (Input.GetMouseButtonDown(0))
             {
-                //Debug.Log("Interact Success");
-                interactable.Interact();
+                Interact();
+            }
+
+
+            //checkTimer += Time.deltaTime;
+            //if(checkTimer >= 0.1f)
+            //{
+            //    checkTimer = 0f;
+            //    Interact();
+            //}
+        }
+
+        void Interact()
+        {
+            Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, distance))
+            {
+                //Debug.Log(hit.collider.name);
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+
+                // 2. スクリプトが見つかった場合だけ実行する
+                if (interactable != null)
+                {
+                    //Debug.Log("Interact Success");
+                    interactable.Interact();
+                }
             }
         }
     }
 }
+
