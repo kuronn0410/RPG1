@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0b4e05cd9133e469b4983b5a78035a, type: 3}
+  m_Name: SettingData
+  m_EditorClassIdentifier: Assembly-CSharp::SettingData
+  BGMVolume: 1
+  MouseSensitivity: 1
+  Fps: 60

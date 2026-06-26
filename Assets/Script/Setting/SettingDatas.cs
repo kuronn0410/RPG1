@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;   
 
 /// <summary>
-/// 設定データを保存
+/// 設定データを保存 たぶんいらない
 /// </summary>
 public class SettingDatas : MonoBehaviour
 {

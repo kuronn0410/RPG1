@@ -1,12 +1,24 @@
+using RPG.Save;
 using UnityEngine;
 
 public class SettingFPS : MonoBehaviour
 {
     [SerializeField] FPSUIState fPSUIState;
+    int currentFPS;
     void Start()
     {
-        // 初期設定として60FPSに設定
-        Fps60();
+        if(CurrentSettingDatas.fps == 30)
+        {
+            Fps30();
+        }
+        else if(CurrentSettingDatas.fps == 60)
+        {
+            Fps60();
+        }
+        else if (CurrentSettingDatas.fps == 120)
+        {
+            Fps120();
+        }
     }
 
 
@@ -15,30 +27,41 @@ public class SettingFPS : MonoBehaviour
         Application.targetFrameRate = fps;
     }
 
-    public void Fps30()
+    public async void Fps30()
     {
-        SetFPS(30);
+        CurrentSettingDatas.fps = 30;
+ 
+        SetFPS(CurrentSettingDatas.fps);
         fPSUIState.isFPS30 = true;
         fPSUIState.isFPS60 = false;
         fPSUIState.isFPS120 = false;
         fPSUIState.UpdateFPSUIState();
+        //Debug.Log("FPSを30に設定しました。");
+        await SettingSaveSystem.Instance.Save();
     }
 
-    public void Fps60()
+    public async void Fps60()
     {
-        SetFPS(60);
+        CurrentSettingDatas.fps = 60;
+        SetFPS(CurrentSettingDatas.fps);
         fPSUIState.isFPS30 = false;
         fPSUIState.isFPS60 = true;
         fPSUIState.isFPS120 = false;
         fPSUIState.UpdateFPSUIState();
+        //Debug.Log("FPSを60に設定しました。");
+        await SettingSaveSystem.Instance.Save();
     }
 
-    public void Fps120()
+    public async void Fps120()
     {
-        SetFPS(120);
+        CurrentSettingDatas.fps = 120;
+        SetFPS(CurrentSettingDatas.fps);
         fPSUIState.isFPS30 = false;
         fPSUIState.isFPS60 = false;
         fPSUIState.isFPS120 = true;
         fPSUIState.UpdateFPSUIState();
+        //Debug.Log("FPSを120に設定しました。");
+        await SettingSaveSystem.Instance.Save();
+        
     }
 }

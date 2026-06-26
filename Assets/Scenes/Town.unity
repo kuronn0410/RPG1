@@ -1585,6 +1585,7 @@ GameObject:
   - component: {fileID: 1043773145}
   - component: {fileID: 1043773144}
   - component: {fileID: 1043773143}
+  - component: {fileID: 1043773147}
   m_Layer: 0
   m_Name: SaveManager
   m_TagString: Untagged
@@ -1645,6 +1646,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 798132880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1043773147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043773142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed4c10efb961d449a69d23580ce3096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Save.SettingSaveSystem
 --- !u!1001 &1044457980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3620,6 +3633,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7692614473106571311, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819625190682134372, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819625190682134372, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7866037321421091319, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
