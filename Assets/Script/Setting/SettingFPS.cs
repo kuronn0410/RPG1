@@ -1,67 +1,48 @@
 using RPG.Save;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class SettingFPS : MonoBehaviour
 {
     [SerializeField] FPSUIState fPSUIState;
-    int currentFPS;
-    void Start()
+    private void Start()
     {
-        if(CurrentSettingDatas.fps == 30)
-        {
-            Fps30();
-        }
-        else if(CurrentSettingDatas.fps == 60)
-        {
-            Fps60();
-        }
-        else if (CurrentSettingDatas.fps == 120)
-        {
-            Fps120();
-        }
+        ApplyFPS(CurrentSettingDatas.fps, false);
     }
 
+    public async Task Fps30()
+    {
+        await ApplyFPS(30, true);
+    }
+
+    public void Fps60()
+    {
+        ApplyFPS(60, true);
+    }
+
+    public void Fps120()
+    {
+        ApplyFPS(120, true);
+    }
+
+    private async Task ApplyFPS(int fps, bool save)
+    {
+        CurrentSettingDatas.fps = fps;
+        SetFPS(fps);
+
+        fPSUIState.isFPS30 = fps == 30;
+        fPSUIState.isFPS60 = fps == 60;
+        fPSUIState.isFPS120 = fps == 120;
+        fPSUIState.UpdateFPSUIState();
+
+        if (save)
+        {
+            await SettingSaveSystem.Instance.Save();
+        }
+    }
 
     public void SetFPS(int fps)
     {
         Application.targetFrameRate = fps;
-    }
-
-    public async void Fps30()
-    {
-        CurrentSettingDatas.fps = 30;
- 
-        SetFPS(CurrentSettingDatas.fps);
-        fPSUIState.isFPS30 = true;
-        fPSUIState.isFPS60 = false;
-        fPSUIState.isFPS120 = false;
-        fPSUIState.UpdateFPSUIState();
-        //Debug.Log("FPSを30に設定しました。");
-        await SettingSaveSystem.Instance.Save();
-    }
-
-    public async void Fps60()
-    {
-        CurrentSettingDatas.fps = 60;
-        SetFPS(CurrentSettingDatas.fps);
-        fPSUIState.isFPS30 = false;
-        fPSUIState.isFPS60 = true;
-        fPSUIState.isFPS120 = false;
-        fPSUIState.UpdateFPSUIState();
-        //Debug.Log("FPSを60に設定しました。");
-        await SettingSaveSystem.Instance.Save();
-    }
-
-    public async void Fps120()
-    {
-        CurrentSettingDatas.fps = 120;
-        SetFPS(CurrentSettingDatas.fps);
-        fPSUIState.isFPS30 = false;
-        fPSUIState.isFPS60 = false;
-        fPSUIState.isFPS120 = true;
-        fPSUIState.UpdateFPSUIState();
-        //Debug.Log("FPSを120に設定しました。");
-        await SettingSaveSystem.Instance.Save();
-        
     }
 }
