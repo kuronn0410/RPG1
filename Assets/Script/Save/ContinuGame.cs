@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using  System.Threading.Tasks;
+
 
 namespace RPG.Save
 {
@@ -9,7 +11,7 @@ namespace RPG.Save
     /// </summary>
     public class ContinuGame : MonoBehaviour
     {
-        public void GameLoad()
+        public async Task GameLoad()
         {
             //ゲームのデータをロードする処理
             string path1 = Application.persistentDataPath + "/save.json";
@@ -18,8 +20,8 @@ namespace RPG.Save
                 Debug.Log("セーブデータが見つかりませんでした");
                 return;
             }
-            string json1 = File.ReadAllText(path1);
-            SaveData data1 = JsonUtility.FromJson<SaveData>(json1);
+            string json1 = await File.ReadAllTextAsync(path1);
+            SaveData data1 = 　 JsonUtility.FromJson<SaveData>(json1);
             ApplySaveData(data1);
 
 
@@ -30,7 +32,7 @@ namespace RPG.Save
                 Debug.Log("セーブデータが見つかりませんでした");
                 return;
             }
-            string json2 = File.ReadAllText(path2);
+            string json2 = await File.ReadAllTextAsync(path2);
             SettingsData data2 = JsonUtility.FromJson<SettingsData>(json2);
             ApplaysettingSaveData(data2);
 

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using RPG.Save;
+using System.Threading.Tasks;
 
 public class TitleUIManager : MonoBehaviour
 {
@@ -33,31 +34,38 @@ public class TitleUIManager : MonoBehaviour
         settingPanel.SetActive(false);
     }
 
-    public void OnButtonClick(TitleButtonType titleButtonType)
+    public async void OnButtonClick(TitleButtonType titleButtonType)
     {
-        switch (titleButtonType)
-        {
-            case TitleButtonType.Start:
-                GameStart();
-                break;
-            case TitleButtonType.Option:
-                Setting();
-                break;
-            case TitleButtonType.Exit:
-                Exit();
-                break;
-            case TitleButtonType.Restart:
-                Restart();
-                break;
-            case TitleButtonType.ToTitle:
-                ToTitle();
-                break;
-            case TitleButtonType.Save:
-                Save();
-                break;
+        try
+        { 
+            switch (titleButtonType)
+            {
+                case TitleButtonType.Start:
+                    await GameStart();
+                    break;
+                case TitleButtonType.Option:
+                    Setting();
+                    break;
+                case TitleButtonType.Exit:
+                    Exit();
+                    break;
+                case TitleButtonType.Restart:
+                    await Restart();
+                    break;
+                case TitleButtonType.ToTitle:
+                    ToTitle();
+                    break;
+                case TitleButtonType.Save:
+                    await Save();
+                    break;
 
+            }
+            return;
         }
-        return;
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Error occurred while handling button click: {ex.Message}");
+        }
     }
 
    
@@ -72,10 +80,10 @@ public class TitleUIManager : MonoBehaviour
         Application.Quit();
     }
 
-    private void GameStart()
+    private async Task GameStart()
     {
         if (continuGame == null) return;
-        continuGame.GameLoad();
+        await continuGame.GameLoad();
         SceneMove.Instance.MoveToTown();
 
     }
@@ -86,18 +94,18 @@ public class TitleUIManager : MonoBehaviour
         SceneMove.Instance.MoveToTitle();
     }
 
-    private void Restart()
+    private async Task Restart()
     {
         if(resetGame == null)return;
-        resetGame.GameDataReset();
+        await resetGame.GameDataReset();
         SceneMove.Instance.MoveToTown();
     }
 
-    private void Save()
+    private async Task Save()
     {
         Debug.Log("Save button clicked");
         if (saveSystem == null)return;
-        saveSystem.Save();
+        await saveSystem.Save();
         // Implement save functionality here
     }
 }

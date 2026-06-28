@@ -42,11 +42,11 @@ namespace RPG.Enemy
                 EnemyParameter copy = new EnemyParameter();
 
                 copy.enemyType = enemyParameter.enemyType;
-                copy.maxHp = enemyParameter.maxHp + (100 * level);
-                copy.attack = enemyParameter.attack + (20 * level);
+                copy.maxHp = enemyParameter.maxHp + (100 * (level - 1));
+                copy.attack = enemyParameter.attack + (20 * (level - 1));
                 copy.moveSpeed = enemyParameter.moveSpeed;
-                copy.dropExp = enemyParameter.dropExp + (30 * level);
-                copy.dropMoney = enemyParameter.dropMoney + (10 * level);
+                copy.dropExp = enemyParameter.dropExp + (30 * (level - 1));
+                copy.dropMoney = enemyParameter.dropMoney + (10 * (level - 1));
 
                 currentEnemyParameters.Add(copy);
 
