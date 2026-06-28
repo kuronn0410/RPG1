@@ -8,20 +8,21 @@ public class FPSUIState : MonoBehaviour
     private Image fpsButton60Image;
     [SerializeField] private GameObject fpsButton120;
     private Image fpsButton120Image;
-    public bool isFPS30 = false;
-    public bool isFPS60 = false;
-    public bool isFPS120 = false;
 
-    private void Start()
+    void Awake()
     {
         fpsButton30Image = fpsButton30.GetComponent<Image>();
         fpsButton60Image = fpsButton60.GetComponent<Image>();
         fpsButton120Image = fpsButton120.GetComponent<Image>();
     }
-
-    public void UpdateFPSUIState()
+    private void Start()
     {
-        if(isFPS30)
+      
+    }
+
+    public void UpdateFPSUIState(int fps)
+    {
+        if(fps == 30)
         {
             ResetFPSUIState();
             
@@ -29,7 +30,7 @@ public class FPSUIState : MonoBehaviour
         }
         
 
-        if(isFPS60)
+        if(fps == 60)
         {
             ResetFPSUIState();
             
@@ -37,7 +38,7 @@ public class FPSUIState : MonoBehaviour
         }
       
 
-        if(isFPS120)
+        if(fps == 120)
         {
             ResetFPSUIState();
            

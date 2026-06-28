@@ -56,6 +56,7 @@ namespace RPG.Save
 
         public void ApplaysettingSaveData(SettingsData data)
         {
+            CurrentSettingDatas.mouseSensitivity = data.mouseSensitivity;
             CurrentSettingDatas.fps = data.fps;
         }
     }

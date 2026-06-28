@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 設定の初期値
+/// </summary>
 [CreateAssetMenu(fileName = "SettingData", menuName = "Data/SettingData")]
 public class SettingData : ScriptableObject
 {

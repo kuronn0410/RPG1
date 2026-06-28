@@ -1,46 +1,59 @@
 using RPG.Save;
-using UnityEngine;
+using System;
 using System.Threading.Tasks;
+using UnityEngine;
 
 public class SettingFPS : MonoBehaviour
 {
     [SerializeField] FPSUIState fPSUIState;
+    
     private void Start()
     {
-        ApplyFPS(CurrentSettingDatas.fps, false);
+       ApplyFPS(CurrentSettingDatas.fps);
+    }
+    /// <summary>
+    /// FPSを設定するメソッド async void を入口にして使う
+    /// </summary>
+    public async void Fps30()
+    {
+        await ChangeFPS(30);
     }
 
-    public async Task Fps30()
+    public async void Fps60()
     {
-        await ApplyFPS(30, true);
+        await ChangeFPS(60);
     }
 
-    public void Fps60()
+    public async void Fps120()
     {
-        ApplyFPS(60, true);
+        await ChangeFPS(120);
     }
 
-    public void Fps120()
+    private async Task ChangeFPS(int fps)
     {
-        ApplyFPS(120, true);
-    }
-
-    private async Task ApplyFPS(int fps, bool save)
-    {
-        CurrentSettingDatas.fps = fps;
-        SetFPS(fps);
-
-        fPSUIState.isFPS30 = fps == 30;
-        fPSUIState.isFPS60 = fps == 60;
-        fPSUIState.isFPS120 = fps == 120;
-        fPSUIState.UpdateFPSUIState();
-
-        if (save)
+        try
         {
+            ApplyFPS(fps);
             await SettingSaveSystem.Instance.Save();
+            Debug.Log($"FPSを{fps}に設定しました");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("FPS設定の保存に失敗しました: " + e.Message);
         }
     }
 
+    private void  ApplyFPS(int fps)
+    {
+        CurrentSettingDatas.fps = fps;
+        SetFPS(fps);
+        fPSUIState.UpdateFPSUIState(fps);
+    }
+
+    /// <summary>
+    /// FPSを実際に設定するメソッド
+    /// </summary>
+    /// <param name="fps"></param>
     public void SetFPS(int fps)
     {
         Application.targetFrameRate = fps;

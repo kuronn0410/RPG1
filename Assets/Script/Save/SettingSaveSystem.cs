@@ -36,7 +36,7 @@ namespace RPG.Save
         private void SetSettingsData(SettingsData data)
         {
             //data.bgmVolume = AudioManager.Instance.bgmVolume;
-            //data.mouseSensitivity = MouseLook.Instance.mouseSensitivity;
+            data.mouseSensitivity = CurrentSettingDatas.mouseSensitivity;
             data.fps = CurrentSettingDatas.fps;
         }
 

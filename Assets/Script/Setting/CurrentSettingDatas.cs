@@ -6,6 +6,6 @@ using UnityEngine;
 public class CurrentSettingDatas 
 {
     //public static float bgmVolume;
-    public static float mouseSensitivity;
+    public static float mouseSensitivity = 1f;
     public static int fps = 60;
 }

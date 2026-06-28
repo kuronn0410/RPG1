@@ -97,7 +97,7 @@ namespace RPG.Player
             if (MouseSensitivity.Instance != null)
             {
                 sensitivity =
-                   SettingDatas.Sensitivity;
+                   CurrentSettingDatas.mouseSensitivity;
             }
 
             float mouseX =
