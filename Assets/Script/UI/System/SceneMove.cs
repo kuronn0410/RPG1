@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class SceneMove : MonoBehaviour
 {
@@ -18,18 +19,24 @@ public class SceneMove : MonoBehaviour
         }
     }
 
-    public void MoveToMap()
+    public async Task MoveToMap()
     {
-        SceneManager.LoadScene("Map");
+        LoadUIManager.Instance.ShowLoadPanel();
+        await SceneManager.LoadSceneAsync("Map");
+        LoadUIManager.Instance.HideLoadPanel();
     }
 
-    public void MoveToTown()
+    public async Task MoveToTown()
     {
-        SceneManager.LoadScene("Town");
+        LoadUIManager.Instance.ShowLoadPanel();
+        await SceneManager.LoadSceneAsync("Town");
+        LoadUIManager.Instance.HideLoadPanel();
     }
-
-    public void MoveToTitle()
+   
+    public async Task MoveToTitle()
     {
-        SceneManager.LoadScene("Title");
+        LoadUIManager.Instance.ShowLoadPanel();
+        await SceneManager.LoadSceneAsync("Title");
+        LoadUIManager.Instance.HideLoadPanel();
     }
 }

@@ -25,11 +25,20 @@ public class LoadUIManager : MonoBehaviour
 
     public void ShowLoadPanel()
     {
-        loadPanel.SetActive(true);
+        if (loadPanel == null) return;
+        if (!loadPanel.activeSelf)
+        {
+            loadPanel.SetActive(true);
+        }
     }
 
     public void HideLoadPanel()
     {
-        loadPanel.SetActive(false);
+        if (loadPanel == null) return;
+        if(loadPanel.activeSelf)
+        {
+            loadPanel.SetActive(false);
+        }
+       
     }
 }

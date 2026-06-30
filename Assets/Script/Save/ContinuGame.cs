@@ -38,6 +38,7 @@ namespace RPG.Save
                 string json2 = await File.ReadAllTextAsync(path2);
                 SettingsData data2 = JsonUtility.FromJson<SettingsData>(json2);
                 ApplaysettingSaveData(data2);
+                await SceneMove.Instance.MoveToTown();
                 return true;
             }
             finally
