@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
-using  System.Threading.Tasks;
+using System.Threading.Tasks;
 
 
 namespace RPG.Save
@@ -11,32 +11,39 @@ namespace RPG.Save
     /// </summary>
     public class ContinuGame : MonoBehaviour
     {
-        public async Task GameLoad()
+        public async Task<bool> GameLoad()
         {
-            //ゲームのデータをロードする処理
-            string path1 = Application.persistentDataPath + "/save.json";
-            if (!File.Exists(path1))
+            LoadUIManager.Instance.ShowLoadPanel();
+            try
             {
-                Debug.Log("セーブデータが見つかりませんでした");
-                return;
+                //ゲームのデータをロードする処理
+                string path1 = Application.persistentDataPath + "/save.json";
+                if (!File.Exists(path1))
+                {
+                    Debug.Log("セーブデータが見つかりませんでした");
+                    return false;
+                }
+                string json1 = await File.ReadAllTextAsync(path1);
+                SaveData data1 = 　 JsonUtility.FromJson<SaveData>(json1);
+                ApplySaveData(data1);
+
+
+                //ゲームの設定データをロードする処理
+                string path2 = Application.persistentDataPath + "/settings.json";
+                if (!File.Exists(path2))
+                {
+                    Debug.Log("セーブデータが見つかりませんでした");
+                    return false;
+                }
+                string json2 = await File.ReadAllTextAsync(path2);
+                SettingsData data2 = JsonUtility.FromJson<SettingsData>(json2);
+                ApplaysettingSaveData(data2);
+                return true;
             }
-            string json1 = await File.ReadAllTextAsync(path1);
-            SaveData data1 = 　 JsonUtility.FromJson<SaveData>(json1);
-            ApplySaveData(data1);
-
-
-            //ゲームの設定データをロードする処理
-            string path2 = Application.persistentDataPath + "/settings.json";
-            if (!File.Exists(path2))
+            finally
             {
-                Debug.Log("セーブデータが見つかりませんでした");
-                return;
+                LoadUIManager.Instance.HideLoadPanel();
             }
-            string json2 = await File.ReadAllTextAsync(path2);
-            SettingsData data2 = JsonUtility.FromJson<SettingsData>(json2);
-            ApplaysettingSaveData(data2);
-
-            return;
 
 
         }

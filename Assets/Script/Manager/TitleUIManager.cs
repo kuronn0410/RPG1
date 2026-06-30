@@ -83,9 +83,11 @@ public class TitleUIManager : MonoBehaviour
     private async Task GameStart()
     {
         if (continuGame == null) return;
-        await continuGame.GameLoad();
-        SceneMove.Instance.MoveToTown();
-
+        bool loaded = await continuGame.GameLoad();
+        if (loaded)
+        {
+            SceneMove.Instance.MoveToTown();
+        }
     }
 
         
