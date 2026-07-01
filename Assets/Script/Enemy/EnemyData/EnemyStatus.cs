@@ -42,10 +42,10 @@ namespace RPG.Enemy
 
         private void Start()
         {
-            enemyManager = FindFirstObjectByType<EnemyManager>();
+            enemyManager = FindAnyObjectByType<EnemyManager>();
             enemyManager.AddEnemy(this);
-            experienceSystem = FindFirstObjectByType<ExperienceSystem>();
-            moneySystem = FindFirstObjectByType<MoneySystem>(); // マネーシステムを取得
+            experienceSystem = FindAnyObjectByType<ExperienceSystem>();
+            moneySystem = FindAnyObjectByType<MoneySystem>(); // マネーシステムを取得
         }
 
 
@@ -94,12 +94,15 @@ namespace RPG.Enemy
         {
             if (isDead) return; // すでに死亡している場合は処理を行わない
             remainHp = 0;
-            OnEnemyHpChanged?.Invoke(remainHp, SaveMaxHP);
+            OnEnemyHpChanged?.Invoke(remainHp, SaveMaxHP);// HPが減ったことを通知
+
             isDead = true; // 敵が死亡したことを記録
-            enemyManager.RemoveEnemy(this); // 敵マネージャーからこの敵を削除
+            enemyManager.RemoveEnemy(this); // 敵マネージャーのリストからこの敵を削除
             Debug.Log("Enemy defeated!");
+
             experienceSystem.AddExperience(dropExp); // 経験値を加算
             moneySystem.AddMoney(dropMoney); // マネーを加算
+
             Debug.Log("Destroyする : " + gameObject.name);
             Destroy(gameObject); // 敵オブジェクトを破壊
         }

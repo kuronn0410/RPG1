@@ -10,6 +10,7 @@ namespace RPG.Enemy
         [SerializeField] CurrentEnemyStatus currentEnemyStatus;
 
         private List<EnemyStatus> enemies = new List<EnemyStatus>();
+        public IReadOnlyList<EnemyStatus> Enemies => enemies;
 
         private void Start()
         {
@@ -23,12 +24,12 @@ namespace RPG.Enemy
             enemies.Add(enemy);
             Debug.Log("“G’Ç‰Á: " + enemy.name);
         }
+
         public void RemoveEnemy(EnemyStatus enemy)
         {
             enemies.Remove(enemy);
             if (enemies.Count == 0)
             {
-
                 Debug.Log("‘S“GŒ‚”j");
                 if (doorChange != null)
                 {
@@ -38,14 +39,10 @@ namespace RPG.Enemy
                         GameStateUI.Instance.VictoryPanel();
                     }
                     Debug.Log("EnemyƒŒƒxƒ‹ƒAƒbƒv: " + PlayerLevelData.StageLevel);
-                    //currentEnemyStatus.LevelUpEnemy(PlayerLevelData.StageLevel);
                     doorChange.enabled = true;
                 }
-
             }
         }
-
     }
-
 }
 
