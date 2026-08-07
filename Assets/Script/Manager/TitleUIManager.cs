@@ -72,7 +72,14 @@ public class TitleUIManager : MonoBehaviour
     private void Setting()
     {
         if (settingPanel == null)return;
-        settingPanel.SetActive(true);
+        if(!settingPanel.activeSelf)
+        {
+            settingPanel.SetActive(true);
+        }
+        else
+        {
+            settingPanel.SetActive(false);
+        }
     }
 
     private void Exit()

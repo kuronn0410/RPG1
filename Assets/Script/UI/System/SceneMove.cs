@@ -24,6 +24,7 @@ public class SceneMove : MonoBehaviour
         LoadUIManager.Instance.ShowLoadPanel();
         await SceneManager.LoadSceneAsync("Map");
         LoadUIManager.Instance.HideLoadPanel();
+        BgmChange(BGMType.battle);
     }
 
     public async Task MoveToTown()
@@ -31,6 +32,7 @@ public class SceneMove : MonoBehaviour
         LoadUIManager.Instance.ShowLoadPanel();
         await SceneManager.LoadSceneAsync("Town");
         LoadUIManager.Instance.HideLoadPanel();
+        BgmChange(BGMType.town);
     }
    
     public async Task MoveToTitle()
@@ -38,5 +40,12 @@ public class SceneMove : MonoBehaviour
         LoadUIManager.Instance.ShowLoadPanel();
         await SceneManager.LoadSceneAsync("Title");
         LoadUIManager.Instance.HideLoadPanel();
+        BgmChange(BGMType.title);
     }
+
+    public void BgmChange(BGMType bgmType)
+    {
+        BgmManager.instance.BGMStopandPlay(bgmType);
+    }
+
 }
