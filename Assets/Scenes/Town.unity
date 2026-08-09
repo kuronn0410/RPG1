@@ -1527,6 +1527,7 @@ Transform:
   - {fileID: 1043773146}
   - {fileID: 1913742232}
   - {fileID: 188483506}
+  - {fileID: 894454371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800339857
@@ -1676,6 +1677,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: bed7a092d53e7c748bd65db98cebf9d6, type: 3}
   m_PrefabInstance: {fileID: 346381335}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &894454370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 894454371}
+  - component: {fileID: 894454372}
+  m_Layer: 0
+  m_Name: TownGuideUIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &894454371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894454370}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 446.04514, y: 257.70645, z: -2.78274}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 798132880}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &894454372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894454370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e982cbebe5e74c647a655d75ec55fd05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TownGuideUIController
+  operationGuidePanel: {fileID: 1703508169}
 --- !u!1 &899827281
 GameObject:
   m_ObjectHideFlags: 0
@@ -3175,12 +3221,12 @@ GameObject:
   - component: {fileID: 1703508172}
   - component: {fileID: 1703508171}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: GaidPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1703508170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4408,6 +4454,14 @@ PrefabInstance:
     - target: {fileID: 5855427791782594269, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975478694174937366, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_CellSize.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975478694174937366, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: m_CellSize.y
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6341407498512327777, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_IsActive

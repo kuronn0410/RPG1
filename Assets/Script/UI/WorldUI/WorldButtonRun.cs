@@ -8,15 +8,26 @@ using System.Collections;
 /// </summary>
 public class WorldButtonRun : MonoBehaviour
 {
-    [SerializeField] string sceneName;
+    //[SerializeField] string sceneName;
 
     public void SceneChange()
     {
-        Debug.Log("シーン変更");
-        if (sceneName != null)
-        {
-            SceneManager.LoadScene(sceneName);
 
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if(currentSceneName == "Map")
+        {
+            SceneMove.Instance.MoveToTown();
         }
+        else if(currentSceneName == "Town")
+        {
+            SceneMove.Instance.MoveToMap();
+        }
+        Debug.Log("シーン変更");
+        //if (sceneName != null)
+        //{
+        //    SceneManager.LoadScene(sceneName);
+
+        //}
+       
     }
 }

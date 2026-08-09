@@ -55,7 +55,7 @@ public class WeaponSwitchUI : MonoBehaviour
         
         buttons.Add(buttonObj.GetComponent<SwitchWeaponButton>());
 
-        buttonObj.transform.localPosition = new Vector3(totalHorizontalInterval, -totalVerticalInterval, 0);
+        //buttonObj.transform.localPosition = new Vector3(totalHorizontalInterval, -totalVerticalInterval, 0);
         totalHorizontalInterval += HorizontalInterval;
 
 

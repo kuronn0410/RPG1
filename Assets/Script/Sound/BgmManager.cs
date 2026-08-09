@@ -52,26 +52,26 @@ public class BgmManager : MonoBehaviour
     /// <summary>
     /// デバック用
     /// </summary>
-#if UNITY_EDITOR
-    void Update()
-    {
-        if (Keyboard.current == null)
-            return;
+//#if UNITY_EDITOR
+//    //void Update()
+//    //{
+//    //    if (Keyboard.current == null)
+//    //        return;
         
-        if (Keyboard.current.aKey.wasPressedThisFrame)
-        {
-            BGMStopandPlay(BGMType.title);
-        }
-        else if (Keyboard.current.sKey.wasPressedThisFrame)
-        {
-            BGMStopandPlay(BGMType.town);
-        }
-        else if (Keyboard.current.dKey.wasPressedThisFrame)
-        {
-            BGMStopandPlay(BGMType.battle);
-        }
-    }
-#endif
+//    //    if (Keyboard.current.aKey.wasPressedThisFrame)
+//    //    {
+//    //        BGMStopandPlay(BGMType.title);
+//    //    }
+//    //    else if (Keyboard.current.sKey.wasPressedThisFrame)
+//    //    {
+//    //        BGMStopandPlay(BGMType.town);
+//    //    }
+//    //    else if (Keyboard.current.dKey.wasPressedThisFrame)
+//    //    {
+//    //        BGMStopandPlay(BGMType.battle);
+//    //    }
+//    //}
+//#endif
 
     /// <summary>
     /// BGMを止めてから再生する同じものが再生中だったらそのままにする

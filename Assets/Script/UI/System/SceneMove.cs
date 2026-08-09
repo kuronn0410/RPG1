@@ -25,6 +25,7 @@ public class SceneMove : MonoBehaviour
         await SceneManager.LoadSceneAsync("Map");
         LoadUIManager.Instance.HideLoadPanel();
         BgmChange(BGMType.battle);
+        Debug.Log("SceneMove: MoveToMap");
     }
 
     public async Task MoveToTown()
