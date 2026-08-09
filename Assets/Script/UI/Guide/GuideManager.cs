@@ -7,26 +7,28 @@ using UnityEngine.InputSystem.Switch;
 public class GuideManager : MonoBehaviour
 {
     public static GuideManager Instance;
-    //[SerializeField] private GameObject optionGuidePanel;
+    public GuideData guideData;
     public void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            guideData = new GuideData();
         }
         else
         {
             Destroy(gameObject);
         }
+        
     }
     private GuideType? currentGuideType;
 
-    public GuideData guideData;
+   
 
     void Start()
     {
-        guideData = new GuideData();
+        
     }
 
 
@@ -36,8 +38,10 @@ public class GuideManager : MonoBehaviour
         {
             case GuideType.operationGuide:
                 return guideData.hasOperationGuide;
-            case GuideType.bottleRuleGuide:
-                return guideData.hasBottleRuleGuide;
+            case GuideType.battleRuleGuide:
+                return guideData.hasBattleRuleGuide;
+            case GuideType.shopGuide:
+                return guideData.hasShopGuide;
             default:
                 return false;
         }
@@ -50,8 +54,11 @@ public class GuideManager : MonoBehaviour
             case GuideType.operationGuide:
                 guideData.hasOperationGuide = true;
                 break;
-            case GuideType.bottleRuleGuide:
-                guideData.hasBottleRuleGuide = true;
+            case GuideType.battleRuleGuide:
+                guideData.hasBattleRuleGuide = true;
+                break;
+            case GuideType.shopGuide:
+                guideData.hasShopGuide = true;
                 break;
             default:
                 break;

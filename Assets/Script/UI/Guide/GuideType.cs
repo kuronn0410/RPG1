@@ -3,5 +3,6 @@ using UnityEngine;
 public enum GuideType 
 {
     operationGuide,
-    bottleRuleGuide,
+    battleRuleGuide,
+    shopGuide,
 }

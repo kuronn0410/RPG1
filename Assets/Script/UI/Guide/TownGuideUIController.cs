@@ -1,11 +1,12 @@
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using System.Collections;
 
 public class TownGuideUIController : MonoBehaviour
 {
 
     [SerializeField] GameObject operationGuidePanel;
+    [SerializeField] GameObject shopGuidePanel;
     private GuideManager guideManager;
 
 
@@ -13,10 +14,18 @@ public class TownGuideUIController : MonoBehaviour
     {
         Debug.Assert(operationGuidePanel!=null, "Operation Guide Panel is not assigned in the inspector.");
     }
-    void Start()
+    private IEnumerator Start()
     {
         guideManager = Object.FindAnyObjectByType<GuideManager>();
+        if (guideManager == null)
+        {
+            Debug.LogError("GuideManager not found in the scene.");
+
+        }
+        yield return null;
         DisplayGuide(GuideType.operationGuide);
+        Debug.Log("OperationGuideUIController initialized.");
+        DisplayGuide(GuideType.shopGuide);
         Debug.Log("TownGuideUIController initialized.");
     }
 
@@ -32,11 +41,35 @@ public class TownGuideUIController : MonoBehaviour
                 {
                     operationGuidePanel.SetActive(true);
                     guideManager.UsedGuidePanel(guideType);
-
                 }
-               break;
-           
-       }
+                break;
+            case GuideType.shopGuide:
+
+                Debug.Log("shopGuide hasGuide = " + guideManager.CheckHasGuide(guideType));
+                Debug.Log("shopGuide panel = " + shopGuidePanel);
+                Debug.Log("previous is battle = " + SceneMove.Instance.CheckPreviousScene(SceneType.battle));
+
+                if (!guideManager.CheckHasGuide(guideType)
+                    && shopGuidePanel != null
+                    &&SceneMove.Instance.CheckPreviousScene(SceneType.battle))
+                {
+                    shopGuidePanel.SetActive(true);
+                    GameManager.Instance.PauseGame();
+                    guideManager.UsedGuidePanel(guideType);
+                }
+                break;
+            
+
+        }
     }
-    
+
+
+    public void OnClickCloseShopGuidePanel()
+    {
+        if (shopGuidePanel != null && shopGuidePanel.activeSelf)
+        {
+            shopGuidePanel.SetActive(false);
+            GameManager.Instance.ResumeGame();
+        }
+    }
 }

@@ -1891,7 +1891,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 643954383}
         m_TargetAssemblyTypeName: MapGuideUIController, Assembly-CSharp
-        m_MethodName: OnClickCloseBottleRuleGuidePanel
+        m_MethodName: OnClickCloseBattleRuleGuidePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1983,7 +1983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceae665654e21f54590ab61e2c14df85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGuideUIController
-  bottleRuleGuidePanel: {fileID: 792960473}
+  battleRuleGuidePanel: {fileID: 792960473}
 --- !u!1 &664521527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5578716783730851681, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}

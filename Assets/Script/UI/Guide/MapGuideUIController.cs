@@ -2,19 +2,19 @@ using UnityEngine;
 using System.Collections;
 public class MapGuideUIController : MonoBehaviour
 {
-    [SerializeField] GameObject bottleRuleGuidePanel;
+    [SerializeField] GameObject battleRuleGuidePanel;
     private GuideManager guideManager;
     //private GameManager gameManager;
 
     void Awake()
     {
-        Debug.Assert(bottleRuleGuidePanel != null, "Bottle Rule Guide Panel is not assigned in the inspector.");
+        Debug.Assert(battleRuleGuidePanel != null, "Battle Rule Guide Panel is not assigned in the inspector.");
     }
     private IEnumerator Start()
     {
         guideManager = Object.FindAnyObjectByType<GuideManager>();
         yield return null;
-        DisplayGuide(GuideType.bottleRuleGuide);
+        DisplayGuide(GuideType.battleRuleGuide);
         Debug.Log("MapGuideUIController initialized.");
     }
 
@@ -23,15 +23,15 @@ public class MapGuideUIController : MonoBehaviour
     {
         switch (guideType)
         {
-            case GuideType.bottleRuleGuide:
-                Debug.Log("Displaying bottle rule guide.");
+            case GuideType.battleRuleGuide:
+                Debug.Log("Displaying battle rule guide.");
                 if (!guideManager.CheckHasGuide(guideType)
-                    && bottleRuleGuidePanel != null)
+                    && battleRuleGuidePanel != null)
                 {
                     
-                    bottleRuleGuidePanel.SetActive(true);
+                    battleRuleGuidePanel.SetActive(true);
                     GameManager.Instance.PauseGame();
-                    Debug.Log("Bottle rule guide displayed and game paused.. timeScale = " + Time.timeScale);
+                    Debug.Log("Battle rule guide displayed and game paused.. timeScale = " + Time.timeScale);
                     guideManager.UsedGuidePanel(guideType);
 
                 }
@@ -42,11 +42,11 @@ public class MapGuideUIController : MonoBehaviour
 
 
     //ボタンに登録する用
-    public void OnClickCloseBottleRuleGuidePanel()
+    public void OnClickCloseBattleRuleGuidePanel()
     {
-        if (bottleRuleGuidePanel != null && bottleRuleGuidePanel.activeSelf)
+        if (battleRuleGuidePanel != null && battleRuleGuidePanel.activeSelf)
         {
-            bottleRuleGuidePanel.SetActive(false);
+            battleRuleGuidePanel.SetActive(false);
             GameManager.Instance.ResumeGame();
         }
     }
