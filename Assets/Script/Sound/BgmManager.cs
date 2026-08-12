@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 /// <summary>
 /// たぶんこれotherにあるのenumのScenesでいいと思う
@@ -50,35 +51,12 @@ public class BgmManager : MonoBehaviour
     }
 
     /// <summary>
-    /// デバック用
-    /// </summary>
-//#if UNITY_EDITOR
-//    //void Update()
-//    //{
-//    //    if (Keyboard.current == null)
-//    //        return;
-        
-//    //    if (Keyboard.current.aKey.wasPressedThisFrame)
-//    //    {
-//    //        BGMStopandPlay(BGMType.title);
-//    //    }
-//    //    else if (Keyboard.current.sKey.wasPressedThisFrame)
-//    //    {
-//    //        BGMStopandPlay(BGMType.town);
-//    //    }
-//    //    else if (Keyboard.current.dKey.wasPressedThisFrame)
-//    //    {
-//    //        BGMStopandPlay(BGMType.battle);
-//    //    }
-//    //}
-//#endif
-
-    /// <summary>
     /// BGMを止めてから再生する同じものが再生中だったらそのままにする
     /// </summary>
     /// <param name="bgm"></param>
     public void BGMStopandPlay(BGMType bgm)
     {
+        SetVolume(SoundManager.Instance.GetBgmVolume());
         // 同じBGMが再生中なら何もしない
         if (currentBGM == bgm && audioSource.isPlaying)
             return;
@@ -113,6 +91,6 @@ public class BgmManager : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioSource.volume = Mathf.Clamp01(volume);
+        audioSource.volume = volume;
     }
 }

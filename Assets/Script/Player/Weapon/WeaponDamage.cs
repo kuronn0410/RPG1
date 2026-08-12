@@ -35,7 +35,7 @@ public class WeaponDamage : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
         IDamageable damageable = other.GetComponent<IDamageable>();
         EnemyStatus enemyStatus = other.GetComponent<EnemyStatus>();
         if (damageable != null)

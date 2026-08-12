@@ -33,7 +33,7 @@ namespace RPG.Enemy
                     SaveMaxHP = enemyParameter.maxHp;
                     dropExp = enemyParameter.dropExp;
                     dropMoney = enemyParameter.dropMoney;
-                    Debug.Log(enemyType + " 生成時HP: " + remainHp);
+                    //Debug.Log(enemyType + " 生成時HP: " + remainHp);
                     break;
 
                 }
@@ -52,7 +52,7 @@ namespace RPG.Enemy
         public void Damage(int damage)
         {
             if (isDead) return;
-            Debug.Log("Take " + damage + " damage!");
+            //Debug.Log("Take " + damage + " damage!");
             // Here you can implement health reduction, death, etc.
             if (remainHp > 0)
             {
@@ -98,7 +98,7 @@ namespace RPG.Enemy
 
             isDead = true; // 敵が死亡したことを記録
             enemyManager.RemoveEnemy(this); // 敵マネージャーのリストからこの敵を削除
-            Debug.Log("Enemy defeated!");
+            //Debug.Log("Enemy defeated!");
 
             experienceSystem.AddExperience(dropExp); // 経験値を加算
             moneySystem.AddMoney(dropMoney); // マネーを加算

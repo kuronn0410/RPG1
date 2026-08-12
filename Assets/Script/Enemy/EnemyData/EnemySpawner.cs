@@ -46,7 +46,7 @@ namespace RPG.Enemy
                 if (spawnedEnemy != null)
                 {
                     spawnedEnemy.SetUpEnemyStatus();
-                    Debug.Log("“G‚ğ¶¬: ");
+                    //Debug.Log("“G‚ğ¶¬: ");
                     spawnedEnemies.Add(spawnedEnemy);
                 }
                 else

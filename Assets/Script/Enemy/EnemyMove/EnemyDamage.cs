@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace RPG.Enemy
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class EnemyDamage : MonoBehaviour
     {
 

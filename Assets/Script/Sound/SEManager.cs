@@ -1,117 +1,52 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.InputSystem;
-/// <summary>
-/// たぶんこれenumのPieceAnimationTypeでいいと思う
-/// </summary>
-public enum SEType
-{
-    hit,
-    dead,
-    evolution,
-    put
-}
-
 /// <summary>
 /// AudioSourceのループ再生を使わずに、SEを再生するためのクラス
 /// </summary>
 public class SEManager : MonoBehaviour
 {
-    [SerializeField] AudioClip hit;
-    [SerializeField] AudioClip dead;
-    [SerializeField] AudioClip evolution;
-    [SerializeField] AudioClip put;
-    AudioSource audioSource;
 
-    //デバックのためにSerializeFeildにしてる
-    [SerializeField] bool isHitPlaying = false;
-    [SerializeField] bool isDeadPlaying = false;
-    [SerializeField] bool isEvolutionPlaying = false;
-    [SerializeField] bool isPutPlaying = false;
-
-    private SEType? currentSE;
-
-    public static SEManager instance;
-    private void Awake()
+    //シーン内のIVolumeControllableを集めて、音量を一括で変更するためのクラス
+    private readonly List<IVolumeControllable> volumeControllables = new();
+    public static SEManager Instance;
+    void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
-            return;
         }
-        audioSource = GetComponent<AudioSource>();
-        Debug.Assert(hit != null, "hitがアタッチされていません。");
-        Debug.Assert(dead != null, "deadがアタッチされていません。");
-        Debug.Assert(evolution != null, "evolutionがアタッチされていません。");
-        Debug.Assert(put != null, "putがアタッチされていません。");
+
+    }
+    
+
+    public void Register(IVolumeControllable controllable)
+    {
+        if (controllable == null) return;
+
+        if (!volumeControllables.Contains(controllable))
+        {
+            volumeControllables.Add(controllable);
+        }
+        controllable.SetVolume(SoundManager.Instance.GetSeVolume());
     }
 
-    /// <summary>
-    /// デバック用
-    /// </summary>
-#if UNITY_EDITOR
-    void Update()
+    public void Unregister(IVolumeControllable controllable)
     {
-        if (Keyboard.current == null)
-            return;
-        if (Keyboard.current.qKey.wasPressedThisFrame)
-        {
-            SEStopandPlay(SEType.hit);
-        }
-        else if (Keyboard.current.wKey.wasPressedThisFrame)
-        {
-            SEStopandPlay(SEType.dead);
-        }
-        else if (Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            SEStopandPlay(SEType.evolution);
-        }
-        else if (Keyboard.current.rKey.wasPressedThisFrame)
-        {
-            SEStopandPlay(SEType.put);
-        }
-    }
-#endif
+        if (controllable == null) return;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="se"></param>
-    public void SEStopandPlay(SEType se)
-    {
-        if (currentSE == se && audioSource.isPlaying)
-            return;
-        //StopAllSE();
-        AudioClip clip = se switch
-        {
-            SEType.hit => hit,
-            SEType.dead => dead,
-            SEType.evolution => evolution,
-            SEType.put => put,
-            _ => null
-        };
-
-        audioSource.Stop();
-        audioSource.clip = clip;
-        audioSource.Play();
-
-        currentSE = se;
+        volumeControllables.Remove(controllable);
     }
 
-    /// <summary>
-    /// 音を止める用
-    /// </summary>
-    public void StopAllSE()
+    public void SetVolume(float volume)
     {
-        isHitPlaying = false;
-        isDeadPlaying = false;
-        isEvolutionPlaying = false;
-        isPutPlaying = false;
-        audioSource.Stop();
+        foreach (var controllable in volumeControllables)
+        {
+            controllable.SetVolume(volume);
+        }
     }
 }
