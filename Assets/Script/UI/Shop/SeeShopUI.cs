@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public class SeeShopUI : MonoBehaviour, IInteractable
+//ボタンを押すとショップが開くたぶんいらない
+
+public class SeeShopUI : MonoBehaviour
 {
     [SerializeField] private ShopType shopType;
 
@@ -18,4 +20,8 @@ public class SeeShopUI : MonoBehaviour, IInteractable
         }
     }
 
+    //public string GetInteractionText()
+    //{
+    //    return "クリック:ショップを開く";
+    //}
 }

@@ -11,6 +11,7 @@ public class WorldUIRaycaster : MonoBehaviour
     [SerializeField] private GraphicRaycaster graphicRaycaster;
     [SerializeField] private EventSystem eventSystem;
     [SerializeField]private int raycastIntervalFrames = 10;
+    [SerializeField] private WorldUIManager worldUIManager;
     private int frameCount;
     private IWorldUIHover currentHover;
     private Camera eventCamera;
@@ -18,10 +19,14 @@ public class WorldUIRaycaster : MonoBehaviour
     PointerEventData pointerData;
     private readonly List<RaycastResult> results = new List<RaycastResult>();
 
+    //bool isInteracting = false;
+
     void Awake()
     {
+        eventSystem = Object.FindAnyObjectByType<EventSystem>();
         Debug.Assert(graphicRaycaster != null, "WorldUIRaycaster: GraphicRaycasterがアタッチされていません");
         Debug.Assert(eventSystem != null, "WorldUIRaycaster: EventSystemがアタッチされていません");
+        Debug.Assert(worldUIManager != null, "WorldUIRaycaster: WorldUIManagerがアタッチされていません");
     }
     void Start()
     {
@@ -33,6 +38,15 @@ public class WorldUIRaycaster : MonoBehaviour
     {
         if (GameManager.Instance.IsPause())
             return;
+        if(!worldUIManager.IsWorldUIOpen)
+        {
+            //if (currentHover != null)
+            //{
+            //    currentHover.OnHoverExit();
+            //    currentHover = null;
+            //}
+            return;
+        }
         frameCount++;
 
         bool clicked = Input.GetMouseButtonDown(0);
@@ -63,6 +77,13 @@ public class WorldUIRaycaster : MonoBehaviour
         foreach (RaycastResult result in results)
         {
             hitHover = result.gameObject.GetComponent<IWorldUIHover>();
+            //if (hitHover != null && !isInteracting)
+            //{
+            //    interactionPromptUI.SetInteractionText(hitHover.GetInteractionText());
+            //    isInteracting = true;
+
+            //}
+            
 
             if (hitHover != null)
             {

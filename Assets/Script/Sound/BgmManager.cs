@@ -10,6 +10,7 @@ using UnityEngine.Rendering;
 /// <summary>
 /// AudioSourceのループ再生を使って、BGMを再生するためのクラス
 /// </summary>
+[RequireComponent(typeof(AudioSource))]
 public class BgmManager : MonoBehaviour
 {
     [SerializeField] AudioClip title;
@@ -71,6 +72,7 @@ public class BgmManager : MonoBehaviour
         };
         audioSource.Stop();
         audioSource.clip = clip;
+        SetVolume(SoundManager.Instance.GetBgmVolume());
         audioSource.Play();
 
         currentBGM = bgm;

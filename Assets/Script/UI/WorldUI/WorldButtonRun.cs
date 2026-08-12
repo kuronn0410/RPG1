@@ -30,4 +30,19 @@ public class WorldButtonRun : MonoBehaviour
         //}
        
     }
+
+    public void SeeShopUI(WorldUIButtonType worldUIbuttonType)
+    {
+        Debug.Log("Shop Open");
+        switch (worldUIbuttonType)
+        {
+            case WorldUIButtonType.WeaponShopUI:
+                UIManager.Instance.ToggleWeaponShopPanel();
+                break;
+            case WorldUIButtonType.CardShopUI:
+                UIManager.Instance.ToggleCardShopPanel();
+                break;
+        }
+    }
 }
+

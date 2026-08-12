@@ -50,7 +50,7 @@ public class SoundManager : MonoBehaviour
 
     public void BgmVolume(float volume)
     {
-        masterVolume = Mathf.Clamp01(volume);
+        bgmVolume = Mathf.Clamp01(volume);
         if (bgmVolumeSlider)
         {
             bgmVolumeSlider.value = volume;

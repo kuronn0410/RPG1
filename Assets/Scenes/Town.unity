@@ -761,7 +761,8 @@ Transform:
   m_LocalPosition: {x: -4.49, y: 0.78, z: -8.36728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 515300692}
   m_Father: {fileID: 303671218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &344462266
@@ -784,7 +785,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!114 &344462267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,9 +795,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 344462260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad2f766162ac4a46ac8821ee9ed51d0, type: 3}
+  m_Script: {fileID: 11500000, guid: b6a8955102817b24493992f36c6df108, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SeeShopUI
+  m_EditorClassIdentifier: Assembly-CSharp::ShopInteract
+  worldUIManager: {fileID: 1668273754}
   shopType: 0
 --- !u!1001 &346381335
 PrefabInstance:
@@ -1265,6 +1267,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508288731}
   m_CullTransparentMesh: 1
+--- !u!1 &515300691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515300692}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &515300692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515300691}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.26, z: 1.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 344462264}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &589453068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,7 +1520,7 @@ GameObject:
   - component: {fileID: 666605149}
   - component: {fileID: 666605148}
   - component: {fileID: 666605147}
-  - component: {fileID: 666605146}
+  - component: {fileID: 666605150}
   m_Layer: 0
   m_Name: "card\u5546\u4EBA (1)"
   m_TagString: Untagged
@@ -1507,22 +1540,10 @@ Transform:
   m_LocalPosition: {x: -11.09, y: 0.78, z: -8.36728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2090306397}
   m_Father: {fileID: 303671218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &666605146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666605144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad2f766162ac4a46ac8821ee9ed51d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SeeShopUI
-  shopType: 1
 --- !u!65 &666605147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1543,7 +1564,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!23 &666605148
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1601,6 +1622,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666605144}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &666605150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666605144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a8955102817b24493992f36c6df108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopInteract
+  worldUIManager: {fileID: 1668273754}
+  shopType: 1
 --- !u!1001 &728862991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3211,6 +3246,10 @@ PrefabInstance:
       propertyPath: distance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3872546213997229364, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
+      propertyPath: interactionPromptUI
+      value: 
+      objectReference: {fileID: 2228828641017537170}
     - target: {fileID: 4071066209091113030, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
       propertyPath: m_Name
       value: FemaleCharacterPBR
@@ -3227,6 +3266,10 @@ PrefabInstance:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 462786172}
+    - target: {fileID: 7133528053200823926, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
+      propertyPath: worldUIManager
+      value: 
+      objectReference: {fileID: 1668273754}
     - target: {fileID: 7133528053200823926, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
       propertyPath: graphicRaycaster
       value: 
@@ -4036,6 +4079,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2907020358458010168, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
   m_PrefabInstance: {fileID: 1205584153531287434}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2090306396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090306397}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2090306397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090306396}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.999974, z: -0, w: -0.007212719}
+  m_LocalPosition: {x: 0.01, y: 0.14999998, z: 1.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 666605145}
+  m_LocalEulerAnglesHint: {x: 0, y: 180.826, z: 0}
 --- !u!1 &2090423566
 GameObject:
   m_ObjectHideFlags: 0
@@ -4162,7 +4236,7 @@ GameObject:
   - component: {fileID: 2101484375}
   - component: {fileID: 2101484374}
   - component: {fileID: 2101484373}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "\u5C4B\u53F0  (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4225,7 +4299,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 48.6, y: 2.7, z: 2.7599359}
-  m_Center: {x: 10.4, y: -7.44, z: 0}
+  m_Center: {x: 10.4, y: -8.42, z: 0}
 --- !u!65 &2101484375
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4376,6 +4450,14 @@ PrefabInstance:
       propertyPath: parentObject
       value: 
       objectReference: {fileID: 1353615133}
+    - target: {fileID: 8272810468661300408, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: CardShopParent
+      value: 
+      objectReference: {fileID: 2090306396}
+    - target: {fileID: 8272810468661300408, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
+      propertyPath: WeaponShopParent
+      value: 
+      objectReference: {fileID: 515300691}
     - target: {fileID: 8281579534039789689, guid: 09e32015b1b70654aa09469624cc13e8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5113,6 +5195,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+--- !u!114 &2228828641017537170 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 779885484648051289, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+  m_PrefabInstance: {fileID: 2228828641017537169}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d272b4ec276175c4fa68efd823fd9daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionPromptUI
 --- !u!33 &5314483441834223966
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5366,7 +5459,7 @@ GameObject:
   - component: {fileID: 9110514990291773181}
   - component: {fileID: 9110514990291773180}
   - component: {fileID: 9110514990291773182}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "\u5C4B\u53F0 "
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5408,7 +5501,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 48.6, y: 2.7, z: 2.7599359}
-  m_Center: {x: 10.4, y: -7.44, z: 0}
+  m_Center: {x: 16.04, y: -8.52, z: 0}
 --- !u!65 &9110514990291773181
 BoxCollider:
   m_ObjectHideFlags: 0

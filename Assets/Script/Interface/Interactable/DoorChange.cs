@@ -2,15 +2,32 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class DoorChange : MonoBehaviour, IInteractable
+public class DoorChange : MonoBehaviour, IWorldUIDisplayable
 {
     [SerializeField] WorldUIManager worldUIManager;
 
-
-    public void Interact()
+    public string GetInteractionText()
     {
-        if(!enabled) return;
-        worldUIManager.ShowSceneChangeButton();
-
+        return "クリック:ドアを開ける";
     }
+
+    //public void Interact()
+    //{
+    //    if (!enabled) return;
+    //    //worldUIManager.ShowSceneChangeButton();
+    //    return;
+    //}
+
+    public void ShowWorldUI()
+    {
+        if (!enabled) return;
+        worldUIManager.ShowSceneChangeButton();
+    }
+
+    public void HideWorldUI()
+    {
+        if (!enabled) return;
+        worldUIManager.HideSceneChangeButton();
+    }   
+
 }

@@ -21,6 +21,7 @@ namespace RPG.Player
         private int maxHpUp = 0;
 
         public event Action<int, int> OnHpChanged;
+        public event Action<int> OnDamageTaken;
 
         private void Awake()
         {
@@ -51,6 +52,7 @@ namespace RPG.Player
             {
                 PlayerLevelData.currentHp -= takeDamage; // É_ÉÅÅ[ÉWÇHPÇ©ÇÁå∏éZ
                 OnHpChanged?.Invoke(PlayerLevelData.currentHp, SaveMaxHP);
+                OnDamageTaken?.Invoke(takeDamage);
                 if (PlayerLevelData.currentHp <= 0)
                 {
                     PlayerLevelData.currentHp = 0;

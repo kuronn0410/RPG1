@@ -9,7 +9,7 @@ using UnityEngine.UI;
     {    
         [SerializeField] private WorldButtonRun worldButtonRun;
         [SerializeField] private WorldUIButtonType worldUIbuttonType;
-    private Image buttonImage;
+        private Image buttonImage;
 
     private void Awake()
     {
@@ -28,6 +28,12 @@ using UnityEngine.UI;
             case WorldUIButtonType.SceneChange:
                 worldButtonRun.SceneChange();
                 break;
+            case WorldUIButtonType.WeaponShopUI:
+                worldButtonRun.SeeShopUI(worldUIbuttonType);
+                break;
+            case WorldUIButtonType.CardShopUI:
+                worldButtonRun.SeeShopUI(worldUIbuttonType);
+                break;  
             default:
                 Debug.LogError("WorldUIButton: 未定義のボタンタイプ");
                 break;

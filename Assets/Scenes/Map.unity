@@ -5640,6 +5640,10 @@ PrefabInstance:
       propertyPath: playerStatus
       value: 
       objectReference: {fileID: 2075160353590138987}
+    - target: {fileID: 4725642815159522837, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 6014601327108267358, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5720,6 +5724,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8400965910574793180, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 359.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400965910574793180, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8718704178662544602, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
       propertyPath: m_Name
       value: HUDCanvas
@@ -5738,6 +5750,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6014601327108267358, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
   m_PrefabInstance: {fileID: 2130255790}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2130255792 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 779885484648051289, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+  m_PrefabInstance: {fileID: 2130255790}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d272b4ec276175c4fa68efd823fd9daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionPromptUI
 --- !u!1001 &2075160353590138986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5798,6 +5821,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3872546213997229364, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
+      propertyPath: interactionPromptUI
+      value: 
+      objectReference: {fileID: 2130255792}
     - target: {fileID: 4071066209091113030, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
       propertyPath: m_Name
       value: FemaleCharacterPBR
@@ -5818,6 +5845,10 @@ PrefabInstance:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 2054619574}
+    - target: {fileID: 7133528053200823926, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
+      propertyPath: worldUIManager
+      value: 
+      objectReference: {fileID: 314687349}
     - target: {fileID: 7133528053200823926, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
       propertyPath: graphicRaycaster
       value: 
