@@ -31,13 +31,6 @@ namespace RPG.Player
             if (GameManager.Instance.IsPause())
                 return;
 
-
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            //    Interact();
-            //}
-
-
             checkTimer += Time.deltaTime;
             if (checkTimer >= 0.1f)
             {
@@ -52,21 +45,10 @@ namespace RPG.Player
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, distance))
             {
-                //if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-                //{
-                //    return;
-                //}
 
                 //Debug.Log(hit.collider.name);
                 IInteractable interactable = hit.collider.GetComponent<IInteractable>();
                 worldUIDisplayable = hit.collider.GetComponent<IWorldUIDisplayable>();
-
-                //if (interactable != null&& !isInteracting)
-                //{
-                //    interactionPromptUI.SetInteractionText(interactable.GetInteractionText());
-                //    isInteracting = true;
-                    
-                //}
 
                 if(worldUIDisplayable != null&& !isWorldUIInteracting)
                 {
@@ -74,24 +56,10 @@ namespace RPG.Player
                     worldUIDisplayable.ShowWorldUI();
                     isWorldUIInteracting = true;
                 }
-
-                //if (Input.GetMouseButtonDown(0))
-                //{
-                //    if (interactable != null)
-                //    {
-                //        //Debug.Log("Interact Success");
-                //        interactable.Interact();
-                //    }
-                //}
                 
             }
             else
             {
-                //if (isInteracting)
-                //{
-                //    interactionPromptUI.SetInteractionText(string.Empty);
-                //    isInteracting = false;
-                //}
 
                 if (worldUIDisplayable != null && isWorldUIInteracting)
                 {

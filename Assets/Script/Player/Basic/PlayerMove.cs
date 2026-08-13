@@ -115,7 +115,7 @@ namespace RPG.Player
 
             // ÉJÉÅÉâè„â∫âÒì]
             cameraRotationX -= mouseY;
-            cameraRotationX = Mathf.Clamp(cameraRotationX, -60f, 60f);
+            cameraRotationX = Mathf.Clamp(cameraRotationX, -30f, 30f);
 
             if (Camera != null)
             {

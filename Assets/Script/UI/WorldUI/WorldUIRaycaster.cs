@@ -12,6 +12,7 @@ public class WorldUIRaycaster : MonoBehaviour
     [SerializeField] private EventSystem eventSystem;
     [SerializeField]private int raycastIntervalFrames = 10;
     [SerializeField] private WorldUIManager worldUIManager;
+    //[SerializeField] private InteractionPromptUI interactionPromptUI;
     private int frameCount;
     private IWorldUIHover currentHover;
     private Camera eventCamera;
@@ -59,6 +60,7 @@ public class WorldUIRaycaster : MonoBehaviour
 
         if (clicked)
         {
+
             currentHover?.OnClick();
         }
     }

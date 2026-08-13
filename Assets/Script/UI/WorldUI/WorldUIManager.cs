@@ -35,7 +35,7 @@ public class WorldUIManager : MonoBehaviour
 
     public void ShowSceneChangeButton()
     {
-        if(SceneChangeButton == null || parentObject == null) { return; }
+        if (SceneChangeButton == null || parentObject == null) { return; }
         SceneChangeButton.transform.position = parentObject.transform.position;
         SceneChangeButton.transform.rotation = parentObject.transform.rotation;
         //text.text = sceneName;
@@ -66,7 +66,7 @@ public class WorldUIManager : MonoBehaviour
 
     public void ShowCardShopButton()
     {
-        if(CardShopButton!=null||CardShopParent==null) { return; }
+        if (CardShopButton == null || CardShopParent == null) { return; }
         CardShopButton.transform.position = CardShopParent.transform.position;
         CardShopButton.transform.rotation = CardShopParent.transform.rotation;
         CardShopButton.SetActive(true);

@@ -5,6 +5,7 @@ public class ExperienceSystem : MonoBehaviour
 {
    
     [SerializeField] private PlayerStatus playerStatus;
+    [SerializeField] private MapAudio mapAudio;
     public event System.Action<int> OnLevelUp;
     public event System.Action<int> OnExperienceAdded;
 
@@ -12,6 +13,7 @@ public class ExperienceSystem : MonoBehaviour
     {
         //インスペクターで設定されていることを確認
         Debug.Assert(playerStatus != null, "ExperienceSystem: playerStatus が設定されていません");
+
 
     }
 
@@ -23,6 +25,10 @@ public class ExperienceSystem : MonoBehaviour
             PlayerLevelData.nextLevelExperience -= 100 * PlayerLevelData.level; // Set next level experience threshold
             OnExperienceAdded?.Invoke(PlayerLevelData.nextLevelExperience);
             LevelUp();
+            if(mapAudio != null)
+            {
+                mapAudio.Play(UISeType.LevelUp);
+            }
         }
     }
 

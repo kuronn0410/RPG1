@@ -1,13 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShopSystem : MonoBehaviour
 {
     [SerializeField] private MoneySystem moneySystem;
+    [SerializeField] private TownAudio townAudio;
     //private WeaponaType weaponaType;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        moneySystem = FindObjectOfType<MoneySystem>();
+        //moneySystem = Object.FindAnyObjectByType<MoneySystem>();
     }
 
     // Update is called once per frame
@@ -28,12 +30,14 @@ public class ShopSystem : MonoBehaviour
                 moneySystem.DecreaseMoney(price);
 
                 Debug.Log("çwì¸ê¨å˜");
+                townAudio.Play(UISeType.Purchase);
                 return true;
             }
             Debug.Log("Ç∑Ç≈Ç…èäéù");
             return false;
         }
         Debug.Log("Ç®ã‡ïsë´");
+        townAudio.Play(UISeType.CantPurchase);
         return false;
     }
 

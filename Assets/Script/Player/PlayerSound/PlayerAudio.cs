@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(AudioSource))]
-public class PlayerAudio : MonoBehaviour, IVolumeControllable
+public class PlayerAudio : MonoBehaviour,IVolumeControllable
 {
     [SerializeField] private AudioClip AttackSwingSE;
     [SerializeField] private AudioClip damageSound;

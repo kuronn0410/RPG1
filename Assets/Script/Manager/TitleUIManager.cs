@@ -12,6 +12,8 @@ public class TitleUIManager : MonoBehaviour
     [SerializeField] private SaveSystem saveSystem;
 
     [SerializeField] private GameObject settingPanel;
+
+    [SerializeField] private TitleAudio titleAudio;
     public static TitleUIManager Instance;
     
 
@@ -41,18 +43,23 @@ public class TitleUIManager : MonoBehaviour
             switch (titleButtonType)
             {
                 case TitleButtonType.Start:
+                    titleAudio.PlayGameStartSE();
                     await GameStart();
                     break;
                 case TitleButtonType.Option:
+                    titleAudio.PlayMenuSelectSE();
                     Setting();
                     break;
                 case TitleButtonType.Exit:
+                    titleAudio.PlayExitSE();
                     Exit();
                     break;
                 case TitleButtonType.Restart:
+                    titleAudio.PlayDefaultSE();
                     await Restart();
                     break;
                 case TitleButtonType.ToTitle:
+                    titleAudio.PlayDefaultSE();
                     ToTitle();
                     break;
                 case TitleButtonType.Save:
