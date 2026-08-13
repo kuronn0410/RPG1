@@ -51,15 +51,15 @@ public class TitleUIManager : MonoBehaviour
                     Setting();
                     break;
                 case TitleButtonType.Exit:
-                    titleAudio.PlayExitSE();
+                    //titleAudio.PlayExitSE();
                     Exit();
                     break;
                 case TitleButtonType.Restart:
-                    titleAudio.PlayDefaultSE();
+                    //titleAudio.PlayDefaultSE();
                     await Restart();
                     break;
                 case TitleButtonType.ToTitle:
-                    titleAudio.PlayDefaultSE();
+                    //titleAudio.PlayDefaultSE();
                     ToTitle();
                     break;
                 case TitleButtonType.Save:

@@ -44,10 +44,18 @@ public class GameStateUI : MonoBehaviour
 
     public void GameOverPanel()
     {
+        if(BgmManager.instance)
+        {
+            BgmManager.instance.BGMStopandPlay(BGMType.gameover);
+        }
         OpenUI(gameOverPanel);
     }
     public void VictoryPanel()
     {
+        if(BgmManager.instance)
+        {
+            BgmManager.instance.BGMStopandPlay(BGMType.clear);
+        }
         OpenUI(victoryPanel);
     }
 }

@@ -101,7 +101,11 @@ namespace RPG.Enemy
         {
             Debug.Log("スタン状態");
             isStunned = true;
-            //IsMoving = false; // スタン状態になったら移動を停止
+            IsMoving = false; // スタン状態になったら移動を停止
+            if (enemyAttack != null)
+            {
+                enemyAttack.StopAttack();
+            }
             Invoke(nameof(EndStun), stunTime);
         }
 
@@ -132,5 +136,11 @@ namespace RPG.Enemy
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, viewDistance);
         }
+
+        public void DestroyEnemy(float stunTime)
+        {
+            StunState(stunTime);
+        }
+
     }
 }

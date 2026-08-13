@@ -6,6 +6,7 @@ public class ExperienceSystem : MonoBehaviour
    
     [SerializeField] private PlayerStatus playerStatus;
     [SerializeField] private MapAudio mapAudio;
+    [SerializeField] private LevelUpUI levelUpUI;
     public event System.Action<int> OnLevelUp;
     public event System.Action<int> OnExperienceAdded;
 
@@ -24,6 +25,11 @@ public class ExperienceSystem : MonoBehaviour
         {
             PlayerLevelData.nextLevelExperience -= 100 * PlayerLevelData.level; // Set next level experience threshold
             OnExperienceAdded?.Invoke(PlayerLevelData.nextLevelExperience);
+
+            if(levelUpUI != null)
+            {
+                levelUpUI.openLevelUpPanel();
+            }
             LevelUp();
             if(mapAudio != null)
             {

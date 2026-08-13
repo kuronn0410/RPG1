@@ -4436,6 +4436,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5602701815533002613, guid: 854e8bf0b0d516849b97f50714cdb092, type: 3}
   m_PrefabInstance: {fileID: 1641809626}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1641809628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8515518298122824189, guid: 854e8bf0b0d516849b97f50714cdb092, type: 3}
+  m_PrefabInstance: {fileID: 1641809626}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8be2251a6fb1746bb22ba94c1efafc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelUpUI
 --- !u!1 &1676648060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5780,6 +5791,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1363613393}
     m_Modifications:
+    - target: {fileID: 1223484223273150330, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_Color.a
+      value: 0.53333336
+      objectReference: {fileID: 0}
     - target: {fileID: 2297422879844565207, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
       propertyPath: playerStatus
       value: 
@@ -5788,6 +5803,22 @@ PrefabInstance:
       propertyPath: experienceSystem
       value: 
       objectReference: {fileID: 2075160353590138990}
+    - target: {fileID: 2426096572708583096, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.70808035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426096572708583096, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.70808035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426096572708583096, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.70808035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426096572708583096, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 51.099976
+      objectReference: {fileID: 0}
     - target: {fileID: 3963171777969781674, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
       propertyPath: playerStatus
       value: 
@@ -5795,6 +5826,26 @@ PrefabInstance:
     - target: {fileID: 4725642815159522837, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540106368383137012, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_Color.a
+      value: 0.53333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808659641182982147, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.70808035
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808659641182982147, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.70808035
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808659641182982147, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.70808035
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808659641182982147, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 51.1
       objectReference: {fileID: 0}
     - target: {fileID: 6014601327108267358, guid: c0842d13b84968a43b57e79b23ed3956, type: 3}
       propertyPath: m_Pivot.x
@@ -5933,6 +5984,10 @@ PrefabInstance:
       propertyPath: mapAudio
       value: 
       objectReference: {fileID: 953344698}
+    - target: {fileID: 3326924778643053420, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
+      propertyPath: levelUpUI
+      value: 
+      objectReference: {fileID: 1641809628}
     - target: {fileID: 3326924778643053420, guid: 69db9b43a54dc5e42a61b4c9642496c5, type: 3}
       propertyPath: playerStatus
       value: 

@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 7798864886904310623}
   - component: {fileID: 270783517411084640}
   - component: {fileID: 2699335031657055687}
+  - component: {fileID: 1770037849938795748}
   m_Layer: 3
   m_Name: CactusPA
   m_TagString: Untagged
@@ -611,6 +612,19 @@ MonoBehaviour:
   AttackSwingSE: {fileID: 8300000, guid: 88cd51787199fd849a19588dd822f870, type: 3}
   damageSound: {fileID: 8300000, guid: 9312f0ea3b251334ebf5604a7f7c7d80, type: 3}
   deathSound: {fileID: 8300000, guid: 6e0087944f86b0b4692be96450a525df, type: 3}
+--- !u!114 &1770037849938795748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6389150106908355674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ac9f55ffa477b4a8982e9bf4d96399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Enemy.EnemyDeath
+  deathAnimationTime: 1
 --- !u!1 &6992693078576540576
 GameObject:
   m_ObjectHideFlags: 0

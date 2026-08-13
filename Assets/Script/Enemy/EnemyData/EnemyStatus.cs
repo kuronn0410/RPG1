@@ -10,6 +10,7 @@ namespace RPG.Enemy
 
         public event System.Action<int, int> OnEnemyHpChanged; //Hpが減ったときに呼ばれるイベント
         public event System.Action<int> OnEnemyDamage; //敵がダメージを受けたときに呼ばれるイベント
+        public event System.Action OnEnemyDeath; //敵が死亡したときに呼ばれるイベント
 
         public int remainHp;
         public int SaveMaxHP;
@@ -97,16 +98,23 @@ namespace RPG.Enemy
             OnEnemyHpChanged?.Invoke(remainHp, SaveMaxHP);// HPが減ったことを通知
 
             isDead = true; // 敵が死亡したことを記録
-            enemyManager.RemoveEnemy(this); // 敵マネージャーのリストからこの敵を削除
+            //enemyManager.RemoveEnemy(this); // 敵マネージャーのリストからこの敵を削除
             //Debug.Log("Enemy defeated!");
 
             experienceSystem.AddExperience(dropExp); // 経験値を加算
             moneySystem.AddMoney(dropMoney); // マネーを加算
 
             Debug.Log("Destroyする : " + gameObject.name);
-            Destroy(gameObject); // 敵オブジェクトを破壊
+            OnEnemyDeath?.Invoke(); // 敵が死亡したことを通知
         }
 
+        public void EnemyRemove()
+        {
+            if (enemyManager != null)
+            {
+                enemyManager.RemoveEnemy(this);
+            }
+        }
     }
 
 }

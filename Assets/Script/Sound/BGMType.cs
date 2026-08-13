@@ -4,7 +4,7 @@ public enum BGMType
 {
     title,
     clear,
-    gameOver,
+    gameover,
     battle,
     town
 }

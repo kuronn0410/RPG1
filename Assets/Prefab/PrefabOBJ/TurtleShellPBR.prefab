@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 8424694774880660387}
   - component: {fileID: 160902358066692287}
   - component: {fileID: 4064178026981141565}
+  - component: {fileID: 5802813961038781247}
   m_Layer: 3
   m_Name: TurtleShellPBR
   m_TagString: Untagged
@@ -551,6 +552,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPrefabValidator
   enemyDamage:
   - {fileID: 9222091450464523234}
+--- !u!114 &5802813961038781247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477040174358721204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ac9f55ffa477b4a8982e9bf4d96399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Enemy.EnemyDeath
+  deathAnimationTime: 1
 --- !u!1 &1998627027717560647
 GameObject:
   m_ObjectHideFlags: 0

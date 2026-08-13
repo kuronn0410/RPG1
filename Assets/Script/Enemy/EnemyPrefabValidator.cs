@@ -12,6 +12,7 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyAttack))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(EnemyAudio))]
+[RequireComponent(typeof(EnemyDeath))]
 public class EnemyPrefabValidator : MonoBehaviour
 {
 

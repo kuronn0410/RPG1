@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using Unity.ProjectAuditor.Editor.Core;
 
 
 /// <summary>
