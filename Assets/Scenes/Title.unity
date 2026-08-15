@@ -2893,11 +2893,13 @@ MonoBehaviour:
   battle: {fileID: 8300000, guid: 9be5921f2d509084eacf5f7fc1967cfa, type: 3}
   clear: {fileID: 8300000, guid: 68367c1b211c5e1479f9fd55d2e6af3d, type: 3}
   gameover: {fileID: 8300000, guid: aa0bb004adcce1348910a3c817057597, type: 3}
+  bossStage: {fileID: 8300000, guid: a960c1e871bcd994e9f00e5937fe96f1, type: 3}
   isTitlePlaying: 1
   isTownPlaying: 0
   isBattlePlaying: 0
   isClearPlaying: 0
   isGameoverPlaying: 0
+  isBossStagePlaying: 0
 --- !u!82 &1920966713
 AudioSource:
   m_ObjectHideFlags: 0

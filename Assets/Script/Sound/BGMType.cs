@@ -6,5 +6,6 @@ public enum BGMType
     clear,
     gameover,
     battle,
+    bossStage,  
     town
 }

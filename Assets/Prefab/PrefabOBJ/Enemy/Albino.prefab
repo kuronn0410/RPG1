@@ -1754,8 +1754,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.49
-  m_Height: 9.58
+  m_Radius: 1.32
+  m_Height: 5.97
   m_Direction: 2
   m_Center: {x: 0, y: 1.98, z: 0}
 --- !u!82 &4843929528605754836
@@ -1872,6 +1872,7 @@ MonoBehaviour:
   SaveMaxHP: 0
   dropExp: 0
   dropMoney: 0
+  attack: 0
   enemyRole: 1
 --- !u!114 &8990573705228691855
 MonoBehaviour:
@@ -1954,8 +1955,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Enemy.EnemyMove1
   speed: 3
   rotationSpeed: 5
-  viewDistance: 6
-  keepDistance: 10
+  viewDistance: 8
+  keepDistance: 8
 --- !u!114 &5293300665438547222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2672,7 +2673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6818f9d382b89848b7ef35600a0932f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Enemy.EnemyDamage
-  damage: 10
 --- !u!1 &8696238770846484808
 GameObject:
   m_ObjectHideFlags: 0

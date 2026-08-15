@@ -233,7 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6818f9d382b89848b7ef35600a0932f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
-  damage: 10
 --- !u!65 &8910490141367716230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -495,6 +494,7 @@ GameObject:
   - component: {fileID: 2373127767262720815}
   - component: {fileID: 2035647838173231574}
   - component: {fileID: 3672054066401123021}
+  - component: {fileID: 5402822820748969861}
   m_Layer: 3
   m_Name: SlimePBR
   m_TagString: Untagged
@@ -584,6 +584,8 @@ MonoBehaviour:
   SaveMaxHP: 0
   dropExp: 0
   dropMoney: 0
+  attack: 0
+  enemyRole: 0
 --- !u!114 &3444923254105780298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,7 +626,7 @@ MonoBehaviour:
   speed: 3
   rotationSpeed: 5
   viewDistance: 4.31
-  keepDistance: 3.5
+  keepDistance: 1
 --- !u!114 &3048824024205414117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,6 +768,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPrefabValidator
   enemyDamage:
   - {fileID: 5163472597627576669}
+--- !u!114 &5402822820748969861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159983649134641527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ac9f55ffa477b4a8982e9bf4d96399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Enemy.EnemyDeath
+  deathAnimationTime: 1
 --- !u!1 &8441099059284491430
 GameObject:
   m_ObjectHideFlags: 0

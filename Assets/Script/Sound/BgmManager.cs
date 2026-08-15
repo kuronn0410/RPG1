@@ -18,6 +18,7 @@ public class BgmManager : MonoBehaviour
     [SerializeField] AudioClip battle;
     [SerializeField] AudioClip clear;
     [SerializeField] AudioClip gameover;
+    [SerializeField] AudioClip bossStage;
 
     AudioSource audioSource;
 
@@ -27,6 +28,7 @@ public class BgmManager : MonoBehaviour
     [SerializeField] bool isBattlePlaying = false;
     [SerializeField] bool isClearPlaying = false;
     [SerializeField] bool isGameoverPlaying = false;
+    [SerializeField] bool isBossStagePlaying = false;
 
     private BGMType? currentBGM;
 
@@ -49,6 +51,7 @@ public class BgmManager : MonoBehaviour
         Debug.Assert(battle != null, "battleがアタッチされていません。");
         Debug.Assert(clear != null, "clearがアタッチされていません。");
         Debug.Assert(gameover != null, "gameoverがアタッチされていません。");
+        Debug.Assert(bossStage != null, "bossStageがアタッチされていません。");
     }
 
     void Start()
@@ -75,6 +78,7 @@ public class BgmManager : MonoBehaviour
             BGMType.battle => battle,
             BGMType.clear => clear,
             BGMType.gameover => gameover,
+            BGMType.bossStage => bossStage,
             _ => null
         };
         audioSource.Stop();
@@ -93,6 +97,9 @@ public class BgmManager : MonoBehaviour
         isBattlePlaying = false;
         isTownPlaying = false;
         isTitlePlaying = false;
+        isClearPlaying = false;
+        isGameoverPlaying = false;
+        isBossStagePlaying = false;
 
         audioSource.Stop();
     }
