@@ -23,7 +23,19 @@ public class EnemyAudio : MonoBehaviour, IVolumeControllable
 
     void OnEnable()
     {
-        SEManager.Instance.Register(this);
+        SEManager seManager = SEManager.Instance;
+        if (seManager == null)
+        {
+            Debug.LogError(
+                   $"{nameof(SEManager)}: シーン内にSEManagerが存在しません。",
+                   this
+               );
+
+            enabled = false;
+            return;
+        }
+        seManager.Register(this);
+       
         enemyStatus.OnEnemyDamage += PlayDamageSound; // 敵がダメージを受けたときに呼ばれるイベントに登録する
     }
 

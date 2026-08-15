@@ -8,6 +8,8 @@ namespace RPG.Enemy
         Kinoko,
         Slime,
         TurtleShell,
+        // boss
+        Albion
     }
 }
 

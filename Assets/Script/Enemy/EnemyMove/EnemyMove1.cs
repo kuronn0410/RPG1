@@ -24,9 +24,20 @@ namespace RPG.Enemy
         void Start()
         {
             enemyAttack = GetComponent<EnemyAttack>();
-            // プレイヤーのTransformを取得
-            player = PlayerStatus.Instance.transform;
+            PlayerStatus playerStatus = PlayerStatus.Instance;
 
+            if (playerStatus == null)
+            {
+                Debug.LogError(
+                    $"{nameof(EnemyMove1)}: シーン内にPlayerStatusが存在しません。",
+                    this
+                );
+
+                enabled = false;
+                return;
+            }
+
+            player = playerStatus.transform;
         }
         void Update()
         {

@@ -9,7 +9,7 @@ namespace RPG.Enemy
         private EnemyStatus enemyStatus;
         private Transform visual;
         private EnemyMove1 enemyMove;
-        [SerializeField] float deathAnimationTime = 5.0f; // 死亡アニメーションの再生時間
+        [SerializeField] float deathAnimationTime = 1.0f; // 死亡アニメーションの再生時間
         private void Awake()
         {
             enemyStatus = GetComponent<EnemyStatus>();
