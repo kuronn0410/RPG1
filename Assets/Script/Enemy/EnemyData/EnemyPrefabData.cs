@@ -7,6 +7,7 @@ namespace RPG.Enemy
     public class EnemyPrefabData
     {
         public EnemyType enemyType;
+        public EnemyRole enemyRole;
         public GameObject enemyPrefab;
 
     }

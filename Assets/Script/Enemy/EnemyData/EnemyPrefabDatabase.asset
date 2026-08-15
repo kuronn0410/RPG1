@@ -14,10 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPrefabDatabase
   enemyPrefabs:
   - enemyType: 0
+    enemyRole: 0
     enemyPrefab: {fileID: 6389150106908355674, guid: 7a711df52669f2849be5381e4b05632f, type: 3}
   - enemyType: 1
+    enemyRole: 0
     enemyPrefab: {fileID: 230359186819937088, guid: 58cbd95c2a960564f8b758fbfddda5a8, type: 3}
   - enemyType: 2
+    enemyRole: 0
     enemyPrefab: {fileID: 8159983649134641527, guid: 890860f81ca5c114bb0ea6b6aabbbb11, type: 3}
   - enemyType: 3
+    enemyRole: 0
     enemyPrefab: {fileID: 1477040174358721204, guid: aaf7db5a33283a64aa8b91cbfda4af9b, type: 3}
+  - enemyType: 4
+    enemyRole: 1
+    enemyPrefab: {fileID: 5229456424702714112, guid: 24130387c874ba0409418f4afaee999b, type: 3}

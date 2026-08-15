@@ -1,5 +1,7 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Reflection.Metadata;
+using UnityEngine;
 
 namespace RPG.Enemy
 {
@@ -16,6 +18,8 @@ namespace RPG.Enemy
         public int SaveMaxHP;
         public int dropExp;
         public int dropMoney; // ドロップマネーを保存する変数
+        public int attack;
+        public EnemyRole enemyRole; // 追加: EnemyRoleを保存する変数
         private EnemyParameter enemyParameter;
         private EnemyManager enemyManager;
         private ExperienceSystem experienceSystem;
@@ -34,6 +38,8 @@ namespace RPG.Enemy
                     SaveMaxHP = enemyParameter.maxHp;
                     dropExp = enemyParameter.dropExp;
                     dropMoney = enemyParameter.dropMoney;
+                    attack = enemyParameter.attack;
+                    enemyRole = enemyParameter.enemyRole;
                     //Debug.Log(enemyType + " 生成時HP: " + remainHp);
                     break;
 
@@ -41,9 +47,26 @@ namespace RPG.Enemy
             }
         }
 
+        public int GetDamage()
+        {
+            return attack;
+        }
+
+
+        public bool IsBoss => enemyRole == EnemyRole.Boss;
+
         private void Start()
         {
             enemyManager = FindAnyObjectByType<EnemyManager>();
+            if (enemyManager == null)
+            {
+                Debug.LogError(
+                    $"{nameof(EnemyStatus)}: シーン内にEnemyManagerが存在しません。",
+                    this
+                );
+                enabled = false;
+                return;
+            }
             enemyManager.AddEnemy(this);
             experienceSystem = FindAnyObjectByType<ExperienceSystem>();
             moneySystem = FindAnyObjectByType<MoneySystem>(); // マネーシステムを取得
