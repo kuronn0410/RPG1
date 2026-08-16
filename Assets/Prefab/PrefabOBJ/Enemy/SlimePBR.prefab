@@ -173,7 +173,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4600959809776886699}
-  - component: {fileID: 8874712571285193185}
   - component: {fileID: 5163472597627576669}
   - component: {fileID: 8910490141367716230}
   m_Layer: 3
@@ -198,29 +197,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6578034337851196018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &8874712571285193185
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364830942601055818}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0.01, y: 0.19, z: -0.21}
 --- !u!114 &5163472597627576669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +224,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -626,7 +602,7 @@ MonoBehaviour:
   speed: 3
   rotationSpeed: 5
   viewDistance: 4.31
-  keepDistance: 1
+  keepDistance: 1.5
 --- !u!114 &3048824024205414117
 MonoBehaviour:
   m_ObjectHideFlags: 0

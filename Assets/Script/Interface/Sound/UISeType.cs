@@ -8,5 +8,6 @@ public enum UISeType : int
     CantPurchase,
     Exit,
     LevelUp,
+    WeaponChange,
     Default
 }

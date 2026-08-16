@@ -2664,6 +2664,7 @@ MonoBehaviour:
   cantPurchaseSE: {fileID: 8300000, guid: d8493db5191085e4da1ba271bcd043d5, type: 3}
   exitSE: {fileID: 8300000, guid: 74e60f8c59499d04486f9db26d8b0eaf, type: 3}
   defaultSE: {fileID: 8300000, guid: 5ba7790d21985a4419deaf2060c13fd2, type: 3}
+  weaponchangeSE: {fileID: 8300000, guid: 2eed0ef00e9973048b6145d3a75cc5a4, type: 3}
 --- !u!82 &1229363583
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4916,6 +4917,10 @@ PrefabInstance:
       propertyPath: moneySystem
       value: 
       objectReference: {fileID: 919982525}
+    - target: {fileID: 4237492906307856822, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
+      propertyPath: playerStatus
+      value: 
+      objectReference: {fileID: 1623135331}
     - target: {fileID: 4562084809233818935, guid: e7eccad44ee4eee45b1c571c3100458e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.00009039165

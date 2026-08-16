@@ -429,6 +429,8 @@ MonoBehaviour:
   SaveMaxHP: 0
   dropExp: 0
   dropMoney: 0
+  attack: 0
+  enemyRole: 0
 --- !u!114 &1688282870406356285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +446,7 @@ MonoBehaviour:
   speed: 3
   rotationSpeed: 5
   viewDistance: 4.38
-  keepDistance: 3.53
+  keepDistance: 3
 --- !u!114 &1523183264767432968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,7 +818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6818f9d382b89848b7ef35600a0932f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
-  damage: 10
 --- !u!1 &7604997670562784434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6818f9d382b89848b7ef35600a0932f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
-  damage: 10
 --- !u!1 &8871218156041822415
 GameObject:
   m_ObjectHideFlags: 0

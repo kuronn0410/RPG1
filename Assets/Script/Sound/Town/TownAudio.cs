@@ -9,6 +9,7 @@ public class TownAudio : MonoBehaviour, IVolumeControllable, IUISePlayer
     [SerializeField] private AudioClip cantPurchaseSE;
     [SerializeField] private AudioClip exitSE;
     [SerializeField] private AudioClip defaultSE;
+    [SerializeField] private AudioClip weaponchangeSE;
 
 
     private AudioSource audioSource;
@@ -41,6 +42,9 @@ public class TownAudio : MonoBehaviour, IVolumeControllable, IUISePlayer
                 break;
             case UISeType.Default:
                 PlayDefaultSE();
+                break;
+            case UISeType.WeaponChange:
+                PlayWeaponChangeSE();
                 break;
         }
     }
@@ -75,6 +79,11 @@ public class TownAudio : MonoBehaviour, IVolumeControllable, IUISePlayer
     public void PlayDefaultSE()
     {
         audioSource.PlayOneShot(defaultSE);
+    }
+
+    public void PlayWeaponChangeSE()
+    {
+        audioSource.PlayOneShot(weaponchangeSE);
     }
 
     public void SetVolume(float volume)

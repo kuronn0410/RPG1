@@ -38,16 +38,17 @@ public class WorldUIRaycaster : MonoBehaviour
     void Update()
     {
         if (GameManager.Instance.IsPause())
-            return;
-        if(!worldUIManager.IsWorldUIOpen)
         {
-            //if (currentHover != null)
-            //{
-            //    currentHover.OnHoverExit();
-            //    currentHover = null;
-            //}
+            ClearCurrentHover();
             return;
         }
+
+        if (!worldUIManager.IsWorldUIOpen)
+        {
+            ClearCurrentHover();
+            return;
+        }
+
         frameCount++;
 
         bool clicked = Input.GetMouseButtonDown(0);
@@ -60,9 +61,19 @@ public class WorldUIRaycaster : MonoBehaviour
 
         if (clicked)
         {
-
             currentHover?.OnClick();
         }
+    }
+
+    private void ClearCurrentHover()
+    {
+        if (currentHover == null)
+        {
+            return;
+        }
+
+        currentHover.OnHoverExit();
+        currentHover = null;
     }
 
     void Interact()
