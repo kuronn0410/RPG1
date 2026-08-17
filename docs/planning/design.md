@@ -31,6 +31,11 @@ design.md
 - AI
 - EnemyManagerとの関係
 
+- 敵の生成  [enemy-spawn.md](design/enemy-spawn.md)
+
+
+
+
 ## UI
 - イベントによる更新
 - UIManagerの責務
