@@ -25,35 +25,37 @@ namespace RPG.Enemy
             List<Transform> availableSpawnPoints = new List<Transform>(spawnPoints);
             int spawnCount = Mathf.Min(numberOfEnemiesToSpawn, availableSpawnPoints.Count);
 
-            for (int i = 0; i < spawnCount; i++)
+            if (stageLevel == 3)
             {
-                if (stageLevel == 3)
+                List<EnemyPrefabData> bossEnemies = GetBossEnemies();
+                if (bossEnemies.Count > 0)
                 {
-                    List < EnemyPrefabData > bossEnemies = GetBossEnemies();
-                    if (bossEnemies.Count > 0)  
-                    {
-                        int bossRandomIndex = Random.Range(0, bossEnemies.Count);
-                        EnemyPrefabData bossPrefabData = bossEnemies[bossRandomIndex];
-                        GameObject bossenemyToSpawn = bossPrefabData.enemyPrefab;
-                        GameObject spawnedBossEnemyObject = Instantiate(
-                            bossenemyToSpawn,
-                            bossSpawnPoint.position,
-                            bossSpawnPoint.rotation
-                        );
+                    int bossRandomIndex = Random.Range(0, bossEnemies.Count);
+                    EnemyPrefabData bossPrefabData = bossEnemies[bossRandomIndex];
+                    GameObject bossenemyToSpawn = bossPrefabData.enemyPrefab;
+                    GameObject spawnedBossEnemyObject = Instantiate(
+                        bossenemyToSpawn,
+                        bossSpawnPoint.position,
+                        bossSpawnPoint.rotation
+                    );
 
-                        EnemyStatus spawnedBossEnemyStatus = spawnedBossEnemyObject.GetComponent<EnemyStatus>();
-                        if (spawnedBossEnemyStatus != null)
-                        {
-                            spawnedBossEnemyStatus.SetUpEnemyStatus();
-                            //Debug.Log("ìGÇê∂ê¨: ");
-                            spawnedEnemies.Add(spawnedBossEnemyStatus);
-                        }
-                        else
-                        {
-                            Debug.LogError("ê∂ê¨ÇµÇΩPrefabÇ…EnemyStatusÇ™ïtÇ¢ÇƒÇ¢Ç‹ÇπÇÒ");
-                        }
+                    EnemyStatus spawnedBossEnemyStatus = spawnedBossEnemyObject.GetComponent<EnemyStatus>();
+                    if (spawnedBossEnemyStatus != null)
+                    {
+                        spawnedBossEnemyStatus.SetUpEnemyStatus();
+                        //Debug.Log("ìGÇê∂ê¨: ");
+                        spawnedEnemies.Add(spawnedBossEnemyStatus);
+                    }
+                    else
+                    {
+                        Debug.LogError("ê∂ê¨ÇµÇΩPrefabÇ…EnemyStatusÇ™ïtÇ¢ÇƒÇ¢Ç‹ÇπÇÒ");
                     }
                 }
+            }
+
+            for (int i = 0; i < spawnCount; i++)
+            {
+                
 
                 List < EnemyPrefabData > normalEnemies = GetNormalEnemies();
                 int randomIndex = Random.Range(0, normalEnemies.Count);
