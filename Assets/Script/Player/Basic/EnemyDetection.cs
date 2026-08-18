@@ -12,7 +12,6 @@ namespace RPG.Player
         [SerializeField] private LayerMask enemyLayer;
         private EnemyStatus closestEnemy;
         private EnemyMove1 rengEnemyMove;
-
         private EnemyStatus previousEnemy;
 
         //int enemyLayer = LayerMask.GetMask("Enemy");
@@ -35,6 +34,7 @@ namespace RPG.Player
 
             foreach (Collider hitCollider in hitColliders)
             {
+                //ステータスの一部を使用するためEnemyStatus
                 EnemyStatus enemy = hitCollider.GetComponent<EnemyStatus>();
                 if (enemy != null)
                 {

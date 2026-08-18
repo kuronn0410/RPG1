@@ -7,7 +7,7 @@ design.md
 - 攻撃
 - カメラ
 - 入力停止
-
+- 敵の検知　[enemy-detection.md](design/enemy-detection.md)
 
 ## インタラクション
 - Raycast
