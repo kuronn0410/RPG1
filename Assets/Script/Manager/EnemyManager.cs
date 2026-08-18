@@ -8,10 +8,8 @@ namespace RPG.Enemy
 
         [SerializeField] DoorChange doorChange;
         [SerializeField] CurrentEnemyStatus currentEnemyStatus;
-
         private List<EnemyStatus> enemies = new List<EnemyStatus>();
         public IReadOnlyList<EnemyStatus> Enemies => enemies;
-
         private void Start()
         {
             if (doorChange != null)

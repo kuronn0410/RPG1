@@ -16,10 +16,7 @@ public class DamageTextUI : MonoBehaviour
     [SerializeField] private DamageDisplay damageDisplay1;
     [SerializeField] private DamageDisplay damageDisplay2;
     [SerializeField] private DamageDisplay damageDisplay3;
-
     [SerializeField] private float deleteTime = 10f;
-    
-
     [SerializeField] EnemyDetection enemyDetection;
     private EnemyStatus currentEnemy;
     private EnemyDamagePos currentEnemyDamagePos;
